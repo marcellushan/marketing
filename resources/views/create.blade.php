@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('layouts.app') @section('content')
 <div class="main container">
     <h1 class="wrapper">Marketing Communications Service Form</h1>
