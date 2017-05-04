@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Clients;
+use App\PressReleases;
 
 use Session;
 
-class ClientsController extends Controller
+class PressReleasesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,8 +27,7 @@ class ClientsController extends Controller
      */
     public function create()
     {
-        return view('create');
-//        echo "test";
+        return view('press_release.create');
     }
 
     /**
@@ -39,18 +38,18 @@ class ClientsController extends Controller
      */
     public function store(Request $request)
     {
-//       dd($request);
+//               dd($request);
         $data = $request->all();
-        $client = new Clients($data);
-        $client->fill($data);
-        $client->save();
+        $press_release = new PressReleases($data);
+        $press_release->fill($data);
+        $press_release->client_id=Session::get('id');
+        $press_release->save();
 //       $request->press_release;
 
 //       session(['press_release' => $request->press_release]);
-        Session::put('press_release',$request->press_release);
-        Session::put('id',$client->id);
-
-        echo Session::get('press_release');
+        Session::put('press_release',2);
+//
+//        echo Session::get('press_release');
 //        echo $_SESSION['design_printing']= $request->design_printing;
 //        echo $_SESSION['photography']= $request->photography;
 //        echo $_SESSION['social_media']= $request->social_media;

@@ -16,4 +16,8 @@ Route::get('/', function () {
     echo "test";
 });
 
+
 Route::resource('clients', 'ClientsController');
+Route::resource('press_releases', 'PressReleasesController');
+
+Route::get('service', 'ServiceController@index');
