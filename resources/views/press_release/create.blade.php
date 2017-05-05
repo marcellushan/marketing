@@ -1,8 +1,9 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
     <h1 class="wrapper">Press Release/Media Advisory</h1>
-    <form action="{{URL::to('/')}}/press_releases" method="post">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <!--<form action="{{URL::to('/')}}/press_releases" method="post">-->
+        {{Form::open(array('url' => 'press_releases','files'=>'true'))}}
+
             <div class="row">
                 <div class="col-xs-10 col-md-3 col-md-offset-2">
                     Student Feature
@@ -166,6 +167,11 @@
                          <input type="checkbox" name="promotional" value="4">
                      </div>
                  </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-4">
+                        <h4>{{Form::file('image')}}</h4>
+                    </div>
+                </div>
             <div class="row">
                 <div class="col-md-3 col-md-offset-5">
                     <div class="form-group">
@@ -173,7 +179,7 @@
                     </div>
                 </div>
             </div>
-        {{Form::file('commute_image')}}
+
 </form>
 </div>
 @endsection

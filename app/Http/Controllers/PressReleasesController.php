@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\PressReleases;
 
 use Session;
+use URL;
 
 class PressReleasesController extends Controller
 {
@@ -39,20 +40,29 @@ class PressReleasesController extends Controller
     public function store(Request $request)
     {
 //               dd($request);
+        $file = $request->file('image');
+
+        //Move Uploaded File
+        $destinationPath = 'uploads';
+//        $file->move($destinationPath,$file->getClientOriginalName());
+        $myRandom = rand(1, 10000);
+        $myPath = $myRandom . "." . $file->getClientOriginalExtension();
+        $file->move($destinationPath, $myPath);
+//
+//
+//
+//        $trip = Trip::find(session('trip_id'));
+//        $trip->commute_image = URL::to('/') . "/uploads/" . $myPath;
+//        $trip->commute_mileage = $request->get('commute_mileage');
+//            echo URL::to('/') . "/uploads/" . $myPath;
+
         $data = $request->all();
         $press_release = new PressReleases($data);
         $press_release->fill($data);
         $press_release->client_id=Session::get('id');
+        $press_release->image=URL::to('/') . "/uploads/" . $myPath;
         $press_release->save();
-//       $request->press_release;
-
-//       session(['press_release' => $request->press_release]);
         Session::put('press_release',2);
-//
-//        echo Session::get('press_release');
-//        echo $_SESSION['design_printing']= $request->design_printing;
-//        echo $_SESSION['photography']= $request->photography;
-//        echo $_SESSION['social_media']= $request->social_media;
         return redirect('service');
     }
 

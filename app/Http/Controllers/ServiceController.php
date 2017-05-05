@@ -14,5 +14,11 @@ class ServiceController extends Controller
         if(Session::get('press_release')==1) {
             return redirect('press_releases/create');
         }
+        if(Session::get('design_printing')==1) {
+            return redirect('design_printing/create');
+        }
+
+        return redirect('clients/' . Session::get('id'));
+//        return redirect()->route('clients', [Session::get('id')]);
     }
 }

@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\DesignPrinting;
 use Illuminate\Http\Request;
-
-use App\Clients;
-
 use Session;
+use URL;
 
-class ClientsController extends Controller
+class DesignPrintingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,7 @@ class ClientsController extends Controller
      */
     public function index()
     {
-       echo "home";
+        //
     }
 
     /**
@@ -27,8 +26,7 @@ class ClientsController extends Controller
      */
     public function create()
     {
-        return view('create');
-//        echo "test";
+        return view('design_printing.create');
     }
 
     /**
@@ -40,45 +38,39 @@ class ClientsController extends Controller
     public function store(Request $request)
     {
 //       dd($request);
+        $file = $request->file('image');
+        $destinationPath = 'uploads';
+        $myRandom = rand(1, 10000);
+        $myPath = $myRandom . "." . $file->getClientOriginalExtension();
+        $file->move($destinationPath, $myPath);
         $data = $request->all();
-        $client = new Clients($data);
-        $client->fill($data);
-        $client->save();
-//       $request->press_release;
-
-//       session(['press_release' => $request->press_release]);
-        Session::put('press_release',$request->press_release);
-        Session::put('design_printing',$request->design_printing);
-
-        Session::put('id',$client->id);
-
-        echo Session::get('press_release');
-//        echo $_SESSION['design_printing']= $request->design_printing;
-//        echo $_SESSION['photography']= $request->photography;
-//        echo $_SESSION['social_media']= $request->social_media;
+        $design_printing = new DesignPrinting($data);
+        $design_printing->fill($data);
+        $design_printing->client_id=Session::get('id');
+        $design_printing->image=URL::to('/') . "/uploads/" . $myPath;
+        $design_printing->save();
+        Session::put('design_printing',2);
         return redirect('service');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\DesignPrinting  $designPrinting
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(DesignPrinting $designPrinting)
     {
-        $data = Clients::find($id);
-//        dd($data);
-        return view('show')->with(compact('data'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\DesignPrinting  $designPrinting
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(DesignPrinting $designPrinting)
     {
         //
     }
@@ -87,10 +79,10 @@ class ClientsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\DesignPrinting  $designPrinting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, DesignPrinting $designPrinting)
     {
         //
     }
@@ -98,10 +90,10 @@ class ClientsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\DesignPrinting  $designPrinting
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(DesignPrinting $designPrinting)
     {
         //
     }
