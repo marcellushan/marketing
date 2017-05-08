@@ -15,16 +15,16 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('department');
-            $table->string('email');
-            $table->string('phone');
-            $table->date('due_date');
-            $table->text('summary');
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('department')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->date('due_date')->nullable();
+            $table->text('summary')->nullable();
 //            $table->boolean('press_release')->nullable();
 //            $table->boolean('design')->nullable();
-//            $table->boolean('photography')->nullable();
+//            $table->boolean('photo')->nullable();
 //            $table->boolean('social_media')->nullable();
 //            $table->boolean('paid_advertising')->nullable();
 //            $table->boolean('presentation')->nullable();

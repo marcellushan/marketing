@@ -1,8 +1,7 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
     <h1 class="wrapper">Marketing Communications Service Form</h1>
-    <form action="{{URL::to('/')}}/clients" method="post">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    {{Form::open(array('url' => 'clients'))}}
          <div class="row">
         <div class="col-md-4 col-md-offset-2">
             <div class="form-group">
@@ -72,10 +71,10 @@
             <input type="checkbox" name="press_release" value="1">
         </div>
         <div class="col-xs-10 col-md-3">
-            Paid Advertising
+            Social Media
         </div>
         <div class="col-md-1">
-            <input type="checkbox" name="paid_advertising" value="1">
+            <input type="checkbox" name="social_media" value="1">
         </div>
     </div>
     <div class="row">
@@ -86,10 +85,10 @@
             <input type="checkbox" name="design_printing" value="1">
         </div>
         <div class="col-xs-10 col-md-3">
-            Presentation/Interview Preparation
+            Paid Advertising
         </div>
         <div class="col-md-1">
-            <input type="checkbox" name="presentation" value="1">
+            <input type="checkbox" name="paid_advertising" value="1">
         </div>
     </div>
     <div class="row">
@@ -100,18 +99,18 @@
             <input type="checkbox" name="photography" value="1">
         </div>
         <div class="col-xs-10 col-md-3">
-           Videography
+            Presentation/Interview Preparation
         </div>
         <div class="col-md-1">
-            <input type="checkbox" name="videography" value="1">
+            <input type="checkbox" name="presentation" value="1">
         </div>
     </div>
     <div class="row">
         <div class="col-xs-10 col-md-3 col-md-offset-2">
-            Social Media
+            Videography
         </div>
         <div class="col-md-1">
-            <input type="checkbox" name="social_media" value="1">
+            <input type="checkbox" name="videography" value="1">
         </div>
         <div class="col-xs-10 col-md-3">
             Event Aid

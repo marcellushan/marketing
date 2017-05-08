@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\PaidAdvertising;
 use Illuminate\Http\Request;
 
-use App\PressReleases;
-
 use Session;
-use URL;
 
-class PressReleasesController extends Controller
+class PaidAdvertisingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,7 +26,7 @@ class PressReleasesController extends Controller
      */
     public function create()
     {
-        return view('press_release.create');
+        return view('paid_advertising.create');
     }
 
     /**
@@ -39,40 +37,22 @@ class PressReleasesController extends Controller
      */
     public function store(Request $request)
     {
-//               dd($request);
-        $file = $request->file('image');
-
-        //Move Uploaded File
-        $destinationPath = 'uploads';
-//        $file->move($destinationPath,$file->getClientOriginalName());
-        $myRandom = rand(1, 10000);
-        $myPath = $myRandom . "." . $file->getClientOriginalExtension();
-        $file->move($destinationPath, $myPath);
-//
-//
-//
-//        $trip = Trip::find(session('trip_id'));
-//        $trip->commute_image = URL::to('/') . "/uploads/" . $myPath;
-//        $trip->commute_mileage = $request->get('commute_mileage');
-//            echo URL::to('/') . "/uploads/" . $myPath;
-
+//        dd($request);
         $data = $request->all();
-        $press_release = new PressReleases($data);
-        $press_release->fill($data);
-        $press_release->clients_id=Session::get('id');
-        $press_release->image=URL::to('/') . "/uploads/" . $myPath;
-        $press_release->save();
-        Session::put('press_release',2);
+        $request_type = new PaidAdvertising($data);
+        $request_type->fill($data);
+        $request_type->save();
+        Session::put('paid_advertising',2);
         return redirect('service');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\PaidAdvertising  $paidAdvertising
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(PaidAdvertising $paidAdvertising)
     {
         //
     }
@@ -80,10 +60,10 @@ class PressReleasesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\PaidAdvertising  $paidAdvertising
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(PaidAdvertising $paidAdvertising)
     {
         //
     }
@@ -92,10 +72,10 @@ class PressReleasesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\PaidAdvertising  $paidAdvertising
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, PaidAdvertising $paidAdvertising)
     {
         //
     }
@@ -103,10 +83,10 @@ class PressReleasesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\PaidAdvertising  $paidAdvertising
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(PaidAdvertising $paidAdvertising)
     {
         //
     }

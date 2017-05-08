@@ -20,5 +20,10 @@ Route::get('/', function () {
 Route::resource('clients', 'ClientsController');
 Route::resource('press_releases', 'PressReleasesController');
 Route::resource('design_printing', 'DesignPrintingController');
+Route::resource('photography', 'PhotoController');
+Route::resource('videography', 'VideoController');
+Route::resource('presentation', 'PresentationController');
+Route::resource('social_media', 'SocialMediaController');
+Route::resource('paid_advertising', 'PaidAdvertisingController');
 
 Route::get('service', 'ServiceController@index');

@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Clients;
-
 use Session;
 
-class ClientsController extends Controller
+
+class BaseController extends Controller
 {
+    const MEDIA_TYPE = 'abstract';
+    const MODEL_NAME = 'abstract';
+    const SERVICE = 'abstract';
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +19,7 @@ class ClientsController extends Controller
      */
     public function index()
     {
-       echo "home";
+       echo 'base';
     }
 
     /**
@@ -27,8 +29,7 @@ class ClientsController extends Controller
      */
     public function create()
     {
-        return view('create');
-//        echo "test";
+        return view(static::MEDIA_TYPE . '.create');
     }
 
     /**
@@ -39,27 +40,7 @@ class ClientsController extends Controller
      */
     public function store(Request $request)
     {
-//       dd($request);
-        $data = $request->all();
-        $client = new Clients($data);
-        $client->fill($data);
-        $client->save();
-
-        Session::put('press_release',$request->press_release);
-        Session::put('design_printing',$request->design_printing);
-        Session::put('photography',$request->photography);
-        Session::put('videography',$request->videography);
-        Session::put('social_media',$request->social_media);
-        Session::put('presentation',$request->presentation);
-
-
-        Session::put('id',$client->id);
-
-        echo Session::get('press_release');
-//        echo $_SESSION['design_printing']= $request->design_printing;
-//        echo $_SESSION['photo']= $request->photo;
-//        echo $_SESSION['social_media']= $request->social_media;
-        return redirect('service');
+        //
     }
 
     /**
@@ -70,12 +51,7 @@ class ClientsController extends Controller
      */
     public function show($id)
     {
-        $data = Clients::find($id);
-        $press = $data->pressRelease ?: "not found";
-//        dd($press);
-        Clients::destroy($id);
-//        dd($data);
-//        return view('show')->with(compact('data'));
+        //
     }
 
     /**

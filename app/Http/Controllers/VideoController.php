@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Video;
 use Illuminate\Http\Request;
-
-use App\PressReleases;
-
 use Session;
-use URL;
 
-class PressReleasesController extends Controller
+class VideoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,7 +25,7 @@ class PressReleasesController extends Controller
      */
     public function create()
     {
-        return view('press_release.create');
+        return view('video.create');
     }
 
     /**
@@ -39,40 +36,22 @@ class PressReleasesController extends Controller
      */
     public function store(Request $request)
     {
-//               dd($request);
-        $file = $request->file('image');
-
-        //Move Uploaded File
-        $destinationPath = 'uploads';
-//        $file->move($destinationPath,$file->getClientOriginalName());
-        $myRandom = rand(1, 10000);
-        $myPath = $myRandom . "." . $file->getClientOriginalExtension();
-        $file->move($destinationPath, $myPath);
-//
-//
-//
-//        $trip = Trip::find(session('trip_id'));
-//        $trip->commute_image = URL::to('/') . "/uploads/" . $myPath;
-//        $trip->commute_mileage = $request->get('commute_mileage');
-//            echo URL::to('/') . "/uploads/" . $myPath;
-
+//                dd($request);
         $data = $request->all();
-        $press_release = new PressReleases($data);
-        $press_release->fill($data);
-        $press_release->clients_id=Session::get('id');
-        $press_release->image=URL::to('/') . "/uploads/" . $myPath;
-        $press_release->save();
-        Session::put('press_release',2);
+        $video = new Video($data);
+        $video->fill($data);
+        $video->save();
+        Session::put('videography',2);
         return redirect('service');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Video  $video
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Video $video)
     {
         //
     }
@@ -80,10 +59,10 @@ class PressReleasesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Video  $video
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Video $video)
     {
         //
     }
@@ -92,10 +71,10 @@ class PressReleasesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Video  $video
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Video $video)
     {
         //
     }
@@ -103,10 +82,10 @@ class PressReleasesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Video  $video
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Video $video)
     {
         //
     }

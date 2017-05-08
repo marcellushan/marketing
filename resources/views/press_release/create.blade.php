@@ -1,8 +1,7 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
     <h1 class="wrapper">Press Release/Media Advisory</h1>
-    <!--<form action="{{URL::to('/')}}/press_releases" method="post">-->
-        {{Form::open(array('url' => 'press_releases','files'=>'true'))}}
+            {{Form::open(array('url' => 'press_releases','files'=>'true'))}}
 
             <div class="row">
                 <div class="col-xs-10 col-md-3 col-md-offset-2">

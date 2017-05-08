@@ -31,7 +31,7 @@ class CreatePressReleasesTable extends Migration
             $table->text('professional')->nullable();
             $table->integer('promotional')->nullable();
             $table->string('image')->nullable();
-            $table->integer('client_id');
+            $table->integer('clients_id');
             $table->timestamps();
         });
     }
