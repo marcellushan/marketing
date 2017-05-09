@@ -71,11 +71,11 @@ class ClientsController extends Controller
     public function show($id)
     {
         $data = Clients::find($id);
-        $press = $data->pressRelease ?: "not found";
-//        dd($press);
+        (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
+//        $press_release = $data->pressRelease ?: "";
+//        dd($press_release);
 //        Clients::destroy($id);
-//        dd($data);
-        return view('show')->with(compact('data','press'));
+        return view('show')->with(compact('data','press_release'));
     }
 
     /**

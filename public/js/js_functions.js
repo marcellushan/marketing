@@ -1,34 +1,25 @@
-     
-     jQuery(function(){
-    	 $("#btnSubmit").click(function(){
-    	 	if($('input[name=applied]:checked').length<=0)
-    	 	{
-    	 	 alert("You must apply to Georgia Highlands College before you can apply for the Dental Program.");
-    	 	 return false;
-    	 	}
-    	 });
-    	 });
+$(document).ready(function () {
+    $("input[name=pmtType]:radio").change(function () {
+        if($("input[name=pmtType]:checked").val()=='Transfer Funds') {
+            $("#transfer").css("display", "block");
+            $("#grant").css("display", "none");
+            $(".fund").attr("required","");
+            $("#grant_field").removeAttr("required");
+        } else if($("input[name=pmtType]:checked").val()=='Grant')  {
+            $("#transfer").css("display", "none");
+            $("#grant").css("display", "block");
+            $("#grant_field").attr("required","");
+            $(".fund").removeAttr("required");
+        } else {
+            $("#transfer").css("display", "none");
+            $("#grant").css("display", "none");
+            $(".fund").removeAttr("required");
+            $("#grant_field").removeAttr("required");
+        }
 
-     $(document).ready(function() {
-         $('input[type=radio][name=GHC]').change(function() {
-             if (this.value == 'yes') {
-                 alert("Allot Thai Gayo Bhai");
-             }
-             else if (this.value == 'no') {
-                 alert("Transfer Thai Gayo");
-             }
-         });
-     });
 
-     jQuery(function(){
-    	 $("#cprBtn").click(function(){
-    	 	if(! $('#cpr').val())
-    	 	{
-    	 	 alert("Please attach a copy your current CPR Certificate");
-    	 	 return false;
-    	 	}
-    	 });
-    	 });
+    });
+});
      
      var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];    
      function Validate(oForm) {

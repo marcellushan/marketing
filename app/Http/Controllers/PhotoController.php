@@ -40,6 +40,7 @@ class PhotoController extends Controller
 //        dd($request);
         $data = $request->all();
         $photo = new Photo($data);
+        $photo->clients_id=Session::get('id');
         $photo->fill($data);
         $photo->save();
         Session::put('photography',2);

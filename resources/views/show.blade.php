@@ -7,50 +7,38 @@
                 {{$data->first_name}}
             </h3>
             <h3 class="col-md-4">Last name
-                {{$press->image}}
+                {{$data->first_name}}
             </h3>
         </div>
+    <div class="row">
+        <h3 class="col-md-4 col-md-offset-2">Department
+            {{$data->department}}
+        </h3>
+        <h3 class="col-md-4">Email Address
+            {{$data->email}}
+        </h3>
+    </div>
+    <div class="row">
+        <h3 class="col-md-4 col-md-offset-2">Phone
+            {{$data->phone}}
+        </h3>
+        <h3 class="col-md-4">Request Due Date
+            {{$data->due_date}}
+        </h3>
+    </div>
+    <br>
+    <h3 align="center">Brief Project Summary</h3>
+    <h3 class="item">{{$data->summary}}</h3>
 
-             <div class="row">
-                 <div class="col-md-8 col-md-offset-2">
-                     <div class="form-group">
-                         <label>Department</label>
-                         <input type="text" class="form-control" name="department"value="{{$data->department}}">
-                     </div>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col-md-8 col-md-offset-2">
-                     <div class="form-group">
-                         <label>Email Address</label>
-                         <input type="email" class="form-control" name="email"value="{{$data->email}}">
-                     </div>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col-md-8 col-md-offset-2">
-                     <div class="form-group">
-                         <label>Phone</label>
-                         <input type="text" class="form-control" name="phone"value="{{$data->phone}}">
-                     </div>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col-md-8 col-md-offset-2">
-                     <div class="form-group">
-                         <label>Request Due Date</label>
-                         <input type="date" class="form-control" name="due_date"value="{{$data->due_date}}">
-                     </div>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col-md-8 col-md-offset-2">
-                     <div class="form-group">
-                         <label>Brief Project Summary</label>
-                         <textarea class="form-control" rows="5" name="summary">{{$data->summary}}</textarea>
-                     </div>
-                 </div>
-             </div>
+    @if($press_release)
+        <h2 align="center">Press Release/Media Advisory</h2>
+        <h3 align="center">Why is this of significant news value? Briefly describe any key points.</h3>
+        <h3 class="item">{{$press_release->significant}}</h3>
+        <h3 align="center">In addition to media, to what other professional and corporate publication should we submit this story?</h3>
+        <h3 class="item">{{$press_release->professional}}</h3>
+        <h3 class="wrapper"><a href="{{$press_release->image}}" >Link</a></h3>
+    @endif
+
 
     <div class="row">
         <div class="col-md-3 col-md-offset-5">

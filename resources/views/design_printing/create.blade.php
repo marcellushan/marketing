@@ -1,8 +1,39 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
     {{Form::open(array('url' => 'design_printing','files'=>'true'))}}
+
     <div class="form-group col-md-12">
-        <p>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="form-group">
+                    <label>What do you need designed/printed?</label>
+                    <textarea class="form-control" rows="5" name="needs"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h3 class="col-md-6 col-md-offset-5">
+                Audience
+            </h3>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-2">
+                Students&nbsp;
+                <input type="checkbox" name="students" value="1">
+            </div>
+            <div class="col-md-2">
+                Faculty & Staff&nbsp;
+                <input type="checkbox" name="faculty_staff" value="1">
+            </div>
+            <div class="col-md-2">
+                Community&nbsp;
+                <input type="checkbox" name="community" value="1">
+            </div>
+            <div class="col-md-2">
+                Alumni&nbsp;
+                <input type="checkbox" name="alumni" value="1">
+            </div>
+        </div>
             <div class="mybox">
                 <!-- Text input-->
                 <h3>PAYMENT TYPE:</h3>
@@ -80,11 +111,6 @@
 <div class="emphatic">Please attach all materials here.</div>
 
 
-
-
-
-
-
 <br>
 <input type="file" name="image" id="fileToUpload"><br>
 
@@ -98,5 +124,5 @@
 </div>
 </form>
 
-<div class="row">
+
 @endsection
