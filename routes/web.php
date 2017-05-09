@@ -13,7 +13,8 @@
 
 Route::get('/', function () {
 //    return view('welcome');
-    echo "test";
+//    echo "test";
+    Mail::to('mhannah@highlands.edu')->send(new \App\Mail\MarketingRequest());
 });
 
 

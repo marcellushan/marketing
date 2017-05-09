@@ -73,9 +73,9 @@ class ClientsController extends Controller
         $data = Clients::find($id);
         $press = $data->pressRelease ?: "not found";
 //        dd($press);
-        Clients::destroy($id);
+//        Clients::destroy($id);
 //        dd($data);
-//        return view('show')->with(compact('data'));
+        return view('show')->with(compact('data','press'));
     }
 
     /**
