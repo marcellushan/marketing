@@ -23,11 +23,11 @@ class ServiceController extends Controller
         if(Session::get('videography')==1) {
             return redirect('videography/create');
         }
+        if(Session::get('paid_advertising')==1) {
+            return redirect('paid_advertising/create');
+        }
         if(Session::get('presentation')==1) {
             return redirect('presentation/create');
-        }
-        if(Session::get('social_media')==1) {
-            return redirect('social_media/create');
         }
 
         return redirect('clients/' . Session::get('id'));

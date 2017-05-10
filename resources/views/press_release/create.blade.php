@@ -148,24 +148,24 @@
                              Audience
                          </h3>
                      </div>
-                 <div class="row">
-                     <div class="col-md-2 col-md-offset-2">
-                         Students&nbsp;
-                         <input type="checkbox" name="promotional" value="4">
-                     </div>
-                     <div class="col-md-2">
-                         Faculty & Staff&nbsp;
-                         <input type="checkbox" name="promotional" value="4">
-                     </div>
-                     <div class="col-md-2">
-                         Community&nbsp;
-                         <input type="checkbox" name="promotional" value="4">
-                     </div>
-                     <div class="col-md-2">
-                         Alumni&nbsp;
-                         <input type="checkbox" name="promotional" value="4">
-                     </div>
-                 </div>
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-2">
+                            Students&nbsp;
+                            <input type="checkbox" name="students" value="1">
+                        </div>
+                        <div class="col-md-2">
+                            Faculty & Staff&nbsp;
+                            <input type="checkbox" name="faculty_staff" value="1">
+                        </div>
+                        <div class="col-md-2">
+                            Community&nbsp;
+                            <input type="checkbox" name="community" value="1">
+                        </div>
+                        <div class="col-md-2">
+                            Alumni&nbsp;
+                            <input type="checkbox" name="alumni" value="1">
+                        </div>
+                    </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-4">
                         <h4>{{Form::file('image')}}</h4>

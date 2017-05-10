@@ -71,10 +71,10 @@
             <input type="checkbox" name="press_release" value="1">
         </div>
         <div class="col-xs-10 col-md-3">
-            Social Media
+            Videography
         </div>
         <div class="col-md-1">
-            <input type="checkbox" name="social_media" value="1">
+            <input type="checkbox" name="videography" value="1">
         </div>
     </div>
     <div class="row">
@@ -105,21 +105,6 @@
             <input type="checkbox" name="presentation" value="1">
         </div>
     </div>
-    <div class="row">
-        <div class="col-xs-10 col-md-3 col-md-offset-2">
-            Videography
-        </div>
-        <div class="col-md-1">
-            <input type="checkbox" name="videography" value="1">
-        </div>
-        <div class="col-xs-10 col-md-3">
-            Event Aid
-        </div>
-        <div class="col-md-1">
-            <input type="checkbox" name="event_aid" value="1">
-        </div>
-    </div>
-
     <div class="row">
         <div class="col-md-3 col-md-offset-5">
             <div class="form-group">

@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="form-group">
-                    <label>What do you need designed/printed?</label>
+                    <h3>What do you need designed/printed?</h3>
                     <textarea class="form-control" rows="5" name="needs"></textarea>
                 </div>
             </div>
@@ -16,6 +16,7 @@
                 Audience
             </h3>
         </div>
+        <h4>
         <div class="row">
             <div class="col-md-2 col-md-offset-2">
                 Students&nbsp;
@@ -34,6 +35,7 @@
                 <input type="checkbox" name="alumni" value="1">
             </div>
         </div>
+        </h4>
             <div class="mybox">
                 <!-- Text input-->
                 <h3>PAYMENT TYPE:</h3>

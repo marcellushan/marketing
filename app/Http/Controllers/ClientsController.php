@@ -49,16 +49,10 @@ class ClientsController extends Controller
         Session::put('design_printing',$request->design_printing);
         Session::put('photography',$request->photography);
         Session::put('videography',$request->videography);
-        Session::put('social_media',$request->social_media);
+        Session::put('paid_advertising',$request->paid_advertising);
         Session::put('presentation',$request->presentation);
 
-
         Session::put('id',$client->id);
-
-        echo Session::get('press_release');
-//        echo $_SESSION['design_printing']= $request->design_printing;
-//        echo $_SESSION['photo']= $request->photo;
-//        echo $_SESSION['social_media']= $request->social_media;
         return redirect('service');
     }
 
@@ -72,10 +66,9 @@ class ClientsController extends Controller
     {
         $data = Clients::find($id);
         (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
-//        $press_release = $data->pressRelease ?: "";
-//        dd($press_release);
-//        Clients::destroy($id);
-        return view('show')->with(compact('data','press_release'));
+        (@$data->designPrintings ? $design_printings = $data->designPrintings : $design_printings = '');
+//        dd($design_printings);
+        return view('show')->with(compact('data','press_release', 'design_printings'));
     }
 
     /**

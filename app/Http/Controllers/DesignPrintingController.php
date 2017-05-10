@@ -46,8 +46,9 @@ class DesignPrintingController extends Controller
         $data = $request->all();
         $design_printing = new DesignPrinting($data);
         $design_printing->fill($data);
-        $design_printing->client_id=Session::get('id');
+        $design_printing->clients_id=Session::get('id');
         $design_printing->image=URL::to('/') . "/uploads/" . $myPath;
+//        dd($design_printing);
         $design_printing->save();
         Session::put('design_printing',2);
         return redirect('service');
