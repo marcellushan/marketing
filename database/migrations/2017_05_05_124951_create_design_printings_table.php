@@ -28,8 +28,8 @@ class CreateDesignPrintingsTable extends Migration
             $table->text('job_description')->nullable();
             $table->integer('copies')->nullable();
             $table->date('date_needed')->nullable();
-            $table->integer('services_needed')->nullable();
-            $table->boolean('color')->nullable();
+            $table->string('services_needed')->nullable();
+            $table->string('color')->nullable();
             $table->string('image')->nullable();
             $table->integer('clients_id');
             $table->timestamps();

@@ -40,6 +40,7 @@ class PaidAdvertisingController extends Controller
 //        dd($request);
         $data = $request->all();
         $request_type = new PaidAdvertising($data);
+        $request_type->clients_id=Session::get('id');
         $request_type->fill($data);
         $request_type->save();
         Session::put('paid_advertising',2);

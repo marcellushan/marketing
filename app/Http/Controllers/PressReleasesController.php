@@ -57,10 +57,12 @@ class PressReleasesController extends Controller
 //            echo URL::to('/') . "/uploads/" . $myPath;
 
         $data = $request->all();
+//        dd($request);
         $press_release = new PressReleases($data);
         $press_release->fill($data);
         $press_release->clients_id=Session::get('id');
         $press_release->image=URL::to('/') . "/uploads/" . $myPath;
+//        dd($press_release);
         $press_release->save();
         Session::put('press_release',2);
         return redirect('service');

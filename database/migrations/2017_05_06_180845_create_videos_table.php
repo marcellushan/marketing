@@ -22,6 +22,7 @@ class CreateVideosTable extends Migration
             $table->boolean('alumni')->nullable();
             $table->text('purpose')->nullable();
             $table->text('use')->nullable();
+            $table->integer('clients_id');
             $table->timestamps();
         });
     }

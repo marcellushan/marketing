@@ -19,9 +19,10 @@ class PresentationController extends BaseController
     {
 //                dd($request);
         $data = $request->all();
-        $video = new Presentation($data);
-        $video->fill($data);
-        $video->save();
+        $request_type = new Presentation($data);
+        $request_type->clients_id=Session::get('id');
+        $request_type->fill($data);
+        $request_type->save();
         Session::put('presentation',2);
         return redirect('service');
     }

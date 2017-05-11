@@ -11,31 +11,9 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <h3 class="col-md-6 col-md-offset-5">
-                Audience
-            </h3>
-        </div>
-        <h4>
-        <div class="row">
-            <div class="col-md-2 col-md-offset-2">
-                Students&nbsp;
-                <input type="checkbox" name="students" value="1">
-            </div>
-            <div class="col-md-2">
-                Faculty & Staff&nbsp;
-                <input type="checkbox" name="faculty_staff" value="1">
-            </div>
-            <div class="col-md-2">
-                Community&nbsp;
-                <input type="checkbox" name="community" value="1">
-            </div>
-            <div class="col-md-2">
-                Alumni&nbsp;
-                <input type="checkbox" name="alumni" value="1">
-            </div>
-        </div>
-        </h4>
+
+            @include('partials.audience')
+
             <div class="mybox">
                 <!-- Text input-->
                 <h3>PAYMENT TYPE:</h3>
@@ -72,7 +50,7 @@
                 <h4>GRANT NUMBER IS REQUIRED</h4>
             </div>
             <div class="col-md-7">
-                <input name="grantNumber" type="text"  maxlength="20" placeholder="Grant Number (required)" class="form-control" id="grant_field" value="<? echo @$_POST['empName'] ?>">
+                <input name="grant_number" type="text"  maxlength="20" placeholder="Grant Number (required)" class="form-control" id="grant_field" value="<? echo @$_POST['empName'] ?>">
             </div>
         </div>
     </div>
@@ -80,7 +58,7 @@
 <p>
 
     <label for="usr"><div class="column_header">Job Description</div></label>
-    <textarea class="form-control" rows="3" id="jobDesc" name="jobDesc" placeholder="Required" ></textarea>
+    <textarea class="form-control" rows="3" id="jobDesc" name="job_description" placeholder="Required" ></textarea>
 <p>
 <div class="row">
     <div class="col-md-5">
@@ -89,7 +67,7 @@
     </div>
     <div class="col-md-6">
         <label for="usr"><div class="column_header">Date Needed: </div></label><input type="date" id="startDate" id="startDate"
-                                                                                      placeholder="mm/dd/yyyy" name="dateNeeded" min="2015-10-20" ><br>
+                                                                                      placeholder="mm/dd/yyyy" name="date_needed" min="2015-10-20" ><br>
     </div>
 </div>
 <br />
@@ -97,13 +75,13 @@
     <div class="column_header">Please check services needed:</div>
     <div class="row">
         <div class="col-xs-6">
-            <input type="radio" name="projType" value="New Project"  />New Project<br>
-            <input type="radio" name="projType" value="Reprint as is"  />Reprint as is<br>
-            <input type="radio" name="projType" value="Reprint with changes"  />Reprint with changes<br>
+            <input type="radio" name="services_needed" value="New Project"  />New Project<br>
+            <input type="radio" name="services_needed" value="Reprint as is"  />Reprint as is<br>
+            <input type="radio" name="services_needed" value="Reprint with changes"  />Reprint with changes<br>
         </div>
         <div class="col-xs-6">
-            <input type="radio" name="bw" value="Black and White"  />Black & White<br>
-            <input type="radio" name="bw" value="Color"  />Color<br>
+            <input type="radio" name="color" value="Black and White"  />Black & White<br>
+            <input type="radio" name="color" value="Color"  />Color<br>
         </div>
 
     </div>

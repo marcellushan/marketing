@@ -67,8 +67,12 @@ class ClientsController extends Controller
         $data = Clients::find($id);
         (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
         (@$data->designPrintings ? $design_printings = $data->designPrintings : $design_printings = '');
-//        dd($design_printings);
-        return view('show')->with(compact('data','press_release', 'design_printings'));
+        (@$data->photography ? $photography = $data->photography : $photography = '');
+        (@$data->videography ? $videography = $data->videography : $videography = '');
+        (@$data->paidAdvertising ? $paid_advertising = $data->paidAdvertising : $paid_advertising = '');
+        (@$data->presentation ? $presentation = $data->presentation : $presentation = '');
+//        dd($photography);
+        return view('show')->with(compact('data','press_release', 'design_printings','photography','videography','paid_advertising','presentation'));
     }
 
     /**
@@ -102,6 +106,6 @@ class ClientsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Clients::destroy($id);
     }
 }

@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function () {
-//    return view('welcome');
+    return view('welcome');
 //    echo "test";
-    Mail::to('mhannah@highlands.edu')->send(new \App\Mail\MarketingRequest());
+//    Mail::to('mhannah@highlands.edu')->send(new \App\Mail\MarketingRequest());
 });
 
 
@@ -26,5 +26,10 @@ Route::resource('videography', 'VideoController');
 Route::resource('presentation', 'PresentationController');
 Route::resource('social_media', 'SocialMediaController');
 Route::resource('paid_advertising', 'PaidAdvertisingController');
+Route::resource('admin', 'AdminController');
 
 Route::get('service', 'ServiceController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+//Route::resource('paid_advertising', 'AdminController');

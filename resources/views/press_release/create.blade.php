@@ -87,22 +87,9 @@
                          <input type="checkbox" name="retirement" value="1">
                      </div>
                  </div>
-                 <div class="row">
-                     <div class="col-md-8 col-md-offset-2">
-                         <div class="form-group">
-                             <label>Why is this of significant news value? Briefly describe any key points.</label>
-                             <textarea class="form-control" rows="5" name="significant"></textarea>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="row">
-                     <div class="col-md-8 col-md-offset-2">
-                         <div class="form-group">
-                             <label>In addition to media, to what other professional and corporate publication should we submit this story?</label>
-                             <textarea class="form-control" rows="5" name="professional"></textarea>
-                         </div>
-                     </div>
-                 </div>
+                @include('partials.textbox', ['title' => 'Why is this of significant news value? Briefly describe any key points', 'name' => 'significant'])
+                @include('partials.textbox', ['title' => 'In addition to media, to what other professional and corporate publication should we submit this story?', 'name' => 'professional'])
+
                  <div class="row">
                      <div class="col-md-3 col-md-offset-2">
                          Did you have any promotional materials created for this request by the Marcom design team?
@@ -113,7 +100,7 @@
                                  Yes
                              </div>
                              <div class="col-md-1 col-xs-offset-2">
-                                 <input type="radio" name="promotional" value="1">
+                                 <input type="radio" name="promotional" value="Yes">
                              </div>
                         </div>
                          <div class="row">
@@ -121,7 +108,7 @@
                                  No
                              </div>
                              <div class="col-md-1 col-xs-offset-2">
-                                 <input type="radio" name="promotional" value="2">
+                                 <input type="radio" name="promotional" value="No">
                              </div>
                          </div>
                          <div class="row">
@@ -129,7 +116,7 @@
                                  Request submitted, but I haven't received the final product
                              </div>
                              <div class="col-md-1 col-xs-offset-2">
-                                 <input type="radio" name="promotional" value="3">
+                                 <input type="radio" name="promotional" value="Requested">
                              </div>
                          </div>
                          <div class="row">
@@ -137,36 +124,34 @@
                                  Not yet, but planning to
                              </div>
                              <div class="col-md-1 col-xs-offset-2">
-                                 <input type="radio" name="promotional" value="4">
+                                 <input type="radio" name="promotional" value="Not yet">
                              </div>
                          </div>
 
                      </div>
                  </div>
-                     <div class="row">
-                         <h3 class="col-md-6 col-md-offset-5">
-                             Audience
-                         </h3>
-                     </div>
-                    <div class="row">
-                        <div class="col-md-2 col-md-offset-2">
-                            Students&nbsp;
-                            <input type="checkbox" name="students" value="1">
-                        </div>
-                        <div class="col-md-2">
-                            Faculty & Staff&nbsp;
-                            <input type="checkbox" name="faculty_staff" value="1">
-                        </div>
-                        <div class="col-md-2">
-                            Community&nbsp;
-                            <input type="checkbox" name="community" value="1">
-                        </div>
-                        <div class="col-md-2">
-                            Alumni&nbsp;
-                            <input type="checkbox" name="alumni" value="1">
-                        </div>
-                    </div>
+                @include('partials.audience')
                 <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        Please provide the name, email and
+                        phone number of the individual(s)
+                        who should be quoted in this piece or
+                        recommended to media for answering
+                        related questions.
+                    </div>
+                </div>
+    @include('partials.textbox', ['title' => 'Names', 'name' => 'quote_names'])
+    @include('partials.textbox', ['title' => 'Emails', 'name' => 'quote_emails'])
+    @include('partials.textbox', ['title' => 'Phones', 'name' => 'quote_phones'])
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+            Upload any supporting images/documents
+            that are to be included.
+        </div>
+    </div>
+
+    <div class="row">
                     <div class="col-md-6 col-md-offset-4">
                         <h4>{{Form::file('image')}}</h4>
                     </div>

@@ -20,4 +20,31 @@ class Clients extends Model
         return $this->hasOne('App\DesignPrinting');
     }
 
+    public function photography()
+    {
+        return $this->hasOne('App\Photo');
+    }
+    public function videography()
+    {
+        return $this->hasOne('App\Video');
+    }
+    public function paidAdvertising()
+    {
+        return $this->hasOne('App\PaidAdvertising');
+    }
+
+    public function presentation()
+    {
+        return $this->hasOne('App\Presentation');
+    }
+
+    public function delete()
+    {
+        $this->pressRelease()->delete();
+        $this->designPrintings()->delete();
+        $this->photography()->delete();
+
+        return parent::delete();
+    }
+
 }

@@ -1,11 +1,35 @@
+// $(document).ready(function () {
+//     $("input[name=pmtType]:radio").change(function () {
+//         if($("input[name=pmtType]:checked").val()=='Transfer Funds') {
+//             $("#transfer").css("display", "block");
+//             $("#grant").css("display", "none");
+//             $(".fund").attr("required","");
+//             $("#grant_field").removeAttr("required");
+//         } else if($("input[name=pmtType]:checked").val()=='Grant')  {
+//             $("#transfer").css("display", "none");
+//             $("#grant").css("display", "block");
+//             $("#grant_field").attr("required","");
+//             $(".fund").removeAttr("required");
+//         } else {
+//             $("#transfer").css("display", "none");
+//             $("#grant").css("display", "none");
+//             $(".fund").removeAttr("required");
+//             $("#grant_field").removeAttr("required");
+//         }
+//
+//
+//     });
+// });
+
+
 $(document).ready(function () {
-    $("input[name=pmtType]:radio").change(function () {
-        if($("input[name=pmtType]:checked").val()=='Transfer Funds') {
+    $("input[name=payment_type]:radio").change(function () {
+        if($("input[name=payment_type]:checked").val()=='Transfer Funds') {
             $("#transfer").css("display", "block");
             $("#grant").css("display", "none");
             $(".fund").attr("required","");
             $("#grant_field").removeAttr("required");
-        } else if($("input[name=pmtType]:checked").val()=='Grant')  {
+        } else if($("input[name=payment_type]:checked").val()=='Grant')  {
             $("#transfer").css("display", "none");
             $("#grant").css("display", "block");
             $("#grant_field").attr("required","");
@@ -19,9 +43,10 @@ $(document).ready(function () {
 
 
     });
+    // alert("this");
 });
-     
-     var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];    
+
+var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
      function Validate(oForm) {
          var arrInputs = oForm.getElementsByTagName("input");
          for (var i = 0; i < arrInputs.length; i++) {

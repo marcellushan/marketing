@@ -91,3 +91,41 @@ h4 {
 .ghc-id {
     display: none;
 }
+
+.boxhead{
+    font-size: 130%;
+    font-weight: bold;
+    text-align: center;
+
+}
+.mybox {
+
+    border-style: solid;
+    border-color: black;
+    padding:  5px;
+}
+
+.total {
+    font-weight: bolder;
+    font-size: 150%;
+    text-align: left;;
+}
+
+#performance {
+    text-align: left;
+}
+
+.recommended {
+    display: none;
+
+}
+
+#transfer {
+    display: none;
+
+}
+
+#grant {
+    display: none;
+
+}

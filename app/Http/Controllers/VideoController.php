@@ -39,6 +39,7 @@ class VideoController extends Controller
 //                dd($request);
         $data = $request->all();
         $video = new Video($data);
+        $video->clients_id=Session::get('id');
         $video->fill($data);
         $video->save();
         Session::put('videography',2);

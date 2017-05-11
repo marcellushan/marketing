@@ -29,7 +29,14 @@ class CreatePressReleasesTable extends Migration
             $table->boolean('retirement')->nullable();
             $table->text('significant')->nullable();
             $table->text('professional')->nullable();
-            $table->integer('promotional')->nullable();
+            $table->string('promotional')->nullable();
+            $table->boolean('students')->nullable();
+            $table->boolean('faculty_staff')->nullable();
+            $table->boolean('community')->nullable();
+            $table->boolean('alumni')->nullable();
+            $table->text('quote_names')->nullable();
+            $table->text('quote_emails')->nullable();
+            $table->text('quote_phones')->nullable();
             $table->string('image')->nullable();
             $table->integer('clients_id');
             $table->timestamps();
