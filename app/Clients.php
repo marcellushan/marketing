@@ -38,6 +38,16 @@ class Clients extends Model
         return $this->hasOne('App\Presentation');
     }
 
+    public function socialMedia()
+    {
+        return $this->hasOne('App\SocialMedia');
+    }
+
+    public function event()
+    {
+        return $this->hasOne('App\Event');
+    }
+
     public function delete()
     {
         $this->pressRelease()->delete();

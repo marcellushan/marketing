@@ -39,10 +39,10 @@ class PhotoController extends Controller
     {
 //        dd($request);
         $data = $request->all();
-        $photo = new Photo($data);
-        $photo->clients_id=Session::get('id');
-        $photo->fill($data);
-        $photo->save();
+        $request_type = new Photo($data);
+        $request_type->clients_id=Session::get('id');
+        $request_type->fill($data);
+        $request_type->save();
         Session::put('photography',2);
         return redirect('service');
     }

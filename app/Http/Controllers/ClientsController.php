@@ -51,6 +51,8 @@ class ClientsController extends Controller
         Session::put('videography',$request->videography);
         Session::put('paid_advertising',$request->paid_advertising);
         Session::put('presentation',$request->presentation);
+        Session::put('social_media',$request->social_media);
+        Session::put('event',$request->event);
 
         Session::put('id',$client->id);
         return redirect('service');
@@ -71,8 +73,10 @@ class ClientsController extends Controller
         (@$data->videography ? $videography = $data->videography : $videography = '');
         (@$data->paidAdvertising ? $paid_advertising = $data->paidAdvertising : $paid_advertising = '');
         (@$data->presentation ? $presentation = $data->presentation : $presentation = '');
+        (@$data->socialMedia ? $social_media = $data->socialMedia : $social_media = '');
+        (@$data->event ? $event = $data->event : $event = '');
 //        dd($photography);
-        return view('show')->with(compact('data','press_release', 'design_printings','photography','videography','paid_advertising','presentation'));
+        return view('show')->with(compact('data','press_release', 'design_printings','photography','videography','paid_advertising','presentation','social_media','event'));
     }
 
     /**

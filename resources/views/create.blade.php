@@ -43,7 +43,7 @@
                  <div class="col-md-8 col-md-offset-2">
                      <div class="form-group">
                          <label>Request Due Date</label>
-                         <input type="date" class="form-control" name="due_date">
+                         <input type="date" class="form-control" placeholder="YYYY-MM-DD" name="due_date">
                      </div>
                  </div>
              </div>
@@ -103,6 +103,20 @@
         </div>
         <div class="col-md-1">
             <input type="checkbox" name="presentation" value="1">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-10 col-md-3 col-md-offset-2">
+            Social Media
+        </div>
+        <div class="col-md-1">
+            <input type="checkbox" name="social_media" value="1">
+        </div>
+        <div class="col-xs-10 col-md-3">
+            Event Aid
+        </div>
+        <div class="col-md-1">
+            <input type="checkbox" name="event" value="1">
         </div>
     </div>
     <div class="row">

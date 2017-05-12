@@ -26,6 +26,7 @@ Route::resource('videography', 'VideoController');
 Route::resource('presentation', 'PresentationController');
 Route::resource('social_media', 'SocialMediaController');
 Route::resource('paid_advertising', 'PaidAdvertisingController');
+Route::resource('event', 'EventController');
 Route::resource('admin', 'AdminController');
 
 Route::get('service', 'ServiceController@index');

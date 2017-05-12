@@ -194,7 +194,9 @@
 
     @endif
 
-
+    @if($event)
+            event
+    @endif
 
 
    <div class="row">

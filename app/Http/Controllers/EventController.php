@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\SocialMedia;
+use App\Event;
 use Illuminate\Http\Request;
 
 use Session;
 use URL;
 
-class SocialMediaController extends Controller
+class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class SocialMediaController extends Controller
      */
     public function create()
     {
-        return view('social_media.create');
+       return view('event.create');
     }
 
     /**
@@ -39,30 +39,22 @@ class SocialMediaController extends Controller
     public function store(Request $request)
     {
 //        dd($request);
-        $file = $request->file('image');
-        //Move Uploaded File
-        $destinationPath = 'uploads';
-//        $file->move($destinationPath,$file->getClientOriginalName());
-        $myRandom = rand(1, 10000);
-        $myPath = $myRandom . "." . $file->getClientOriginalExtension();
-        $file->move($destinationPath, $myPath);
         $data = $request->all();
-        $request_type = new SocialMedia($data);
-        $request_type->fill($data);
+        $request_type = new Event($data);
         $request_type->clients_id=Session::get('id');
-        $request_type->image=URL::to('/') . "/uploads/" . $myPath;
+        $request_type->fill($data);
         $request_type->save();
-        Session::put('social_media',2);
+        Session::put('event',2);
         return redirect('service');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\SocialMedia  $socialMedia
+     * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(SocialMedia $socialMedia)
+    public function show(Event $event)
     {
         //
     }
@@ -70,10 +62,10 @@ class SocialMediaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\SocialMedia  $socialMedia
+     * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(SocialMedia $socialMedia)
+    public function edit(Event $event)
     {
         //
     }
@@ -82,10 +74,10 @@ class SocialMediaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\SocialMedia  $socialMedia
+     * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SocialMedia $socialMedia)
+    public function update(Request $request, Event $event)
     {
         //
     }
@@ -93,10 +85,10 @@ class SocialMediaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\SocialMedia  $socialMedia
+     * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SocialMedia $socialMedia)
+    public function destroy(Event $event)
     {
         //
     }
