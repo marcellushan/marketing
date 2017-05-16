@@ -97,6 +97,13 @@ class ClientsTableSeeder extends Seeder
                 'budget' => 1000
             ]);
 
+               DB::table('events')->insert([
+                   'name' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+                   'clients_id' => $id,
+                   'event_date' => '2017-05-01',
+                   'location' => str_random(10)
+               ]);
+
            }
         }
     }

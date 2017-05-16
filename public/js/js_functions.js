@@ -46,3 +46,47 @@ $(document).ready(function () {
     // alert("this");
 });
 
+
+$(document).ready(function () {
+    $("input[class=promotional]:checkbox").change(function () {
+
+        $("#pickup").css("display", "block");
+        // alert('this');
+
+    });
+
+});
+
+
+$(document).ready(function () {
+    $("input[name=other]:checkbox").change(function () {
+
+        $("#other_details").css("display", "block");
+        // alert('this');
+
+    });
+
+});
+
+$(document).ready(function () {
+    $("input[name=GHC]:radio").change(function () {
+        if($("input[name=GHC]:checked").val()==1) {
+            $("#GHC").css("display", "block");
+            // $("#post").css("display", "none");
+            // $(".fund").attr("required","");
+            // $("#grant_field").removeAttr("required");
+            // } else if($("input[name=media_type]:checked").val()=='Grant')  {
+            //     $("#transfer").css("display", "none");
+            //     $("#grant").css("display", "block");
+            //     $("#grant_field").attr("required","");
+            //     $(".fund").removeAttr("required");
+        } else {
+            $("#GHC").css("display", "none");
+            // $("#post").css("display", "block");
+        }
+
+
+    });
+    // alert("this");
+});
+

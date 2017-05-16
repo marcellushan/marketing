@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Clients;
 use Illuminate\Http\Request;
-use Illuminate\Mail\Mailable;
 
 use Session;
 
@@ -44,11 +43,12 @@ class ServiceController extends Controller
 
     public function testMail()
     {
-        $data = Clients::find(1);
+        $data = Clients::find(3);
 //        echo $data->email;
 //        dd($data);
 //        App/Clients::
         \Mail::to($data->email)->send(new \App\Mail\MarketingRequest());
+//        \Mail::to('mhannah@highlands.edu')->send(new \App\Mail\MarketingRequest());
     }
 
 }

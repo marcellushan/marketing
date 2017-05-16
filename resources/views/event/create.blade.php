@@ -3,11 +3,10 @@
         <h1 class="wrapper">Event Aid</h1>
     {{Form::open(array('url' => 'event'))}}
 
-    <div class="row">
-        <h3 class="col-md-7 col-md-offset-2">
+        <h3 class="wrapper">
             Is this request for a GHC event?
         </h3>
-    </div>
+
     <div class="row">
         <div class="col-md-2 col-md-offset-5">
             Yes
@@ -18,7 +17,9 @@
             <input type="radio" name="GHC" value="0">
         </div>
     </div>
+    <h3 class="wrapper">
     Event Details
+        </h3>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="form-group">
@@ -49,19 +50,21 @@
             </div>
         </div>
     </div>
+    <h3 class="wrapper">
     Display/Promotional Items needed?
+        </h3>
     <div class="row">
         <div class="col-xs-10 col-md-3 col-md-offset-2">
             Banners
         </div>
         <div class="col-md-1">
-            <input type="checkbox" name="banners" value="1">
+            <input type="checkbox" class="promotional" name="banners" value="1">
         </div>
         <div class="col-xs-10 col-md-3">
             Table Clothes
         </div>
         <div class="col-md-1">
-            <input type="checkbox" name="table_clothes" value="1">
+            <input type="checkbox" class="promotional" name="table_clothes" value="1">
         </div>
     </div>
     <div class="row">
@@ -69,13 +72,13 @@
             Magazines
         </div>
         <div class="col-md-1">
-            <input type="checkbox" name="magazines" value="1">
+            <input type="checkbox" class="promotional" name="magazines" value="1">
         </div>
         <div class="col-xs-10 col-md-3">
             Easels
         </div>
         <div class="col-md-1">
-            <input type="checkbox" name="easels" value="1">
+            <input type="checkbox" class="promotional" name="easels" value="1">
         </div>
     </div>
     <div class="row">
@@ -83,13 +86,13 @@
             Promotional Material
         </div>
         <div class="col-md-1">
-            <input type="checkbox" name="promo" value="1">
+            <input type="checkbox" class="promotional" name="promo" value="1">
         </div>
         <div class="col-xs-10 col-md-3">
             Signs
         </div>
         <div class="col-md-1">
-            <input type="checkbox" name="signs" value="1">
+            <input type="checkbox" class="promotional" name="signs" value="1">
         </div>
     </div>
     <div class="row">
@@ -97,46 +100,52 @@
             Recruitment Material
         </div>
         <div class="col-md-1">
-            <input type="checkbox" name="recruitment" value="1">
+            <input type="checkbox" class="promotional" name="recruitment" value="1">
         </div>
         <div class="col-xs-10 col-md-3">
             Other
         </div>
         <div class="col-md-1">
-            <input type="checkbox" name="other" value="1">
+            <input type="checkbox" class="promotional" name="other" value="1">
         </div>
     </div>
+    <div id='other_details'>
     @include('partials.textbox', ['title' => 'Other Details', 'name' => 'other_details'])
-    Who will be in charge of picking up these items, using them, and returning them?
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" class="form-control" name="pickup_name">
+    </div>
+    <div id="pickup">
+        <h3 class="wrapper">
+        Who will be in charge of picking up these items, using them, and returning them?
+            </h3>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" name="pickup_name">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="form-group">
-                <label>Department</label>
-                <input type="text" class="form-control" name="pickup_department">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="form-group">
+                    <label>Department</label>
+                    <input type="text" class="form-control" name="pickup_department">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" class="form-control" name="pickup_email">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" class="form-control" name="pickup_email">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="form-group">
-                <label>Phone</label>
-                <input type="text" class="form-control" name="pickup_phone">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" class="form-control" name="pickup_phone">
+                </div>
             </div>
         </div>
     </div>
@@ -148,59 +157,61 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="form-group">
-                <label>Cost for Attendees</label>
-                <input type="text" class="form-control" name="cost">
+    <div id="GHC">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="form-group">
+                    <label>Cost for Attendees</label>
+                    <input type="text" class="form-control" name="cost">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <h3 class="col-md-7 col-md-offset-2">
-           Speakers?
-        </h3>
-    </div>
-    <div class="row">
-        <div class="col-md-2 col-md-offset-5">
-            Yes
-            <input type="radio" name="speaker" value="1">
+        <div class="row">
+            <h3 class="col-md-7 col-md-offset-2">
+               Speakers?
+            </h3>
         </div>
-        <div class="col-md-2">
-            No&nbsp;
-            <input type="radio" name="speaker" value="0">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-5">
+                Yes
+                <input type="radio" name="speaker" value="1">
+            </div>
+            <div class="col-md-2">
+                No&nbsp;
+                <input type="radio" name="speaker" value="0">
+            </div>
         </div>
-    </div>
-    @include('partials.textbox', ['title' => 'Speaker bio', 'name' => 'speaker_bio'])
+        @include('partials.textbox', ['title' => 'Speaker bio', 'name' => 'speaker_bio'])
 
-    <div class="row">
-        <h3 class="col-md-7 col-md-offset-2">
-            Sponsors
-        </h3>
-    </div>
-    <div class="row">
-        <div class="col-md-2 col-md-offset-5">
-            Yes
-            <input type="radio" name="sponsor" value="1">
+        <div class="row">
+            <h3 class="col-md-7 col-md-offset-2">
+                Sponsors
+            </h3>
         </div>
-        <div class="col-md-2">
-            No&nbsp;
-            <input type="radio" name="sponsor" value="0">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="form-group">
-                <label>Sponsor Website</label>
-                <input type="url" class="form-control" name="sponsor_website">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-5">
+                Yes
+                <input type="radio" name="sponsor" value="1">
+            </div>
+            <div class="col-md-2">
+                No&nbsp;
+                <input type="radio" name="sponsor" value="0">
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="form-group">
-                <label>RSVP Deadline</label>
-                <input type="date" class="form-control" name="rsvp">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="form-group">
+                    <label>Sponsor Website</label>
+                    <input type="url" class="form-control" name="sponsor_website">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="form-group">
+                    <label>RSVP Deadline</label>
+                    <input type="date" class="form-control" name="rsvp">
+                </div>
             </div>
         </div>
     </div>
