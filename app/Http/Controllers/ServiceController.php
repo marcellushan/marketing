@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Clients;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Mailable;
 
 use Session;
 
@@ -39,4 +41,14 @@ class ServiceController extends Controller
         return redirect('clients/' . Session::get('id'));
 //        return redirect()->route('clients', [Session::get('id')]);
     }
+
+    public function testMail()
+    {
+        $data = Clients::find(1);
+//        echo $data->email;
+//        dd($data);
+//        App/Clients::
+        \Mail::to($data->email)->send(new \App\Mail\MarketingRequest());
+    }
+
 }

@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+//    return view('welcome');
 //    echo "test";
-//    Mail::to('mhannah@highlands.edu')->send(new \App\Mail\MarketingRequest());
+    Mail::to('mhannah@highlands.edu')->send(new \App\Mail\MarketingRequest());
 });
 
 
@@ -30,6 +30,7 @@ Route::resource('event', 'EventController');
 Route::resource('admin', 'AdminController');
 
 Route::get('service', 'ServiceController@index');
+Route::get('testmail', 'ServiceController@testMail');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
