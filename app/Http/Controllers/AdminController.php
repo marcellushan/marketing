@@ -28,7 +28,7 @@ class AdminController extends Controller
     public function index()
     {
 //        return view('welcome');
-        $clients = (Clients::all());
+        $clients = (Clients::orderBy('created_at', 'desc')->get());
         return view('list')->with(compact('clients'));
     }
 
@@ -61,7 +61,17 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Clients::find($id);
+        (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
+        (@$data->designPrintings ? $design_printings = $data->designPrintings : $design_printings = '');
+        (@$data->photography ? $photography = $data->photography : $photography = '');
+        (@$data->videography ? $videography = $data->videography : $videography = '');
+        (@$data->paidAdvertising ? $paid_advertising = $data->paidAdvertising : $paid_advertising = '');
+        (@$data->presentation ? $presentation = $data->presentation : $presentation = '');
+        (@$data->socialMedia ? $social_media = $data->socialMedia : $social_media = '');
+        (@$data->event ? $event = $data->event : $event = '');
+//        dd($photography);
+        return view('show')->with(compact('data','press_release', 'design_printings','photography','videography','paid_advertising','presentation','social_media','event'));
     }
 
     /**

@@ -12,7 +12,7 @@ class ClientsTableSeeder extends Seeder
     public function run()
     {
         {
-//           for($x = 0; $x <= 10; $x++) {
+           for($x = 0; $x <= 10; $x++) {
                $id =DB::table('clients')->insertGetId([
                    'first_name' => str_random(10),
                    'last_name' => str_random(10),
@@ -97,7 +97,7 @@ class ClientsTableSeeder extends Seeder
                 'budget' => 1000
             ]);
 
-//           }
+           }
         }
     }
 

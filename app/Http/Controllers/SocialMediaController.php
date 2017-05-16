@@ -39,18 +39,18 @@ class SocialMediaController extends Controller
     public function store(Request $request)
     {
 //        dd($request);
-        $file = $request->file('image');
-        //Move Uploaded File
-        $destinationPath = 'uploads';
-//        $file->move($destinationPath,$file->getClientOriginalName());
-        $myRandom = rand(1, 10000);
-        $myPath = $myRandom . "." . $file->getClientOriginalExtension();
-        $file->move($destinationPath, $myPath);
         $data = $request->all();
         $request_type = new SocialMedia($data);
         $request_type->fill($data);
         $request_type->clients_id=Session::get('id');
-        $request_type->image=URL::to('/') . "/uploads/" . $myPath;
+        if($request->file('image')) {
+            $file = $request->file('image');
+            $destinationPath = 'uploads';
+            $myRandom = rand(1, 10000);
+            $myPath = $myRandom . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $myPath);
+            $request_type->image = URL::to('/') . "/uploads/" . $myPath;
+        }
         $request_type->save();
         Session::put('social_media',2);
         return redirect('service');

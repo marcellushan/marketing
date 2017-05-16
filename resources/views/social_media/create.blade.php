@@ -22,6 +22,7 @@
         </div>
     </div>
     @include('partials.audience')
+    <div id="post">
     What does the post need to say?
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -55,6 +56,8 @@ Do you have a graphic to accompany the post?
             <h4>{{Form::file('image')}}</h4>
         </div>
     </div>
+    </div>
+    <div id="new_page">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="form-group">
@@ -97,6 +100,7 @@ Do you have a graphic to accompany the post?
             </div>
         </div>
     @include('partials.social')
+</div>
        <div class="row">
         <div class="col-md-3 col-md-offset-5">
             <div class="form-group">
