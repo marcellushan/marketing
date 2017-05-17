@@ -54,9 +54,12 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show($id)
     {
-        //
+        $event = Event::where('clients_id', '=', $id)->first();
+//        dd($press_release);
+//        (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
+        return view('event.show')->with(compact('event'));
     }
 
     /**

@@ -53,9 +53,12 @@ class PhotoController extends Controller
      * @param  \App\Photo  $photo
      * @return \Illuminate\Http\Response
      */
-    public function show(Photo $photo)
+    public function show($id)
     {
-        //
+        $photography = Photo::where('clients_id', '=', $id)->first();
+//        dd($press_release);
+//        (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
+        return view('photo.show')->with(compact('photography'));
     }
 
     /**

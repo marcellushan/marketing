@@ -76,7 +76,10 @@ class PressReleasesController extends Controller
      */
     public function show($id)
     {
-        //
+        $press_release = PressReleases::where('clients_id', '=', $id)->first();
+//        dd($press_release);
+//        (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
+        return view('press_release.show')->with(compact('press_release'));
     }
 
     /**

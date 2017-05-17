@@ -62,9 +62,12 @@ class SocialMediaController extends Controller
      * @param  \App\SocialMedia  $socialMedia
      * @return \Illuminate\Http\Response
      */
-    public function show(SocialMedia $socialMedia)
+    public function show($id)
     {
-        //
+        $social_media = SocialMedia::where('clients_id', '=', $id)->first();
+//        dd($press_release);
+//        (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
+        return view('social_media.show')->with(compact('social_media'));
     }
 
     /**

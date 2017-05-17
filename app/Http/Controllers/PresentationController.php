@@ -26,4 +26,12 @@ class PresentationController extends BaseController
         Session::put('presentation',2);
         return redirect('service');
     }
+
+    public function show($id)
+    {
+        $presentation = Presentation::where('clients_id', '=', $id)->first();
+//        dd($press_release);
+//        (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
+        return view('presentation.show')->with(compact('presentation'));
+    }
 }

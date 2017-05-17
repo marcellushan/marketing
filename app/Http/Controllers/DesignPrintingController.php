@@ -60,9 +60,12 @@ class DesignPrintingController extends Controller
      * @param  \App\DesignPrinting  $designPrinting
      * @return \Illuminate\Http\Response
      */
-    public function show(DesignPrinting $designPrinting)
+    public function show($id)
     {
-        //
+        $design_printings = DesignPrinting::where('clients_id', '=', $id)->first();
+//        dd($press_release);
+//        (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
+        return view('design_printing.show')->with(compact('design_printings'));
     }
 
     /**

@@ -1,10 +1,10 @@
 <div class="row">
-    <h3 class="col-md-6 col-md-offset-5">
+    <h3 class="col-md-6">
         Audience
     </h3>
 </div>
 <div class="row">
-    <div class="col-md-2 col-md-offset-2">
+    <div class="col-md-2">
         Students&nbsp;
         <input type="checkbox" name="students" value="1">
     </div>

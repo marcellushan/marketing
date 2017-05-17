@@ -3,29 +3,28 @@
     <h1 class="wrapper">Marketing Communications Service Form</h1>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
          <div class="row">
-            <h3 class="col-md-4 col-md-offset-2">First name
+            <h3 class="col-md-4 col-md-offset-1">First name
                 <span class="item">{{$data->first_name}}</span>
             </h3>
-            <h3 class="col-md-4">Last name
+            <h3 class="col-md-3">Last name
                 <span class="item">{{$data->last_name}}</span>
             </h3>
+             <h3 class="col-md-4">Department
+                 <span class="item">{{$data->department}}</span>
+             </h3>
         </div>
     <div class="row">
-        <h3 class="col-md-4 col-md-offset-2">Department
-            <span class="item">{{$data->department}}</span>
-        </h3>
-        <h3 class="col-md-4">Email Address
+        <h3 class="col-md-4 col-md-offset-1">Email Address
             <span class="item">{{$data->email}}</span>
         </h3>
-    </div>
-    <div class="row">
-        <h3 class="col-md-4 col-md-offset-2">Phone
+        <h3 class="col-md-3">Phone
             <span class="item">{{$data->phone}}</span>
         </h3>
         <h3 class="col-md-4">Request Due Date
             <span class="item">{{$data->due_date}}</span>
         </h3>
     </div>
+
     <br>
     <h3 align="center">Brief Project Summary</h3>
     <h3 class="item">{{$data->summary}}</h3>

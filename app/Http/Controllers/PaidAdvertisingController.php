@@ -53,9 +53,12 @@ class PaidAdvertisingController extends Controller
      * @param  \App\PaidAdvertising  $paidAdvertising
      * @return \Illuminate\Http\Response
      */
-    public function show(PaidAdvertising $paidAdvertising)
+    public function show($id)
     {
-        //
+        $paid_advertising = PaidAdvertising::where('clients_id', '=', $id)->first();
+//        dd($press_release);
+//        (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
+        return view('paid_advertising.show')->with(compact('paid_advertising'));
     }
 
     /**

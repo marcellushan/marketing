@@ -52,9 +52,12 @@ class VideoController extends Controller
      * @param  \App\Video  $video
      * @return \Illuminate\Http\Response
      */
-    public function show(Video $video)
+    public function show($id)
     {
-        //
+        $videography = Video::where('clients_id', '=', $id)->first();
+//        dd($press_release);
+//        (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
+        return view('video.show')->with(compact('videography'));
     }
 
     /**

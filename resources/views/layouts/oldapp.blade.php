@@ -9,10 +9,7 @@
     <link rel='shortcut icon' href='{{URL::to('/')}}/images/favicon.ico' type='image/x-icon'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    {{--<link rel="stylesheet" href="{{URL::to('/')}}/css/style.css">--}}
-    <link rel="stylesheet" href="{{URL::to('/')}}/css/bootswatch.min.css">
-    <link rel="stylesheet" href="{{URL::to('/')}}/css/styles.css">
-    <link rel="stylesheet" href="{{URL::to('/')}}/css/printing.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/css/style.css">
     <script src="{{URL::to('/')}}/jquery/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webshim/1.16.0/dev/polyfiller.js"></script>
     <script>
@@ -23,18 +20,10 @@
     <script src="{{URL::to('/')}}/js/js_functions.js"></script>
 </head>
 <body>
-{{--<header class="container">--}}
-    {{--<img alt="" src="{{URL::to('/')}}/images/logo.png" class="img-responsive" id="logo">--}}
-    {{--Marketing Communication--}}
-{{--</header>--}}
-<body  style="background-color:#004990;">
-<div class="container">
-    <div class="jumbotron">
-        <img style="float:left; margin-right: 20px;"  src="{{URL::to('/')}}/images/logo.png"  height="80" width="166" />
-        <h1 class="display-1" >Marketing Communication</h1>
-    </div>
-    <div class="well" style="padding:20px 100px 10px 100px;">
-@yield('content')
+<header class="container">
+    <img alt="" src="{{URL::to('/')}}/images/logo.png" class="img-responsive" id="logo">
+    Marketing Communication
+</header>
+<body> @yield('content')
 </body>
 </html>
-
