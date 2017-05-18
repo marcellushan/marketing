@@ -21,7 +21,7 @@
     Event Details
         </h3>
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-10">
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" class="form-control" name="name">
@@ -29,13 +29,13 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-5">
             <div class="form-group">
                 <label>Date</label>
                 <input type="date" class="form-control" name="event_date">
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-5">
             <div class="form-group">
                 <label>Time</label>
                 <input type="time" class="form-control" name="event_time">
@@ -43,7 +43,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-10">
             <div class="form-group">
                 <label>Location</label>
                 <input type="text" class="form-control" name="location">
@@ -117,7 +117,7 @@
         Who will be in charge of picking up these items, using them, and returning them?
             </h3>
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-10">
                 <div class="form-group">
                     <label>Name</label>
                     <input type="text" class="form-control" name="pickup_name">
@@ -125,7 +125,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-10">
                 <div class="form-group">
                     <label>Department</label>
                     <input type="text" class="form-control" name="pickup_department">
@@ -133,7 +133,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-10">
                 <div class="form-group">
                     <label>Email Address</label>
                     <input type="email" class="form-control" name="pickup_email">
@@ -141,7 +141,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-10">
                 <div class="form-group">
                     <label>Phone</label>
                     <input type="text" class="form-control" name="pickup_phone">
@@ -159,7 +159,7 @@
     </div>
     <div id="GHC">
         <div class="row">
-            <div class="col-sm-4 col-sm-offset-4">
+            <div class="col-sm-4">
                 <div class="form-group">
                     <label>Cost for Attendees</label>
                     <input type="text" class="form-control" name="cost">

@@ -11,6 +11,7 @@
         </div>
     </div>
     @include('partials.audience')
+    <p></p>
     <div class="row">
         <div class="col-sm-4">
             <div class="form-group">
@@ -48,6 +49,7 @@
                 <input type="radio" name="area" value="Other">
             </div>
         </div>
+    <p></p>
     <div class="row">
         <div class="col-sm-3 col-sm-offset-4">
             <div class="form-group">

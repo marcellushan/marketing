@@ -90,17 +90,17 @@
 
 
 <br>
-<div class="emphatic">Please attach all materials here.</div>
+<h3>Please attach all materials here.</h3>
 
+        <div class="row">
+            <div class="col-sm-8">
+                If there is more than one image, cut and paste them into a single document.
+            </div>
+        </div>
 
 <br>
 <input type="file" name="image" id="fileToUpload"><br>
 
-<div class="row">
-    <div class="col-sm-8">
-    If there is more than one image, cut and paste them into a single document. If you have any questions contact <a href="mailto:kdavis@highlands.edu">Ken Davis</a> (Print Shop)</div>
-    </div>
-</div>
 <input type="submit" class="btn btn-primary btn-lg center-block" value="Submit" />
 
 
