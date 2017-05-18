@@ -1,15 +1,19 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
-    <h3 class="wrapper">Marketing Communications Service Form</h3>
+    <div class="row">
+        <h3 class="col-sm-8 col-sm-offset-3">
+            Marketing Service Form
+        </h3>
+    </div>
     {{Form::open(array('url' => 'clients'))}}
          <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-5">
                 <div class="form-group">
                     <label>First name</label>
                     <input type="text" class="form-control" name="first_name">
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-5">
                 <div class="form-group">
                     <label>Last name</label>
                     <input type="text" class="form-control" name="last_name">
@@ -17,7 +21,7 @@
             </div>
          </div>
          <div class="row">
-             <div class="col-sm-8">
+             <div class="col-sm-10">
                  <div class="form-group">
                      <label>Department</label>
                      <input type="text" class="form-control" name="department">
@@ -25,7 +29,7 @@
              </div>
          </div>
              <div class="row">
-                 <div class="col-sm-8">
+                 <div class="col-sm-10">
                      <div class="form-group">
                          <label>Email Address</label>
                          <input type="email" class="form-control" name="email">
@@ -33,7 +37,7 @@
                  </div>
              </div>
              <div class="row">
-                 <div class="col-sm-8">
+                 <div class="col-sm-10">
                      <div class="form-group">
                          <label>Phone</label>
                          <input type="text" class="form-control" name="phone">
@@ -41,7 +45,7 @@
                  </div>
              </div>
              <div class="row">
-                 <div class="col-sm-8">
+                 <div class="col-sm-10">
                      <div class="form-group">
                          <label>Request Due Date</label>
                          <input type="date" class="form-control" placeholder="YYYY-MM-DD" name="due_date">
@@ -49,7 +53,7 @@
                  </div>
              </div>
              <div class="row">
-                 <div class="col-sm-8">
+                 <div class="col-sm-10">
                      <div class="form-group">
                          <label>Brief Project Summary</label>
                          <textarea class="form-control" rows="5" name="summary"></textarea>

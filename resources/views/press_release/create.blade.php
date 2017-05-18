@@ -91,10 +91,10 @@
                 @include('partials.textbox', ['title' => 'In addition to media, to what other professional and corporate publication should we submit this story?', 'name' => 'professional'])
 
                  <div class="row">
-                     <div class="col-sm-4">
+                     <div class="col-sm-8">
                          Did you have any promotional materials created for this request by the Marcom design team?
                          </div>
-                     <div class="col-xs-5">
+                     <div class="col-xs-10">
                          <div class="row">
                              <div class="col-sm-6 col-xs-offset-2">
                                  Yes
@@ -131,6 +131,7 @@
                      </div>
                  </div>
                 @include('partials.audience')
+    <p></p>
                 <div class="row">
                     <div class="col-sm-8">
                         Please provide the name, email and
