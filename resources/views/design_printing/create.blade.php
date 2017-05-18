@@ -2,9 +2,9 @@
 <div class="main container">
     {{Form::open(array('url' => 'design_printing','files'=>'true'))}}
 
-    <div class="form-group col-md-12">
+    <div class="form-group col-sm-12">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-sm-8">
                 <div class="form-group">
                     <label for="usr"><div class="column_header">What do you need designed/printed?</div></label>
                    <textarea class="form-control" rows="5" name="needs"></textarea>
@@ -18,16 +18,16 @@
                         <h3>PAYMENT TYPE:</h3>
 
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-sm-3">
                                 <input type="radio" name="payment_type" value="Purchase Order" />Purchase Order*<br>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-sm-3">
                                 <input type="radio" name="payment_type" value="Credit Card"  />Credit Card*<br>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-sm-3">
                                 <input type="radio" name="payment_type" value="Transfer Funds"  />Transfer Funds**<br>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-sm-3">
                                 <input type="radio" name="payment_type" value="Grant"  />Grant<br>
                             </div>
                         </div>
@@ -43,12 +43,12 @@
             </div>
             <div id="grant">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-sm-4">
                         <!-- Text input-->
 
                         <h4>GRANT NUMBER IS REQUIRED</h4>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-sm-5">
                         <input name="grant_number" type="text"  maxlength="20" placeholder="Grant Number (required)" class="form-control" id="grant_field" value="<? echo @$_POST['empName'] ?>">
                     </div>
                 </div>
@@ -56,18 +56,18 @@
     </div>
 <p>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-sm-8">
             <label for="usr"><div class="column_header">Job Description</div></label>
             <textarea class="form-control" rows="3" id="jobDesc" name="job_description" placeholder="Required" ></textarea>
         </div>
     </div>
 <p>
 <div class="row">
-    <div class="col-md-5">
+    <div class="col-sm-5">
         <label for="usr"><div class="column_header">No. of Copies</div></label>
         <input  name="copies" type="text" size="10" >
     </div>
-    <div class="col-md-6">
+    <div class="col-sm-6">
         <label for="usr"><div class="column_header">Date Needed: </div></label><input type="date" id="startDate" id="startDate"
                                                                                       placeholder="mm/dd/yyyy" name="date_needed" min="2015-10-20" ><br>
     </div>
@@ -97,7 +97,7 @@
 <input type="file" name="image" id="fileToUpload"><br>
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-sm-8">
     If there is more than one image, cut and paste them into a single document. If you have any questions contact <a href="mailto:kdavis@highlands.edu">Ken Davis</a> (Print Shop)</div>
     </div>
 </div>
