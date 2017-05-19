@@ -1,26 +1,37 @@
-h5 {
-	font-size: 1.2em;
-	font-weight: bold;
-}
-
-.my_head {
-	font-size: 3em;
-	/*font-weight: bold;*/
-}
-header {
-	font-size: 2.5em;}
-
-.name, .title, .preview
-{
-	font-size: 28px;
+body {
 	font-family: "Times New Roman";
-	text-align: center;
-	margin:0;
 }
 
-.title
+
+header {
+	font-size: 1.5em;}
+
+.title {
+	font-size: 2.0em;
+
+
+}
+
+/*.name, .title, .preview*/
+/*{*/
+	/*font-size: 28px;*/
+
+	/*text-align: center;*/
+	/*!*margin:0;*!*/
+/*}*/
+
+.category
 {
-	font-size: 22px;
+	font-size: 1.3em;
+	font-weight: bold;
+
+}
+
+.item
+{
+	font-size: 1.0em;
+
+
 }
 
 .preview

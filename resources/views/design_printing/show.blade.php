@@ -1,40 +1,62 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
-
-
-
-    <h2 align="center">Design & Printing</h2>
-    <h3 align="center">What do you need designed/printed?</h3>
-    <h3 class="item">{{$design_printings->needs}}</h3>
-    <h3 align="center">Audience</h3>
-    <h3 class="item" align="center">
-        @if($design_printings->students) Students @endif
-        @if($design_printings->faculty_staff) Faculty/Staff @endif
-        @if($design_printings->community) Community @endif
-        @if($design_printings->alumni) Alumni @endif
-    </h3>
-    <h3 align="center">Payment Type <span class="item">{{$design_printings->payment_type}}</span> </h3>
+    <div class="row">
+        <div class="title col-md-10 col-md-offset-2">Design and Printing</div>
+    </div><p></p>
+    <div class="row">
+        <div class="col-sm-3 category">What's needed?</div>
+        <div class="col-sm-7 item">{{$design_printings->needs}}</div>
+    </div><p></p>
+    <div class="row">
+        <div class="col-sm-3 category">Audience</div>
+        <div class="col-sm-7 item">
+            @if($design_printings->students) Students @endif
+            @if($design_printings->faculty_staff) Faculty/Staff @endif
+            @if($design_printings->community) Community @endif
+            @if($design_printings->alumni) Alumni @endif
+        </div>
+    </div><p></p>
+    <div class="row">
+        <div class="col-sm-3 category">Payment Type</div>
+        <div class="col-sm-7 item">{{$design_printings->payment_type}}</div>
+    </div>
     @if($design_printings->payment_type == 'Transfer Funds')
-        <h3 align="center">Accounting numbers</h3>
-        <h3 class="item wrapper">{{$design_printings->dept}}{{$design_printings->fund}}  {{$design_printings->class}}</h3>
+        <div class="row">
+            <div class="col-sm-3 category">Accounting numbers</div>
+            <div class="col-sm-7 item">{{$design_printings->dept}}{{$design_printings->fund}}  {{$design_printings->class}}</div>
+        </div><p></p>
     @endif
     @if($design_printings->payment_type == 'Grant')
-        <h3 align="center">Grant Number</h3>
-        <h3 class="item wrapper">{{$design_printings->grant_number}}</h3>
+        <div class="row">
+            <div class="col-sm-3 category">Grant Number</div>
+            <div class="col-sm-7 item">{{$design_printings->grant_number}}</div>
+        </div><p></p>
     @endif
-    <h3 align="center">Job Description</h3>
-    <h3 class="item">{{$design_printings->job_description}}</h3>
-    <h3 align="center">No. of Copies</h3>
-    <h3 class="item wrapper">{{$design_printings->copies}}</h3>
-    <h3 align="center">Date Needed</h3>
-    <h3 class="item wrapper">{{$design_printings->date_needed}}</h3>
-    <h3 align="center">Project Type</h3>
-    <h3 class="item wrapper">{{$design_printings->services_needed}}</h3>
-    <h3 align="center">Color or Black & White</h3>
-    <h3 class="item wrapper">{{$design_printings->color}}</h3>
-    <h3 align="center">Attached Document</h3>
-    <h3 class="item wrapper"><a href="{{$design_printings->image}}">Link</a> </h3>
-
+    <div class="row">
+        <div class="col-sm-3 category">Description</div>
+        <div class="col-sm-7 item">{{$design_printings->job_description}}</div>
+    </div><p></p>
+    <div class="row">
+        <div class="col-sm-3 category">No. of Copies</div>
+        <div class="col-sm-7 item">{{$design_printings->copies}}</div>
+    </div><p></p>
+    <div class="row">
+        <div class="col-sm-3 category">Date Needed</div>
+        <div class="col-sm-7 item">{{$design_printings->date_needed}}</div>
+    </div><p></p>
+    <div class="row">
+        <div class="col-sm-3 category">Project Type</div>
+        <div class="col-sm-7 item">{{$design_printings->services_needed}}</div>
+    </div><p></p>
+    <div class="row">
+        <div class="col-sm-3 category">Color or Black & White</div>
+        <div class="col-sm-7 item">{{$design_printings->color}}</div>
+    </div><p></p>
+    <div class="row">
+        <div class="col-sm-3 category">Documents</div>
+        <div class="col-sm-7 item"><a href="{{$design_printings->image}}">Link</a> </div>
+    </div><p></p>
+   
 
 
 @endsection

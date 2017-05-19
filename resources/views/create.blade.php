@@ -124,8 +124,9 @@
             <input type="checkbox" name="event" value="1">
         </div>
     </div>
+            <p></p>
     <div class="row">
-        <div class="col-sm-4 col-sm-offset-5">
+        <div class="col-sm-4 col-sm-offset-4">
             <div class="form-group">
                <input type="submit" class="btn-default btn-lg">
             </div>
