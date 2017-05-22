@@ -28,6 +28,7 @@ class CreatePaidAdvertisingsTable extends Migration
             $table->boolean('digital')->nullable();
             $table->boolean('other')->nullable();
             $table->integer('budget')->nullable();
+            $table->integer('status')->default(1);
             $table->integer('clients_id');
             $table->timestamps();
         });

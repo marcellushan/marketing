@@ -12,9 +12,43 @@ class ServicesTableSeeder extends Seeder
     public function run()
     {
         DB::table('services')->insert([
-            'service_type' => str_random(10)
-//            'email' => str_random(10).'@gmail.com',
-//            'password' => bcrypt('secret'),
+            'name' => 'Press Release'
+
+        ]);
+
+        DB::table('services')->insert([
+            'name' => 'Design and Printing'
+
+        ]);
+
+        DB::table('services')->insert([
+            'name' => 'Photography'
+
+        ]);
+
+        DB::table('services')->insert([
+            'name' => 'Social Media'
+
+        ]);
+
+        DB::table('services')->insert([
+            'name' => 'Videography'
+
+        ]);
+
+        DB::table('services')->insert([
+            'name' => 'Paid Advertising'
+
+        ]);
+
+        DB::table('services')->insert([
+            'name' => 'Presentation'
+
+        ]);
+
+        DB::table('services')->insert([
+            'name' => 'Event Aid'
+
         ]);
     }
 }

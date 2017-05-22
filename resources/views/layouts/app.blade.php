@@ -33,7 +33,7 @@
         <img style="float:left; margin-right: 20px;"  src="{{URL::to('/')}}/images/logo.png"  height="80" width="166" />
         <h1 class="display-1" >Marketing Communication</h1>
     </div>
-    <div class="well" style="padding:20px 100px 10px 100px;">
+    <div class="well">
 @yield('content')
 </body>
 </html>

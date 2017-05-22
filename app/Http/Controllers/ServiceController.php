@@ -51,4 +51,15 @@ class ServiceController extends Controller
 //        \Mail::to('mhannah@highlands.edu')->send(new \App\Mail\MarketingRequest());
     }
 
+    public function byService()
+    {
+//        return view('services');
+        $data = "marc";
+//        return view('test');
+        return view('test')->with(compact('data'));
+
+    }
+
+
+
 }

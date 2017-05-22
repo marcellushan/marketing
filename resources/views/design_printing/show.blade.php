@@ -56,7 +56,8 @@
         <div class="col-sm-3 category">Documents</div>
         <div class="col-sm-7 item"><a href="{{$design_printings->image}}">Link</a> </div>
     </div><p></p>
-   
 
+@component('components.comments', (compact('comments')))
+@endcomponent
 
 @endsection

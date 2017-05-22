@@ -43,6 +43,7 @@ class CreateEventsTable extends Migration
             $table->boolean('sponsor')->nullable();
             $table->string('sponsor_website')->nullable();
             $table->date('rsvp')->nullable();
+            $table->integer('status')->default(1);
             $table->integer('clients_id')->nullable();
             $table->timestamps();
         });

@@ -21,6 +21,7 @@ class CreatePhotosTable extends Migration
             $table->date('requested_date')->nullable();
             $table->time('start')->nullable();
             $table->time('end')->nullable();
+            $table->integer('status')->default(1);
             $table->integer('clients_id');
             $table->timestamps();
         });

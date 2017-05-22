@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use Session;
 use URL;
+use DB;
 
 class EventController extends Controller
 {
@@ -17,7 +18,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $datas= DB::table('events')->join('clients', 'events.clients_id', '=', 'clients.id')->get();
+        return view('event.list')->with(compact('datas'));
     }
 
     /**

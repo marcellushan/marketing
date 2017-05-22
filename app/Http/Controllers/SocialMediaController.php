@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use Session;
 use URL;
+use DB;
 
 class SocialMediaController extends Controller
 {
@@ -17,7 +18,8 @@ class SocialMediaController extends Controller
      */
     public function index()
     {
-        //
+        $datas= DB::table('social_media')->join('clients', 'social_media.clients_id', '=', 'clients.id')->get();
+        return view('social_media.list')->with(compact('datas'));
     }
 
     /**

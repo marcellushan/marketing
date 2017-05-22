@@ -6,6 +6,7 @@ use App\Presentation;
 use Illuminate\Http\Request;
 
 use Session;
+use DB;
 
 
 class PresentationController extends BaseController
@@ -13,6 +14,17 @@ class PresentationController extends BaseController
     const MEDIA_TYPE = 'presentation';
     const MODEL_NAME = 'Presentation';
     const SERVICE = 'presentation';
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $datas= DB::table('presentations')->join('clients', 'presentations.clients_id', '=', 'clients.id')->get();
+        return view('presentation.list')->with(compact('datas'));
+    }
 
 
     public function store(Request $request)

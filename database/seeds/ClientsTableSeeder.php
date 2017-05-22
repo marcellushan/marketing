@@ -105,6 +105,14 @@ class ClientsTableSeeder extends Seeder
                 'budget' => 1000
             ]);
 
+               DB::table('presentations')->insert([
+                   'topic' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+                   'clients_id' => $id,
+                   'students'=> 1,
+                   'presentation_date' => '2017-05-01',
+                   'area' => 'Presentation Material'
+               ]);
+
            DB::table('events')->insert([
                'name' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                'clients_id' => $id,

@@ -6,6 +6,7 @@ use App\Photo;
 use Illuminate\Http\Request;
 
 use Session;
+use DB;
 
 class PhotoController extends Controller
 {
@@ -16,7 +17,8 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        echo 'photo';
+        $datas= DB::table('photos')->join('clients', 'photos.clients_id', '=', 'clients.id')->get();
+        return view('photo.list')->with(compact('datas'));
     }
 
     /**

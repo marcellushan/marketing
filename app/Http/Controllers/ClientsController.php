@@ -17,7 +17,8 @@ class ClientsController extends Controller
      */
     public function index()
     {
-       echo "home";
+        $data = Clients::find($id);
+        $press_release = PressReleases::where('clients_id', '=', $id)->first();
     }
 
     /**

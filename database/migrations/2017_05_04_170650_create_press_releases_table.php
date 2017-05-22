@@ -38,6 +38,7 @@ class CreatePressReleasesTable extends Migration
             $table->text('quote_emails')->nullable();
             $table->text('quote_phones')->nullable();
             $table->string('image')->nullable();
+            $table->integer('status')->default(1);
             $table->integer('clients_id');
             $table->timestamps();
         });

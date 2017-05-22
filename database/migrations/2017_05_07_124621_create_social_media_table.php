@@ -33,6 +33,7 @@ class CreateSocialMediaTable extends Migration
             $table->boolean('twitter')->nullable();
             $table->boolean('instagram')->nullable();
             $table->boolean('youtube')->nullable();
+            $table->integer('status')->default(1);
             $table->integer('clients_id');
             $table->timestamps();
         });

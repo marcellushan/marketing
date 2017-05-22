@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Video;
 use Illuminate\Http\Request;
 use Session;
+use DB;
 
 class VideoController extends Controller
 {
@@ -15,7 +16,8 @@ class VideoController extends Controller
      */
     public function index()
     {
-        //
+        $datas= DB::table('videos')->join('clients', 'videos.clients_id', '=', 'clients.id')->get();
+        return view('video.list')->with(compact('datas'));
     }
 
     /**

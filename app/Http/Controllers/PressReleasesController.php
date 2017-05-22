@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\PressReleases;
+use App\Comments;
 
 use Session;
 use URL;
+use DB;
 
 class PressReleasesController extends Controller
 {
@@ -18,7 +20,9 @@ class PressReleasesController extends Controller
      */
     public function index()
     {
-        //
+        $datas= DB::table('press_releases')->join('clients', 'press_releases.clients_id', '=', 'clients.id')->get();
+//        dd($data);
+        return view('press_release.list')->with(compact('datas'));
     }
 
     /**
@@ -78,8 +82,12 @@ class PressReleasesController extends Controller
     {
         $press_release = PressReleases::where('clients_id', '=', $id)->first();
 //        dd($press_release);
+        $comments = Comments::where('services_id', '=', $press_release->id)->get();
+
+        $service = 'press_release';
+//        dd($comments);
 //        (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
-        return view('press_release.show')->with(compact('press_release'));
+        return view('press_release.show')->with(compact('press_release', 'service','comments'));
     }
 
     /**

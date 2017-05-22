@@ -6,6 +6,7 @@ use App\DesignPrinting;
 use Illuminate\Http\Request;
 use Session;
 use URL;
+use DB;
 
 class DesignPrintingController extends Controller
 {
@@ -16,7 +17,8 @@ class DesignPrintingController extends Controller
      */
     public function index()
     {
-        //
+        $datas= DB::table('design_printings')->join('clients', 'design_printings.clients_id', '=', 'clients.id')->get();
+        return view('design_printing.list')->with(compact('datas'));
     }
 
     /**

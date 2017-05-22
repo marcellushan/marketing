@@ -6,6 +6,7 @@ use App\PaidAdvertising;
 use Illuminate\Http\Request;
 
 use Session;
+use DB;
 
 class PaidAdvertisingController extends Controller
 {
@@ -16,7 +17,8 @@ class PaidAdvertisingController extends Controller
      */
     public function index()
     {
-        //
+        $datas= DB::table('paid_advertisings')->join('clients', 'paid_advertisings.clients_id', '=', 'clients.id')->get();
+        return view('paid_advertising.list')->with(compact('datas'));
     }
 
     /**
