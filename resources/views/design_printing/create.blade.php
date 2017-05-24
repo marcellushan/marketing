@@ -7,7 +7,7 @@
             <div class="col-sm-8">
                 <div class="form-group">
                     <label for="usr"><div class="column_header">What do you need designed/printed?</div></label>
-                   <textarea class="form-control" rows="5" name="needs"></textarea>
+                   <textarea class="form-control" rows="5" name="details"></textarea>
                 </div>
             </div>
         </div>

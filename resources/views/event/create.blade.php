@@ -24,7 +24,7 @@
         <div class="col-sm-10">
             <div class="form-group">
                 <label>Name</label>
-                <input type="text" class="form-control" name="name">
+                <input type="text" class="form-control" name="details">
             </div>
         </div>
     </div>

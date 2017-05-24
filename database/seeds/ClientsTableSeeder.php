@@ -28,7 +28,7 @@ class ClientsTableSeeder extends Seeder
                ]);
                DB::table('press_releases')->insert([
                    'student_feature' => 1,
-                   'significant' => str_random(10),
+                   'details' => str_random(10),
                    'professional' => 'Pellentesque in ipsum id orci porta dapibus. 
                    Proin eget tortor risus. Sed porttitor lectus nibh. Curabitur 
                    aliquet quam id dui posuere blandit. Quisque velit nisi, pretium 
@@ -54,7 +54,7 @@ class ClientsTableSeeder extends Seeder
                    'clients_id' => $id
                ]);
                 DB::table('design_printings')->insert([
-                    'needs' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+                    'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                     'clients_id' => $id,
                     'students' => 1,
                     'payment_type' => 'Credit Card',
@@ -70,7 +70,7 @@ class ClientsTableSeeder extends Seeder
                 ]);
 
             DB::table('photos')->insert([
-                'requirements' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+                'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                 'clients_id' => $id,
                 'location' => str_random(10),
                 'use' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
@@ -80,6 +80,7 @@ class ClientsTableSeeder extends Seeder
             ]);
 
            DB::table('social_media')->insert([
+               'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                'media_type' => 'Post Rotation',
                'clients_id' => $id,
                'students' => 1,
@@ -88,7 +89,7 @@ class ClientsTableSeeder extends Seeder
            ]);
 
             DB::table('videos')->insert([
-            'requirements' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+            'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
             'clients_id' => $id,
             'faculty_staff'=> 1,
             'purpose' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
@@ -106,7 +107,7 @@ class ClientsTableSeeder extends Seeder
             ]);
 
                DB::table('presentations')->insert([
-                   'topic' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+                   'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                    'clients_id' => $id,
                    'students'=> 1,
                    'presentation_date' => '2017-05-01',
@@ -114,7 +115,7 @@ class ClientsTableSeeder extends Seeder
                ]);
 
            DB::table('events')->insert([
-               'name' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+               'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                'clients_id' => $id,
                'event_date' => '2017-05-01',
                'location' => str_random(10)

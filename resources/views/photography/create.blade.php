@@ -7,7 +7,7 @@
                  <div class="col-sm-10">
                      <div class="form-group">
                          <label>What/who needs to be photographed?</label>
-                         <textarea class="form-control" rows="5" name="requirements"></textarea>
+                         <textarea class="form-control" rows="5" name="details"></textarea>
                      </div>
                  </div>
              </div>

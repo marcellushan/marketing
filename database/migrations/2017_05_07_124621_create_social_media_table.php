@@ -15,6 +15,7 @@ class CreateSocialMediaTable extends Migration
     {
         Schema::create('social_media', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('details')->nullable();
             $table->string("media_type");
             $table->boolean('students')->nullable();
             $table->boolean('faculty_staff')->nullable();
@@ -23,7 +24,6 @@ class CreateSocialMediaTable extends Migration
             $table->text('facebook_text')->nullable();
             $table->text('twitter_text')->nullable();
             $table->string('image')->nullable();
-            $table->text('purpose')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();

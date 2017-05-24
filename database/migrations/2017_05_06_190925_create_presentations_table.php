@@ -15,7 +15,7 @@ class CreatePresentationsTable extends Migration
     {
         Schema::create('presentations', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('topic');
+            $table->text('details');
             $table->boolean('students')->nullable();
             $table->boolean('faculty_staff')->nullable();
             $table->boolean('community')->nullable();

@@ -87,7 +87,7 @@
                          <input type="checkbox" name="retirement" value="1">
                      </div>
                  </div>
-                @include('partials.textbox', ['title' => 'Why is this of significant news value? Briefly describe any key points', 'name' => 'significant'])
+                @include('partials.textbox', ['title' => 'Why is this of significant news value? Briefly describe any key points', 'name' => 'details'])
                 @include('partials.textbox', ['title' => 'In addition to media, to what other professional and corporate publication should we submit this story?', 'name' => 'professional'])
 
                  <div class="row">

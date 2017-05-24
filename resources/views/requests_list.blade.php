@@ -11,7 +11,7 @@
                             Name
                         </th>
                         <th>
-                            Summary
+                            Details
                         </th>
                         <th>
                             Due Date
@@ -23,10 +23,10 @@
                     @foreach($datas as $data)
                         <tr>
                             <td>{{$data->last_name}}, {{$data->first_name}}</td>
-                            <td>{{$data->significant}}</td>
+                            <td>{{$data->details}}</td>
                             
                             <td>{{$data->due_date}}</td>
-                            <td><a href="{{URL::to('/')}}/press_releases/{{$data->id}}">Details</a></td>
+                            <td><a href="{{URL::to('/')}}/{{$view_folder}}/{{$data->id}}">Specifics</a></td>
                         </tr>
                     @endforeach
                 </table>
@@ -55,9 +55,9 @@ Received
                     @foreach($recieveds as $recieved)
                         <tr>
                             <td>{{$recieved->last_name}}, {{$recieved->first_name}}</td>
-                            <td>{{$recieved->significant}}</td>
+                            <td>{{$recieved->details}}</td>
                             <td>{{$recieved->due_date}}</td>
-                            <td><a href="{{URL::to('/')}}/press_releases/{{$recieved->id}}">Details</a></td>
+                            <td><a href="{{URL::to('/')}}/{{$view_folder}}/{{$recieved->id}}">Specifics</a></td>
                         </tr>
                     @endforeach
                 </table>
@@ -87,9 +87,9 @@ Received
                     @foreach($recieveds as $recieved)
                         <tr>
                             <td>{{$recieved->last_name}}, {{$recieved->first_name}}</td>
-                            <td>{{$recieved->significant}}</td>
+                            <td>{{$recieved->details}}</td>
                             <td>{{$recieved->due_date}}</td>
-                            <td><a href="{{URL::to('/')}}/press_releases/{{$recieved->id}}">Details</a></td>
+                            <td><a href="{{URL::to('/')}}/{{$view_folder}}/{{$recieved->id}}">Specifics</a></td>
                         </tr>
                     @endforeach
                 </table>

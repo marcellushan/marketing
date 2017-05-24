@@ -15,6 +15,7 @@ class CreatePressReleasesTable extends Migration
     {
         Schema::create('press_releases', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('details')->nullable();
             $table->boolean('student_feature')->nullable();
             $table->boolean('departmental_news')->nullable();
             $table->boolean('student_news')->nullable();
@@ -27,7 +28,6 @@ class CreatePressReleasesTable extends Migration
             $table->boolean('award')->nullable();
             $table->boolean('employee_news')->nullable();
             $table->boolean('retirement')->nullable();
-            $table->text('significant')->nullable();
             $table->text('professional')->nullable();
             $table->string('promotional')->nullable();
             $table->boolean('students')->nullable();

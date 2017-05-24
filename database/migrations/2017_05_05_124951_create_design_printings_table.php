@@ -15,7 +15,7 @@ class CreateDesignPrintingsTable extends Migration
     {
         Schema::create('design_printings', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('needs')->nullable();
+            $table->text('details')->nullable();
             $table->boolean('students')->nullable();
             $table->boolean('faculty_staff')->nullable();
             $table->boolean('community')->nullable();

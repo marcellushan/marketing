@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use DB;
 use Session;
-
+use URL;
 
 class BaseController extends Controller
 {
@@ -27,9 +27,8 @@ class BaseController extends Controller
         $recieveds= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME  .'.clients_id', '=', 'clients.id')->where('status', '=', '1')->get();
         $progresses= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME  .'.clients_id', '=', 'clients.id')->where('status', '=', '2')->get();
         $media_name = $this::MEDIA_NAME;
-//
-//       dd($datas);
-        return view('requests_list')->with(compact('datas','recieveds','progresses', 'media_name'));
+        $view_folder = $this::VIEW_FOLDER;
+        return view('requests_list')->with(compact('datas','recieveds','progresses', 'media_name','view_folder'));
 //        echo $this::TABLE_NAME;
     }
 
@@ -40,7 +39,7 @@ class BaseController extends Controller
      */
     public function create()
     {
-        return view(static::MEDIA_TYPE . '.create');
+        return view($this::VIEW_FOLDER . '.create');
     }
 
     /**
@@ -51,7 +50,23 @@ class BaseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->file('image')) {
+            $file = $request->file('image');
+            //Move Uploaded File
+            $destinationPath = 'uploads';
+            $myRandom = rand(1, 10000);
+            $myPath = $myRandom . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $myPath);
+        }
+        $data = $request->all();
+        $model_name = $this::MODEL_NAME;
+        $service_type = new $model_name($data);
+        $service_type->fill($data);
+        $service_type->clients_id=Session::get('id');
+        ($request->file('image') ? $service_type->image=URL::to('/') . "/uploads/" . $myPath : "");
+        $service_type->save();
+        Session::put($this::VIEW_FOLDER,2);
+        return redirect('service');
     }
 
     /**
@@ -62,7 +77,12 @@ class BaseController extends Controller
      */
     public function show($id)
     {
-        //
+        $model_name = $this::MODEL_NAME;
+        $service_type = $model_name::where('clients_id', '=', $id)->first();
+        $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->get();
+        $service = $this::MODEL_NAME;
+        $service_name = $this::MEDIA_NAME;
+        return view($this::VIEW_FOLDER . '.show')->with(compact('service_type', 'service','comments','service_name'));
     }
 
     /**

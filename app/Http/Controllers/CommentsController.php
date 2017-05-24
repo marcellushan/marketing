@@ -14,7 +14,7 @@ class CommentsController extends Controller
 //       $data = $request->id();
 //        dd($request);
 //       echo $request->services_id;
-       $service= "App\\" . $request->service;
+       $service= $request->service;
        $data = $service::find($request->services_id);
        $data->status = $request->status;
        $data->save();

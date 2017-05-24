@@ -6,7 +6,7 @@
         <div class="col-sm-10">
             <div class="form-group">
                 <label>What/who do you need a video of?</label>
-                <textarea class="form-control" rows="5" name="requirements"></textarea>
+                <textarea class="form-control" rows="5" name="details"></textarea>
             </div>
         </div>
     </div>

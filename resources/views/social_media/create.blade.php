@@ -63,7 +63,7 @@ Do you have a graphic to accompany the post?
         <div class="col-sm-8 col-sm-offset-2">
             <div class="form-group">
                 <label>What is the purpose of the page?</label>
-                <textarea class="form-control" rows="5" name="purpose"></textarea>
+                <textarea class="form-control" rows="5" name="details"></textarea>
             </div>
         </div>
     </div>

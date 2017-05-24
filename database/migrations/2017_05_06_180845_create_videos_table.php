@@ -15,7 +15,7 @@ class CreateVideosTable extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('requirements');
+            $table->text('details');
             $table->boolean('students')->nullable();
             $table->boolean('faculty_staff')->nullable();
             $table->boolean('community')->nullable();
