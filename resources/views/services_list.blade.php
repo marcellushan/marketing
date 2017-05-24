@@ -6,29 +6,29 @@
             <h3><a href="{{URL::to('/')}}/press_releases"> Press Release</a></h3>
         </div>
         <div class="col-sm-3">
-            <h3>Design and Printing</h3>
+            <h3><a href="{{URL::to('/')}}/design_printing">Design and Printing</a></h3>
         </div>
         <div class="col-sm-3">
-            <h3>Photography</h3>
+            <h3><a href="{{URL::to('/')}}/photography">Photography</a></h3>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-3 col-sm-offset-2">
-            <h3>Videography</h3>
+            <h3><a href="{{URL::to('/')}}/videography">Videography</a></h3>
         </div>
         <div class="col-sm-3">
-            <h3>Paid Advertising</h3>
+            <h3><a href="{{URL::to('/')}}/paid_advertising">Paid Advertising</a></h3>
         </div>
         <div class="col-sm-3">
-            <h3>Presentation</h3>
+            <h3><a href="{{URL::to('/')}}/presentation">Presentation<a</h3>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-3 col-sm-offset-2">
-            <h3>Social Media</h3>
+            <h3><a href="{{URL::to('/')}}/social_media">Social Media</a></h3>
         </div>
         <div class="col-sm-3">
-            <h3>Event Aid</h3>
+            <h3><a href="{{URL::to('/')}}/event">Event Aid</a></h3>
         </div>
     </div>
 @endsection

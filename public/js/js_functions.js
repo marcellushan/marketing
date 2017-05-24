@@ -90,3 +90,22 @@ $(document).ready(function () {
     // alert("this");
 });
 
+$(document).ready(function(){
+    $("#recieved_button").click(function(){
+        $("#test").toggle();
+    });
+});
+
+$(document).ready(function(){
+    $("#all_button").click(function(){
+        $("#all").toggle();
+    });
+});
+
+// $(document).ready(function(){
+//     $("#received_button").click(function(){
+//         $("#received").toggle();
+//     });
+// });
+
+
