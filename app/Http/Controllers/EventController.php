@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Event;
 use Illuminate\Http\Request;
 
+use App\Comments;
 use Session;
 use URL;
 use DB;
@@ -59,9 +60,9 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::where('clients_id', '=', $id)->first();
-//        dd($press_release);
-//        (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
-        return view('event.show')->with(compact('event'));
+        $comments = Comments::where('services_id', '=', $event->id)->where('service', '=', 'Event')->get();
+        $service = 'Event';
+        return view('event.show')->with(compact('event', 'service','comments'));
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\SocialMedia;
 use Illuminate\Http\Request;
 
+use App\Comments;
 use Session;
 use URL;
 use DB;
@@ -67,9 +68,9 @@ class SocialMediaController extends Controller
     public function show($id)
     {
         $social_media = SocialMedia::where('clients_id', '=', $id)->first();
-//        dd($press_release);
-//        (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
-        return view('social_media.show')->with(compact('social_media'));
+        $comments = Comments::where('services_id', '=', $social_media->id)->where('service', '=', 'SocialMedia')->get();
+        $service = 'SocialMedia';
+        return view('social_media.show')->with(compact('social_media', 'service','comments'));
     }
 
     /**

@@ -11,19 +11,26 @@ use Session;
 use URL;
 use DB;
 
-class PressReleasesController extends Controller
+class PressReleasesController extends BaseController
 {
+    const MEDIA_NAME = "Press Releases";
+    const MODEL_NAME = 'PressReleases';
+    const VIEW_FOLDER = 'press_release';
+    const TABLE_NAME = 'press_releases';
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $datas= DB::table('press_releases')->join('clients', 'press_releases.clients_id', '=', 'clients.id')->get();
-//        dd($data);
-        return view('press_release.list')->with(compact('datas'));
-    }
+//    public function index()
+//    {
+//        $datas= DB::table('press_releases')->join('clients', 'press_releases.clients_id', '=', 'clients.id')->orderby('status')->get();
+//        $recieveds= DB::table('press_releases')->join('clients', 'press_releases.clients_id', '=', 'clients.id')->where('status', '=', '1')->get();
+//        $progresses= DB::table('press_releases')->join('clients', 'press_releases.clients_id', '=', 'clients.id')->where('status', '=', '2')->get();
+//
+//        dd($progresses);
+//        return view('requests_list')->with(compact('datas','recieveds','progresses'));
+//    }
 
     /**
      * Show the form for creating a new resource.

@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use DB;
 use Session;
 
 
 class BaseController extends Controller
 {
-    const MEDIA_TYPE = 'abstract';
+    const MEDIA_NAME = "abstract";
     const MODEL_NAME = 'abstract';
-    const SERVICE = 'abstract';
+    const VIEW_FOLDER = 'abstract';
+    const TABLE_NAME = 'abstract';
+
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +23,14 @@ class BaseController extends Controller
      */
     public function index()
     {
-       echo 'base';
+        $datas= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')->orderby('status')->get();
+        $recieveds= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME  .'.clients_id', '=', 'clients.id')->where('status', '=', '1')->get();
+        $progresses= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME  .'.clients_id', '=', 'clients.id')->where('status', '=', '2')->get();
+        $media_name = $this::MEDIA_NAME;
+//
+//       dd($datas);
+        return view('requests_list')->with(compact('datas','recieveds','progresses', 'media_name'));
+//        echo $this::TABLE_NAME;
     }
 
     /**

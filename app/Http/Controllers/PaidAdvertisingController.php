@@ -60,11 +60,6 @@ class PaidAdvertisingController extends Controller
     public function show($id)
     {
         $paid_advertising = PaidAdvertising::where('clients_id', '=', $id)->first();
-//        dd($press_release);
-//        (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
-//        return view('paid_advertising.show')->with(compact('paid_advertising'));
-
-//        $photography = Photo::where('clients_id', '=', $id)->first();
         $comments = Comments::where('services_id', '=', $paid_advertising->id)->where('service', '=', 'PaidAdvertising')->get();
         $service = 'PaidAdvertising';
         return view('paid_advertising.show')->with(compact('paid_advertising', 'service','comments'));

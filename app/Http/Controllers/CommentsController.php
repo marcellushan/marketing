@@ -13,12 +13,11 @@ class CommentsController extends Controller
 //      dd($request);
 //       $data = $request->id();
 //        dd($request);
+//       echo $request->services_id;
        $service= "App\\" . $request->service;
-       $data = $service::find(1);
+       $data = $service::find($request->services_id);
        $data->status = $request->status;
        $data->save();
-//       dd($data);
-//       echo "App\\"$request->service;
        if($request->comment) {
            $comment = new Comments;
            $comment->services_id = $request->services_id;
@@ -26,7 +25,7 @@ class CommentsController extends Controller
            $comment->comment = $request->comment;
            $comment->save();
        }
-//       Session::put('press_release',2);
+////       Session::put('press_release',2);
        return redirect('admin');
    }
 }

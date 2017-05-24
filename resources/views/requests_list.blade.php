@@ -1,6 +1,6 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
-    <h2>Press Releases</h2>
+    <h2>{{$media_name}}</h2>
     All {{count($datas)}}
     <div class="row">
         <div class="col-md-10">
@@ -14,9 +14,6 @@
                             Summary
                         </th>
                         <th>
-                            Status
-                        </th>
-                        <th>
                             Due Date
                         </th>
                         <th>
@@ -27,7 +24,7 @@
                         <tr>
                             <td>{{$data->last_name}}, {{$data->first_name}}</td>
                             <td>{{$data->significant}}</td>
-                            <td>{{$data->status}}</td>
+                            
                             <td>{{$data->due_date}}</td>
                             <td><a href="{{URL::to('/')}}/press_releases/{{$data->id}}">Details</a></td>
                         </tr>
@@ -49,9 +46,6 @@ Received
                             Summary
                         </th>
                         <th>
-                            Status
-                        </th>
-                        <th>
                             Due Date
                         </th>
                         <th>
@@ -62,7 +56,6 @@ Received
                         <tr>
                             <td>{{$recieved->last_name}}, {{$recieved->first_name}}</td>
                             <td>{{$recieved->significant}}</td>
-                            <td>{{$recieved->status}}</td>
                             <td>{{$recieved->due_date}}</td>
                             <td><a href="{{URL::to('/')}}/press_releases/{{$recieved->id}}">Details</a></td>
                         </tr>
@@ -85,9 +78,6 @@ Received
                             Summary
                         </th>
                         <th>
-                            Status
-                        </th>
-                        <th>
                             Due Date
                         </th>
                         <th>
@@ -98,7 +88,6 @@ Received
                         <tr>
                             <td>{{$recieved->last_name}}, {{$recieved->first_name}}</td>
                             <td>{{$recieved->significant}}</td>
-                            <td>{{$recieved->status}}</td>
                             <td>{{$recieved->due_date}}</td>
                             <td><a href="{{URL::to('/')}}/press_releases/{{$recieved->id}}">Details</a></td>
                         </tr>

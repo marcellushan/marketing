@@ -60,6 +60,10 @@ class ServiceController extends Controller
 
     }
 
+    public function servicesList()
+    {
+        return view('services_list');
+    }
 
 
 }

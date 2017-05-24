@@ -32,6 +32,7 @@ Route::resource('admin', 'AdminController');
 Route::get('service', 'ServiceController@index');
 Route::get('by_service', 'ServiceController@byService');
 Route::get('testmail', 'ServiceController@testMail');
+Route::get('services_list', 'ServiceController@servicesList');
 
 Route::post('update', 'CommentsController@update');
 

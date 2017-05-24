@@ -56,9 +56,5 @@
 {!! Form::close() !!}
 
 
-
-
-
-
 @endsection
 
