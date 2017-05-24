@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Video;
 use Illuminate\Http\Request;
+use App\Comments;
+
 use Session;
 use DB;
 
@@ -57,9 +59,9 @@ class VideoController extends Controller
     public function show($id)
     {
         $videography = Video::where('clients_id', '=', $id)->first();
-//        dd($press_release);
-//        (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
-        return view('video.show')->with(compact('videography'));
+        $comments = Comments::where('services_id', '=', $videography->id)->where('service', '=', 'Video')->get();
+        $service = 'Video';
+        return view('video.show')->with(compact('videography', 'service','comments'));
     }
 
     /**

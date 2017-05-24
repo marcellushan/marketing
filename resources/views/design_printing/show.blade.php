@@ -57,6 +57,18 @@
         <div class="col-sm-7 item"><a href="{{$design_printings->image}}">Link</a> </div>
     </div><p></p>
 
+    {!! Form::open(['url' => 'update']) !!}
+    {!! Form::hidden('service', $service) !!}
+    {!! Form::hidden('services_id', $design_printings->id) !!}
+
+    <div class="row">
+        <div class="col-sm-3 category">Status</div>
+        <div class="col-sm-8 item">{!! Form::select('status', ['1' => 'Received', '2' => 'In Progress', '3' => 'Awaiting Information', '4' => 'Awaiting Review', '5' => 'Complete']
+        , $design_printings->status); !!}</div>
+    </div>
+</div>
+</div>
+
 @component('components.comments', (compact('comments')))
 @endcomponent
 

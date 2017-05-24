@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\DesignPrinting;
 use Illuminate\Http\Request;
+use App\Comments;
+
 use Session;
 use URL;
 use DB;
@@ -65,9 +67,18 @@ class DesignPrintingController extends Controller
     public function show($id)
     {
         $design_printings = DesignPrinting::where('clients_id', '=', $id)->first();
+        $comments = Comments::where('services_id', '=', $design_printings->id)->where('service', '=', 'DesignPrinting')->get();
+        $service = 'DesignPrinting';
+        return view('design_printing.show')->with(compact('design_printings','service','comments'));
+
+//        $press_release = PressReleases::where('clients_id', '=', $id)->first();
 //        dd($press_release);
+//        $comments = Comments::where('services_id', '=', $press_release->id)->where('service', '=', 'PressReleases')->get();
+
+//        $service = 'PressReleases';
+//        dd($comments);
 //        (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
-        return view('design_printing.show')->with(compact('design_printings'));
+//        return view('press_release.show')->with(compact('press_release', 'service','comments'));
     }
 
     /**

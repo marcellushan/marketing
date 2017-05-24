@@ -1,4 +1,4 @@
-show@extends('layouts.app') @section('content')
+@extends('layouts.app') @section('content')
 <div class="main container">
 
     <h2 align="center">Presentation/Interview Preparation</h2>

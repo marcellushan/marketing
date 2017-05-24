@@ -13,17 +13,20 @@ class CommentsController extends Controller
 //      dd($request);
 //       $data = $request->id();
 //        dd($request);
-       $comment = new Comments;
-       $comment->service_id = $request->id;
-       $comment->service_type = $request->service;
-       $comment->comment = $request->comment;
-
-//       $press_release->fill($data);
-//       $press_release->clients_id=Session::get('id');
-//       $press_release->image=URL::to('/') . "/uploads/" . $myPath;
-//        dd($press_release);
-       $comment->save();
+       $service= "App\\" . $request->service;
+       $data = $service::find(1);
+       $data->status = $request->status;
+       $data->save();
+//       dd($data);
+//       echo "App\\"$request->service;
+       if($request->comment) {
+           $comment = new Comments;
+           $comment->services_id = $request->services_id;
+           $comment->service = $request->service;
+           $comment->comment = $request->comment;
+           $comment->save();
+       }
 //       Session::put('press_release',2);
-//       return redirect('service');
+       return redirect('admin');
    }
 }
