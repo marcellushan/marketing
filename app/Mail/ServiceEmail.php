@@ -10,7 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Session;
 use App\Clients;
 
-class MarketingRequest extends Mailable
+class ServiceEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -36,10 +36,5 @@ class MarketingRequest extends Mailable
 //        dd($press_release);
 
         return $this->view('emails.press_release')->with(compact('data', 'press_release'));
-
-//        return $this->from('marcjhannah@gmail.com')
-//            ->subject('tell me')
-//            ->view('emails.first')
-//            ->text('emails.second');
     }
 }

@@ -90,11 +90,11 @@ $(document).ready(function () {
     // alert("this");
 });
 
-$(document).ready(function(){
-    $("#recieved_button").click(function(){
-        $("#test").toggle();
-    });
-});
+// $(document).ready(function(){
+//     $("#recieved_button").click(function(){
+//         $("#test").toggle();
+//     });
+// });
 
 $(document).ready(function(){
     $("#all_button").click(function(){
@@ -102,10 +102,32 @@ $(document).ready(function(){
     });
 });
 
-// $(document).ready(function(){
-//     $("#received_button").click(function(){
-//         $("#received").toggle();
-//     });
-// });
+$(document).ready(function(){
+    $("#received_button").click(function(){
+        $("#received").toggle();
+    });
+});
 
+$(document).ready(function(){
+    $("#progress_button").click(function(){
+        $("#progress").toggle();
+    });
+});
 
+$(document).ready(function(){
+    $("#information_button").click(function(){
+        $("#information").toggle();
+    });
+});
+
+$(document).ready(function(){
+    $("#review_button").click(function(){
+        $("#review").toggle();
+    });
+});
+
+$(document).ready(function(){
+    $("#complete_button").click(function(){
+        $("#complete").toggle();
+    });
+});

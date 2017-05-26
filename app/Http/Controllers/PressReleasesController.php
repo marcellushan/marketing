@@ -12,5 +12,6 @@ class PressReleasesController extends BaseController
     const MODEL_NAME = 'App\\PressReleases';
     const VIEW_FOLDER = 'press_release';
     const TABLE_NAME = 'press_releases';
+    const MAIL = 'PressRelease';
 
 }

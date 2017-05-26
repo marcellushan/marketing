@@ -164,7 +164,27 @@ border-top-width: thin;
 
 }
 
-#test {
+#received {
 	display: none;
+
+}
+
+#progress {
+	display: none;
+
+}
+
+#information {
+    display: none;
+
+}
+
+#review {
+    display: none;
+
+}
+
+#complete {
+    display: none;
 
 }

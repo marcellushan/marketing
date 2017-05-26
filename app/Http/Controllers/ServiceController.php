@@ -47,7 +47,8 @@ class ServiceController extends Controller
 //        echo $data->email;
 //        dd($data);
 //        App/Clients::
-        \Mail::to($data->email)->send(new \App\Mail\MarketingRequest());
+        $which_mail = '\\App\\Mail\\MarketingRequest';
+        \Mail::to($data->email)->send(new $which_mail());
 //        \Mail::to('mhannah@highlands.edu')->send(new \App\Mail\MarketingRequest());
     }
 

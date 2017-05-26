@@ -10,8 +10,13 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Session;
 use App\Clients;
 
-class MarketingRequest extends Mailable
+class BaseEmail extends Mailable
 {
+    const MEDIA_NAME = "abstract";
+    const METHOD = 'abstract';
+    const VIEW_FOLDER = 'abstract';
+
+
     use Queueable, SerializesModels;
 
     /**
@@ -32,14 +37,10 @@ class MarketingRequest extends Mailable
     public function build()
     {
         $data = Clients::find(Session::get('id'));
-        $press_release = $data->pressRelease;
-//        dd($press_release);
-
-        return $this->view('emails.press_release')->with(compact('data', 'press_release'));
-
-//        return $this->from('marcjhannah@gmail.com')
-//            ->subject('tell me')
-//            ->view('emails.first')
-//            ->text('emails.second');
+        $service_method = $this::METHOD;
+        $service_name = $this::MEDIA_NAME;
+        $service_type = $data->$service_method;
+        $email_view = 'emails.' . $this::VIEW_FOLDER;
+        return $this->view('emails.services')->with(compact('data', 'service_type','service_name'));
     }
 }

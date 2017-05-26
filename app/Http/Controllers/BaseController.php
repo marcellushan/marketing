@@ -14,7 +14,7 @@ class BaseController extends Controller
     const MODEL_NAME = 'abstract';
     const VIEW_FOLDER = 'abstract';
     const TABLE_NAME = 'abstract';
-
+    const MAIL = 'abstract';
 
     /**
      * Display a listing of the resource.
@@ -24,11 +24,14 @@ class BaseController extends Controller
     public function index()
     {
         $datas= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')->orderby('status')->get();
-        $recieveds= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME  .'.clients_id', '=', 'clients.id')->where('status', '=', '1')->get();
+        $receiveds= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME  .'.clients_id', '=', 'clients.id')->where('status', '=', '1')->get();
         $progresses= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME  .'.clients_id', '=', 'clients.id')->where('status', '=', '2')->get();
+        $informations= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME  .'.clients_id', '=', 'clients.id')->where('status', '=', '3')->get();
+        $reviews= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME  .'.clients_id', '=', 'clients.id')->where('status', '=', '4')->get();
+        $completes= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME  .'.clients_id', '=', 'clients.id')->where('status', '=', '5')->get();
         $media_name = $this::MEDIA_NAME;
         $view_folder = $this::VIEW_FOLDER;
-        return view('requests_list')->with(compact('datas','recieveds','progresses', 'media_name','view_folder'));
+        return view('requests_list')->with(compact('datas','receiveds','progresses','informations', 'reviews', 'completes','media_name','view_folder'));
 //        echo $this::TABLE_NAME;
     }
 
@@ -65,8 +68,10 @@ class BaseController extends Controller
         $service_type->clients_id=Session::get('id');
         ($request->file('image') ? $service_type->image=URL::to('/') . "/uploads/" . $myPath : "");
         $service_type->save();
-        Session::put($this::VIEW_FOLDER,2);
-        return redirect('service');
+        $which_mail = '\\App\\Mail\\' . $this::MAIL;
+        \Mail::to('mhannah@highlands.edu')->send(new $which_mail());
+//        Session::put($this::VIEW_FOLDER,2);
+//        return redirect('service');
     }
 
     /**
