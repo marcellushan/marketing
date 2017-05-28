@@ -38,9 +38,11 @@ class BaseEmail extends Mailable
     {
         $data = Clients::find(Session::get('id'));
         $service_method = $this::METHOD;
+        $view_folder=$this::VIEW_FOLDER;
         $service_name = $this::MEDIA_NAME;
         $service_type = $data->$service_method;
-        $email_view = 'emails.' . $this::VIEW_FOLDER;
-        return $this->view('emails.services')->with(compact('data', 'service_type','service_name'));
+//        dd($service_type);
+//        $email_view = 'emails.' . $this::VIEW_FOLDER;
+        return $this->view('emails.services')->with(compact('data', 'service_type','service_name','view_folder'));
     }
 }

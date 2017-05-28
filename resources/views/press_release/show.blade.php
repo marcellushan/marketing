@@ -1,5 +1,3 @@
-@extends('layouts.app') @section('content')
-<div class="main container">
     <div class="row">
         <div class="title col-md-10 col-md-offset-2">{{$service_name}}</div>
     </div>
@@ -56,28 +54,13 @@
         <div class="col-sm-3 category">Phone</div>
         <div class="col-sm-8 item">{{$service_type->quote_phones}}</div>
     </div><p></p>
-    <div class="row">
-        <div class="col-sm-3 category">Documents</div>
-        <div class="col-sm-8 item"><a href="{{$service_type->image}}" >Link</a></div>
-    </div><p></p>
-    {!! Form::open(['url' => 'update']) !!}
-    {!! Form::hidden('service', $service) !!}
-    {!! Form::hidden('services_id', $service_type->id) !!}
+    @if($service_type->image)
+        <div class="row">
+            <div class="col-sm-3 category">Documents</div>
+            <div class="col-sm-7 item"><a href="{{$service_type->image}}">Link</a> </div>
+        </div>
+        @endif
 
-    <div class="row">
-        <div class="col-sm-3 category">Status</div>
-        <div class="col-sm-8 item">{!! Form::select('status', ['1' => 'Received', '2' => 'In Progress', '3' => 'Awaiting Information', '4' => 'Awaiting Review', '5' => 'Complete'], $service_type->status); !!}</div>
-    </div>
 </div>
 </div>
 
-
-        @component('components.comments', (compact('comments')))
-        @endcomponent
-
-        {!! Form::close() !!}
-
-              <p>
-
-
-@endsection

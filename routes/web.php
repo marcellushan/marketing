@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 
 Route::resource('clients', 'ClientsController');
-Route::resource('press_releases', 'PressReleasesController');
+Route::resource('press_release', 'PressReleasesController');
 Route::resource('design_printing', 'DesignPrintingController');
 Route::resource('photography', 'PhotoController');
 Route::resource('videography', 'VideoController');

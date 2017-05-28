@@ -13,4 +13,5 @@ class SocialMediaController extends BaseController
     const MODEL_NAME = 'App\\SocialMedia';
     const VIEW_FOLDER = 'social_media';
     const TABLE_NAME = 'social_media';
+    const MAIL = 'SocialMedia';
 }

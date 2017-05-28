@@ -13,4 +13,5 @@ class EventController extends BaseController
     const MODEL_NAME = 'App\\Event';
     const VIEW_FOLDER = 'event';
     const TABLE_NAME = 'events';
+    const MAIL = 'Event';
 }

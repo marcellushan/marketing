@@ -15,6 +15,7 @@ class PhotoController extends BaseController
     const MODEL_NAME = 'App\\Photo';
     const VIEW_FOLDER = 'photography';
     const TABLE_NAME = 'photos';
+    const MAIL = 'Photography';
 //
 //    /**
 //     * Display a listing of the resource.

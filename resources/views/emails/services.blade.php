@@ -7,13 +7,13 @@
             <h3 class="col-sm-10">Client: {{$data->first_name}} {{$data->last_name}}</h3>
         </div>
         <div class="row">
-            <h3 class="col-sm-10">Type: {{$service_name}}{{$service_type->id}}</h3>
+            <h3 class="col-sm-10">Type: {{$service_name}}</h3>
         </div>
         <div class="row">
             <h3 class="col-sm-10">Details: {{$service_type->details}}</h3>
         </div>
         <div class="row">
-            <h3 class="col-sm-10"><a href="{{URL::to('/')}}/" Details: {{$service_type->details}}</h3>
+            <h3 class="col-sm-10">Details: <a href="{{URL::to('/')}}/{{$view_folder}}/{{Session::get('id')}}">Link</a></h3>
         </div>
 
     </div>

@@ -12,4 +12,5 @@ class PaidAdvertisingController extends BaseController
     const MODEL_NAME = 'App\\PaidAdvertising';
     const VIEW_FOLDER = 'paid_advertising';
     const TABLE_NAME = 'paid_advertisings';
+    const MAIL = 'PaidAdvertising';
 }

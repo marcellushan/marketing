@@ -15,7 +15,7 @@ class Clients extends Model
         return $this->hasOne('App\PressReleases');
     }
 
-    public function designPrintings()
+    public function designPrinting()
     {
         return $this->hasOne('App\DesignPrinting');
     }

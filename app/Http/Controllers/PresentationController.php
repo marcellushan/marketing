@@ -14,6 +14,7 @@ class PresentationController extends BaseController
     const MODEL_NAME = 'App\\Presentation';
     const VIEW_FOLDER = 'presentation';
     const TABLE_NAME = 'presentations';
+    const MAIL = 'Presentation';
 
 
 }

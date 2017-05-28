@@ -68,9 +68,12 @@ class BaseController extends Controller
         $service_type->clients_id=Session::get('id');
         ($request->file('image') ? $service_type->image=URL::to('/') . "/uploads/" . $myPath : "");
         $service_type->save();
+        $url = $this::VIEW_FOLDER . '/' . Session::get('id');
         $which_mail = '\\App\\Mail\\' . $this::MAIL;
+//        dd($service_type);
         \Mail::to('mhannah@highlands.edu')->send(new $which_mail());
-//        Session::put($this::VIEW_FOLDER,2);
+        Session::put($this::VIEW_FOLDER,2);
+        return redirect($url);
 //        return redirect('service');
     }
 
@@ -84,10 +87,13 @@ class BaseController extends Controller
     {
         $model_name = $this::MODEL_NAME;
         $service_type = $model_name::where('clients_id', '=', $id)->first();
+//        dd($service_type);
         $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->get();
+        $view_folder = $this::VIEW_FOLDER;
         $service = $this::MODEL_NAME;
         $service_name = $this::MEDIA_NAME;
-        return view($this::VIEW_FOLDER . '.show')->with(compact('service_type', 'service','comments','service_name'));
+        return view($this::VIEW_FOLDER . '.client')->with(compact('service_type', 'service','comments','service_name'));
+//        return view('test.show')->with(compact('service_type', 'service','comments','service_name','view_folder'));
     }
 
     /**

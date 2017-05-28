@@ -69,7 +69,7 @@ class ClientsController extends Controller
     {
         $data = Clients::find($id);
         (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
-        (@$data->designPrintings ? $design_printings = $data->designPrintings : $design_printings = '');
+        (@$data->designPrintings ? $design_printing = $data->designPrintings : $design_printings = '');
         (@$data->photography ? $photography = $data->photography : $photography = '');
         (@$data->videography ? $videography = $data->videography : $videography = '');
         (@$data->paidAdvertising ? $paid_advertising = $data->paidAdvertising : $paid_advertising = '');
@@ -77,7 +77,7 @@ class ClientsController extends Controller
         (@$data->socialMedia ? $social_media = $data->socialMedia : $social_media = '');
         (@$data->event ? $event = $data->event : $event = '');
 //        dd($photography);
-        return view('show')->with(compact('data','press_release', 'design_printings','photography','videography','paid_advertising','presentation','social_media','event'));
+        return view('show')->with(compact('data','press_release', 'design_printing','photography','videography','paid_advertising','presentation','social_media','event'));
     }
 
     /**

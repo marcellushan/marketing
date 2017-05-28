@@ -13,5 +13,6 @@ class DesignPrintingController extends BaseController
     const MODEL_NAME = 'App\\DesignPrinting';
     const VIEW_FOLDER = 'design_printing';
     const TABLE_NAME = 'design_printings';
+    const MAIL = 'DesignPrinting';
 
 }

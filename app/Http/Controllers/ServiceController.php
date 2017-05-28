@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Clients;
+use App\Mail\ClientMail;
 use Illuminate\Http\Request;
 
 use Session;
@@ -13,7 +14,7 @@ class ServiceController extends Controller
     public function index()
     {
         if(Session::get('press_release')==1) {
-            return redirect('press_releases/create');
+            return redirect('press_release/create');
         }
         if(Session::get('design_printing')==1) {
             return redirect('design_printing/create');
@@ -36,8 +37,9 @@ class ServiceController extends Controller
         if(Session::get('event')==1) {
             return redirect('event/create');
         }
-
-        return redirect('clients/' . Session::get('id'));
+        \Mail::to('mhannah@highlands.edu')->send(new ClientMail());
+        return view('thankyou');
+//        return redirect('clients/' . Session::get('id'));
 //        return redirect()->route('clients', [Session::get('id')]);
     }
 

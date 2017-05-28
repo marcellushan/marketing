@@ -35,7 +35,7 @@
 
     <div class="row">
     @if($press_release)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/press_releases/{{$data->id}}"> Press Release/Media Advisory</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/press_release/{{$data->id}}"> Press Release/Media Advisory</a></h2>
     @endif
 
     @if($design_printings)
