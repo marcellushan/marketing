@@ -37,7 +37,7 @@
         </div>
     </div>
     @if(count($receiveds) > 0)
-    <button id="received_button">Click to show Received</button>Total:{{count($receiveds)}}<p></p>
+    <button id="received_button" class="btn-info btn-lg">Click to show Received</button><h2>Total:{{count($receiveds)}}</h2>
         <div id="received">
             Received
         <div class="row">
@@ -111,7 +111,7 @@
     @if(count($informations) > 0)
         <button id="information_button">Click to show Awaiting Information</button>Total:{{count($informations)}}<p></p>
         <div id="information">
-            In Progress
+            Awaiting Information
             <div class="row">
                 <div class="col-md-10">
                     <div class="table-responsive">

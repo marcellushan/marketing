@@ -1,4 +1,5 @@
 <div class="well">
+    @if($comments)
     <div class="row">
         <div class="col-sm-3 category">Previous Comments</div>
         <div class="col-sm-8 item">
@@ -16,9 +17,9 @@
                 </div>
                 <p></p>
             @endforeach
-
         </div>
     </div>
+    @endif
         <div class="row">
             <div class="col-sm-10">
                 <div class="form-group">

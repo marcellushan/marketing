@@ -35,35 +35,35 @@
 
     <div class="row">
     @if($press_release)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/press_release/{{$data->id}}"> Press Release/Media Advisory</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/press_release/admin/{{$data->id}}"> Press Release/Media Advisory</a></h2>
     @endif
 
-    @if($design_printings)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/design_printing/{{$data->id}}"> Design and Printing</a></h2>
+    @if($design_printing)
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/design_printing/admin/{{$data->id}}"> Design and Printing</a></h2>
     @endif
 
     @if($photography)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/photography/{{$data->id}}">Photography</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/photography/admin/{{$data->id}}">Photography</a></h2>
     @endif
 
     @if($videography)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/videography/{{$data->id}}">Videography</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/videography/admin/{{$data->id}}">Videography</a></h2>
     @endif
 
     @if($paid_advertising)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/paid_advertising/{{$data->id}}">Paid Advertising</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/paid_advertising/admin/{{$data->id}}">Paid Advertising</a></h2>
     @endif
 
     @if($presentation)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/presentation/{{$data->id}}"> Presentation</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/presentation/admin/{{$data->id}}"> Presentation</a></h2>
     @endif
 
     @if($social_media)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/social_media/{{$data->id}}"> Social Media</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/social_media/admin/{{$data->id}}"> Social Media</a></h2>
     @endif
 
     @if($event)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/event/{{$data->id}}"> Event Aid</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/event/admin/{{$data->id}}"> Event Aid</a></h2>
     @endif
 </div>
 

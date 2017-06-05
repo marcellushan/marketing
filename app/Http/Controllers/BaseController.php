@@ -129,4 +129,23 @@ class BaseController extends Controller
     {
         //
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function admin($id)
+    {
+        $model_name = $this::MODEL_NAME;
+        $service_type = $model_name::where('clients_id', '=', $id)->first();
+//        dd($service_type);
+        $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->get();
+        $view_folder = $this::VIEW_FOLDER;
+        $service = $this::MODEL_NAME;
+        $service_name = $this::MEDIA_NAME;
+        return view('admin')->with(compact('service_type', 'service','comments','service_name','view_folder'));
+//        return view('test.show')->with(compact('service_type', 'service','comments','service_name','view_folder'));
+    }
 }
