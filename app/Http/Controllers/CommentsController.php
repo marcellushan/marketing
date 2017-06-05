@@ -15,6 +15,7 @@ class CommentsController extends Controller
 //        dd($request);
 //       echo $request->services_id;
        $service= $request->service;
+       $service_name = ltrim($service, 'App\\');
        $data = $service::find($request->services_id);
        $data->status = $request->status;
        $data->save();
@@ -26,6 +27,6 @@ class CommentsController extends Controller
            $comment->save();
        }
 ////       Session::put('press_release',2);
-       return redirect('admin');
+       return redirect('service/' . $service_name);
    }
 }

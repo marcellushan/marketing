@@ -6,6 +6,7 @@ use App\Clients;
 use App\Mail\ClientMail;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Str;
 use Session;
 
 class ServiceController extends Controller
@@ -66,6 +67,41 @@ class ServiceController extends Controller
     public function servicesList()
     {
         return view('services_list');
+    }
+
+    public function serviceName($service)
+    {
+        if ($service == 'PressReleases') {
+            return redirect('press_release');
+        }
+
+        if ($service == 'DesignPrinting') {
+            return redirect('design_printing');
+        }
+
+        if ($service == 'Photo') {
+            return redirect('photography');
+        }
+
+        if ($service == 'Video') {
+            return redirect('videography');
+        }
+
+        if ($service == 'PaidAdvertising') {
+            return redirect('paid_advertising');
+        }
+
+        if ($service == 'Presentation') {
+            return redirect('presentation');
+        }
+
+        if ($service == 'SocialMedia') {
+            return redirect('social_media');
+        }
+
+        if ($service == 'Event') {
+            return redirect('event');
+        }
     }
 
 

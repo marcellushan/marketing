@@ -1,45 +1,11 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
-    <h2>{{$media_name}}</h2>
-    <button id="all_button">Click to show All</button>Total:{{count($datas)}}<p></p>
-    <div id="all">
-        All {{count($datas)}}
-        <div class="row">
-            <div class="col-md-10">
-                <div class="table-responsive">
-                    <table class="table">
-                        <tr>
-                            <th>
-                                Name
-                            </th>
-                            <th>
-                                Details
-                            </th>
-                            <th>
-                                Due Date
-                            </th>
-                            <th>
-
-                            </th>
-                        </tr>
-                        @foreach($datas as $data)
-                            <tr>
-                                <td>{{$data->last_name}}, {{$data->first_name}}</td>
-                                <td>{{$data->details}}</td>
-
-                                <td>{{$data->due_date}}</td>
-                                <td><a href="{{URL::to('/')}}/{{$view_folder}}/{{$data->id}}">Specifics</a></td>
-                            </tr>
-                        @endforeach
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h1 align="center">{{$media_name}}</h1>
     @if(count($receiveds) > 0)
-    <button id="received_button" class="btn-info btn-lg">Click to show Received</button><h2>Total:{{count($receiveds)}}</h2>
-        <div id="received">
-            Received
+    {{--<button id="received_button" class="btn-info btn-lg">Click to show Received</button><h2>Total:{{count($receiveds)}}</h2>--}}
+        {{--<div id="received">--}}
+            <h2>Received</h2>
+        <p></p>Total number of requests:{{count($receiveds)}}<p></p>
         <div class="row">
             <div class="col-md-10">
                 <div class="table-responsive">
@@ -52,6 +18,9 @@
                                 Summary
                             </th>
                             <th>
+                               Date Received
+                            </th>
+                            <th>
                                 Due Date
                             </th>
                             <th>
@@ -62,8 +31,9 @@
                             <tr>
                                 <td>{{$received->last_name}}, {{$received->first_name}}</td>
                                 <td>{{$received->details}}</td>
-                                <td>{{$received->due_date}}</td>
-                                <td><a href="{{URL::to('/')}}/{{$view_folder}}/{{$received->id}}">Specifics</a></td>
+                                <td>{{date_format(date($received->created_at), 'F d Y')}}</td>
+                                <td>{{date_format(date_create($received->created_at), 'F d Y')}}</td>
+                                <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$received->id}}">Specifics</a></td>
                             </tr>
                         @endforeach
                     </table>
@@ -73,9 +43,9 @@
     </div>
     @endif
     @if(count($progresses) > 0)
-        <button id="progress_button">Click to show In Progress</button>Total:{{count($progresses)}}<p></p>
+        <button id="progress_button"  class="btn-default btn-lg">Click to show In Progress Requests</button>
+        <p></p>Total number of requests:{{count($progresses)}}<p></p>
         <div id="progress">
-            In Progress
             <div class="row">
                 <div class="col-md-10">
                     <div class="table-responsive">
@@ -99,7 +69,7 @@
                                     <td>{{$progress->last_name}}, {{$progress->first_name}}</td>
                                     <td>{{$progress->details}}</td>
                                     <td>{{$progress->due_date}}</td>
-                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/{{$progress->id}}">Specifics</a></td>
+                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$progress->id}}">Specifics</a></td>
                                 </tr>
                             @endforeach
                         </table>
@@ -109,7 +79,8 @@
         </div>
     @endif
     @if(count($informations) > 0)
-        <button id="information_button">Click to show Awaiting Information</button>Total:{{count($informations)}}<p></p>
+        <button id="information_button"  class="btn-danger btn-lg">Click to show Requests Awaiting Information</button>
+        <p></p>Total number of requests:{{count($informations)}}<p></p>
         <div id="information">
             Awaiting Information
             <div class="row">
@@ -135,7 +106,7 @@
                                     <td>{{$information->last_name}}, {{$information->first_name}}</td>
                                     <td>{{$information->details}}</td>
                                     <td>{{$information->due_date}}</td>
-                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/{{$information->id}}">Specifics</a></td>
+                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$information->id}}">Specifics</a></td>
                                 </tr>
                             @endforeach
                         </table>
@@ -145,9 +116,9 @@
         </div>
     @endif
     @if(count($reviews) > 0)
-        <button id="review_button">Click to show Awaiting Review</button>Total:{{count($reviews)}}<p></p>
+        <button id="review_button"  class="btn-warning btn-lg">Click to show Requests Awaiting Review</button>
+        <p></p>Total number of requests:{{count($reviews)}}<p></p>
         <div id="review">
-            In Progress
             <div class="row">
                 <div class="col-md-10">
                     <div class="table-responsive">
@@ -171,7 +142,7 @@
                                     <td>{{$review->last_name}}, {{$review->first_name}}</td>
                                     <td>{{$review->details}}</td>
                                     <td>{{$review->due_date}}</td>
-                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/{{$review->id}}">Specifics</a></td>
+                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$review->id}}">Specifics</a></td>
                                 </tr>
                             @endforeach
                         </table>
@@ -182,9 +153,9 @@
     @endif
 
     @if(count($completes) > 0)
-        <button id="complete_button">Click to show Complete</button>Total:{{count($completes)}}<p></p>
+        <button id="complete_button" class="btn-success btn-lg">Click to show Completed Requests</button>
+        <p>Total Number of Requests:{{count($completes)}}<p></p>
         <div id="complete">
-            In Progress
             <div class="row">
                 <div class="col-md-10">
                     <div class="table-responsive">
@@ -208,7 +179,7 @@
                                     <td>{{$complete->last_name}}, {{$complete->first_name}}</td>
                                     <td>{{$complete->details}}</td>
                                     <td>{{$complete->due_date}}</td>
-                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/{{$complete->id}}">Specifics</a></td>
+                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$complete->id}}">Specifics</a></td>
                                 </tr>
                             @endforeach
                         </table>
@@ -217,5 +188,41 @@
             </div>
         </div>
 @endif
+
+<button id="all_button"  class="btn-info btn-lg">Click to show All Requests</button>
+<p>Total Number of Requests:{{count($datas)}}<p></p>
+<div id="all">
+<div class="row">
+<div class="col-md-10">
+<div class="table-responsive">
+<table class="table">
+<tr>
+<th>
+Name
+</th>
+<th>
+Details
+</th>
+<th>
+Due Date
+</th>
+<th>
+
+</th>
+</tr>
+@foreach($datas as $data)
+<tr>
+<td>{{$data->last_name}}, {{$data->first_name}}</td>
+<td>{{$data->details}}</td>
+
+<td>{{$data->due_date}}</td>
+<td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$data->id}}">Specifics</a></td>
+</tr>
+@endforeach
+</table>
+</div>
+</div>
+</div>
+</div>
 @endsection
 

@@ -1,4 +1,5 @@
 @extends('layouts.app') @section('content')
-    @include('paid_advertising.show')
+    @include($view_folder  . '.show')
+    @include('partials.client_status')
     @include('partials.accept')
 @endsection

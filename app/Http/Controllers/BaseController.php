@@ -92,7 +92,25 @@ class BaseController extends Controller
         $view_folder = $this::VIEW_FOLDER;
         $service = $this::MODEL_NAME;
         $service_name = $this::MEDIA_NAME;
-        return view($this::VIEW_FOLDER . '.client')->with(compact('service_type', 'service','comments','service_name'));
+        switch ($service_type->status) {
+            case 1:
+                $status = 'Received';
+                break;
+            case 2:
+                $status = 'In Progress';
+                break;
+            case 3:
+                $status = 'Awaiting Information';
+                break;
+            case 4:
+                $status = 'Awaiting Review';
+                break;
+            case 5:
+                $status = 'Completed';
+                break;
+        }
+//        dd($service_type);
+        return view('client')->with(compact('service_type', 'service','comments','service_name','view_folder','status'));
 //        return view('test.show')->with(compact('service_type', 'service','comments','service_name','view_folder'));
     }
 

@@ -38,6 +38,7 @@ Route::get('event/admin/{id}', 'EventController@admin');
 Route::resource('admin', 'AdminController');
 
 Route::get('service', 'ServiceController@index');
+Route::get('service/{name}', 'ServiceController@serviceName');
 Route::get('by_service', 'ServiceController@byService');
 Route::get('testmail', 'ServiceController@testMail');
 Route::get('services_list', 'ServiceController@servicesList');
