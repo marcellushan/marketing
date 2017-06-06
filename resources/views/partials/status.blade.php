@@ -4,6 +4,7 @@
         {!! Form::open(['url' => 'update']) !!}
         {!! Form::hidden('service', $service) !!}
         {!! Form::hidden('services_id', $service_type->id) !!}
+        {!! Form::hidden('clients_id', $service_type->clients_id) !!}
 
         <div class="row">
             <div class="col-sm-3 category">Status</div>

@@ -31,8 +31,8 @@
                             <tr>
                                 <td>{{$received->last_name}}, {{$received->first_name}}</td>
                                 <td>{{$received->details}}</td>
-                                <td>{{date_format(date($received->created_at), 'F d Y')}}</td>
-                                <td>{{date_format(date_create($received->created_at), 'F d Y')}}</td>
+                                <td>{{$received->created_at}}</td>
+                                <td>{{$received->created_at}}</td>
                                 <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$received->id}}">Specifics</a></td>
                             </tr>
                         @endforeach

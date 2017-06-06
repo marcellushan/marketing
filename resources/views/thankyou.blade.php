@@ -1,3 +1,3 @@
 @extends('layouts.app') @section('content')
-Thank you
+<h2>Your Marketing Communications request has been submitted.</h2>
 @endsection

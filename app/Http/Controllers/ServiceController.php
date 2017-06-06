@@ -38,9 +38,9 @@ class ServiceController extends Controller
         if(Session::get('event')==1) {
             return redirect('event/create');
         }
-        \Mail::to('mhannah@highlands.edu')->send(new ClientMail());
-        return view('thankyou');
-//        return redirect('clients/' . Session::get('id'));
+//        \Mail::to('mhannah@highlands.edu')->send(new ClientMail());
+//        return view('thankyou');
+        return redirect('clients/thank_you/' . Session::get('id'));
 //        return redirect()->route('clients', [Session::get('id')]);
     }
 

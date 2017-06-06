@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Clients;
+use App\Mail\ClientMail;
 
 use Session;
 
@@ -112,5 +113,12 @@ class ClientsController extends Controller
     public function destroy($id)
     {
         Clients::destroy($id);
+    }
+
+    public function thankYou($id)
+    {
+        $data = Clients::find($id);
+        \Mail::to($data->email)->send(new ClientMail());
+        return view('thankyou');
     }
 }

@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 
 Route::resource('clients', 'ClientsController');
+Route::get('clients/thank_you/{id}', 'ClientsController@thankYou');
 Route::resource('press_release', 'PressReleasesController');
 Route::get('press_release/admin/{id}', 'PressReleasesController@admin');
 Route::resource('design_printing', 'DesignPrintingController');

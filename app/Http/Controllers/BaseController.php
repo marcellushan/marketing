@@ -63,6 +63,7 @@ class BaseController extends Controller
         }
         $data = $request->all();
         $model_name = $this::MODEL_NAME;
+        $email = $this::VIEW_FOLDER;
         $service_type = new $model_name($data);
         $service_type->fill($data);
         $service_type->clients_id=Session::get('id');
@@ -70,8 +71,20 @@ class BaseController extends Controller
         $service_type->save();
         $url = $this::VIEW_FOLDER . '/' . Session::get('id');
         $which_mail = '\\App\\Mail\\' . $this::MAIL;
-//        dd($service_type);
-        \Mail::to('mhannah@highlands.edu')->send(new $which_mail());
+        if($this::VIEW_FOLDER == 'design_printing') {
+            $mailgroup = 'PRINTING';
+        } elseif($this::VIEW_FOLDER == 'photography' || $this::VIEW_FOLDER == 'videography') {
+            $mailgroup = 'GRAPHY';
+        } elseif ($this::VIEW_FOLDER == 'event') {
+            $mailgroup = 'EVERYONE';
+        }  else {
+            $mailgroup = 'MARKETING';
+        }
+
+        $to = explode(',', env($mailgroup));
+        \Mail::to($to)
+            ->cc('mhannah@highlands.edu')
+            ->send(new $which_mail());
         Session::put($this::VIEW_FOLDER,2);
         return redirect($url);
 //        return redirect('service');
