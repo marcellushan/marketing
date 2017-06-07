@@ -1,7 +1,7 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
         <h1>Videography</h1>
-    {{Form::open(array('url' => 'videography'))}}
+    {{Form::open(array('url' => 'videography','id'=>'videography'))}}
     <div class="row">
         <div class="col-sm-10">
             <div class="form-group">

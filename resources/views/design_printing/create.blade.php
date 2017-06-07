@@ -1,6 +1,6 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
-    {{Form::open(array('url' => 'design_printing','files'=>'true'))}}
+    {{Form::open(array('url' => 'design_printing','files'=>'true','id'=>'design_printing'))}}
 
     <div class="form-group col-sm-12">
         <div class="row">
@@ -11,7 +11,7 @@
                 </div>
             </div>
         </div>
-
+        <h3>For information on printing costs <a href="{{URL::to('/')}}/documents/2016_Price_List.pdf" target="_blank">click here.</a></h3>
             @include('partials.audience')
 
                         <!-- Text input-->
@@ -49,7 +49,7 @@
                         <h4>GRANT NUMBER IS REQUIRED</h4>
                     </div>
                     <div class="col-sm-5">
-                        <input name="grant_number" type="text"  maxlength="20" placeholder="Grant Number (required)" class="form-control" id="grant_field" value="<? echo @$_POST['empName'] ?>">
+                        <input name="grant_number" type="text"  maxlength="20" placeholder="Grant Number (required)" class="form-control" id="grant_field" value="<? echo @$_POST['empName'] ?>" required>
                     </div>
                 </div>
 
@@ -69,7 +69,7 @@
     </div>
     <div class="col-sm-6">
         <label for="usr"><div class="column_header">Date Needed: </div></label><input type="date" id="startDate" id="startDate"
-                                                                                      placeholder="mm/dd/yyyy" name="date_needed" min="2015-10-20" ><br>
+                                                                                      placeholder="YYYY-MM-DD" name="date_needed" min="2015-10-20" ><br>
     </div>
 </div>
 <br />

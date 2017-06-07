@@ -12,7 +12,10 @@ class StatusUpdate extends Mailable
     use Queueable, SerializesModels;
 
     public $status;
+    public $data;
     public $comment;
+    public $view_folder;
+    public $media_name;
 
 
     /**
@@ -20,10 +23,13 @@ class StatusUpdate extends Mailable
      *
      * @return void
      */
-    public function __construct($status, $comment='')
+    public function __construct($status, $data, $comment='', $view_folder, $media_name)
     {
         $this->status = $status;
+        $this->data = $data;
         $this->comment = $comment;
+        $this->view_folder = $view_folder;
+        $this->media_name = $media_name;
     }
 
     /**
@@ -33,6 +39,7 @@ class StatusUpdate extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.status_update');
+        return $this->from('webmaster@highlands.edu')
+                ->view('emails.status_update');
     }
 }

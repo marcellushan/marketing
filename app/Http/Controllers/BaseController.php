@@ -179,4 +179,34 @@ class BaseController extends Controller
         return view('admin')->with(compact('service_type', 'service','comments','service_name','view_folder'));
 //        return view('test.show')->with(compact('service_type', 'service','comments','service_name','view_folder'));
     }
+
+    public function returnShow($id)
+    {
+        $model_name = $this::MODEL_NAME;
+        $service_type = $model_name::where('clients_id', '=', $id)->first();
+//        dd($service_type);
+        $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->get();
+        $view_folder = $this::VIEW_FOLDER;
+        $service = $this::MODEL_NAME;
+        $service_name = $this::MEDIA_NAME;
+        switch ($service_type->status) {
+            case 1:
+                $status = 'Received';
+                break;
+            case 2:
+                $status = 'In Progress';
+                break;
+            case 3:
+                $status = 'Awaiting Information';
+                break;
+            case 4:
+                $status = 'Awaiting Review';
+                break;
+            case 5:
+                $status = 'Completed';
+                break;
+        }
+//        dd($service_type);
+        return view('return')->with(compact('service_type', 'service','comments','service_name','view_folder','status'));
+    }
 }

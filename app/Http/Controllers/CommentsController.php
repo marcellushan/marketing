@@ -18,6 +18,7 @@ class CommentsController extends Controller
 //       echo $request->services_id;
        $service= $request->service;
        $service_name = ltrim($service, 'App\\');
+       $media_name = $request->service_name;
        $data = $service::find($request->services_id);
        $data->status = $request->status;
        $data->save();
@@ -50,10 +51,11 @@ class CommentsController extends Controller
            $comment->save();
        }
 ////       Session::put('press_release',2);
+//       dd($request);
 
        $client = Clients::find($request->clients_id);
 
-       \Mail::to($client->email)->send(new StatusUpdate($status, $comment));
+       \Mail::to($client->email)->send(new StatusUpdate($status, $data, $comment, $request->view_folder, $media_name));
        return redirect('service/' . $service_name);
    }
 }

@@ -29,13 +29,6 @@ $(document).ready(function () {
         if($("input[name=media_type]:checked").val()=='Starting New Page') {
             $("#new_page").css("display", "block");
             $("#post").css("display", "none");
-            // $(".fund").attr("required","");
-            // $("#grant_field").removeAttr("required");
-        // } else if($("input[name=media_type]:checked").val()=='Grant')  {
-        //     $("#transfer").css("display", "none");
-        //     $("#grant").css("display", "block");
-        //     $("#grant_field").attr("required","");
-        //     $(".fund").removeAttr("required");
         } else {
             $("#new_page").css("display", "none");
             $("#post").css("display", "block");
@@ -72,17 +65,8 @@ $(document).ready(function () {
     $("input[name=GHC]:radio").change(function () {
         if($("input[name=GHC]:checked").val()==1) {
             $("#GHC").css("display", "block");
-            // $("#post").css("display", "none");
-            // $(".fund").attr("required","");
-            // $("#grant_field").removeAttr("required");
-            // } else if($("input[name=media_type]:checked").val()=='Grant')  {
-            //     $("#transfer").css("display", "none");
-            //     $("#grant").css("display", "block");
-            //     $("#grant_field").attr("required","");
-            //     $(".fund").removeAttr("required");
         } else {
             $("#GHC").css("display", "none");
-            // $("#post").css("display", "block");
         }
 
 
@@ -90,11 +74,6 @@ $(document).ready(function () {
     // alert("this");
 });
 
-// $(document).ready(function(){
-//     $("#recieved_button").click(function(){
-//         $("#test").toggle();
-//     });
-// });
 
 $(document).ready(function(){
     $("#all_button").click(function(){

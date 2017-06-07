@@ -1,6 +1,6 @@
 <div class="row">
     <h3 class="col-md-6">
-        Audience
+        Target Audience
     </h3>
 </div>
 <div class="row">

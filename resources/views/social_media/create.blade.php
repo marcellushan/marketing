@@ -1,7 +1,7 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
         <h1>Social Media</h1>
-    {{Form::open(array('url' => 'social_media','files'=>'true'))}}
+    {{Form::open(array('url' => 'social_media','files'=>'true','id'=>'social_media'))}}
        <div class="row">
         <h3 class="col-sm-6">
             Request Type

@@ -43,6 +43,7 @@ class BaseEmail extends Mailable
         $service_type = $data->$service_method;
 //        dd($service_type);
 //        $email_view = 'emails.' . $this::VIEW_FOLDER;
-        return $this->view('emails.services')->with(compact('data', 'service_type','service_name','view_folder'));
+        return $this->from('webmaster@highlands.edu')
+                    ->view('emails.services')->with(compact('data', 'service_type','service_name','view_folder'));
     }
 }

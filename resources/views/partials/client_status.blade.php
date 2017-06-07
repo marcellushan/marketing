@@ -5,4 +5,3 @@
             <div class="col-sm-7 item">{{$status}}</div>
         </div><p></p>
     </div>
-    </div>

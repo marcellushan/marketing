@@ -1,7 +1,7 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
         <h1>Event Aid</h1>
-    {{Form::open(array('url' => 'event'))}}
+    {{Form::open(array('url' => 'event','id'=>'event'))}}
 
         <h3>
             Is this request for a GHC event?

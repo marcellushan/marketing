@@ -1,11 +1,11 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
     <div class="row">
-        <h3 class="col-sm-8 col-sm-offset-3">
-            Marketing Service Form
-        </h3>
+        <h2 class="col-sm-8 col-sm-offset-3">
+            Marcom Service Form
+        </h2>
     </div>
-    {{Form::open(array('url' => 'clients'))}}
+    {{Form::open(array('url' => 'clients', 'id' => 'client'))}}
          <div class="row">
             <div class="col-sm-5">
                 <div class="form-group">

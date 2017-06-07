@@ -1,7 +1,7 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
     <h1>Photography</h1>
-    {{Form::open(array('url' => 'photography'))}}
+    {{Form::open(array('url' => 'photography','id'=>'photography'))}}
 
              <div class="row">
                  <div class="col-sm-10">
@@ -23,7 +23,7 @@
         <div class="col-sm-4">
             <div class="form-group">
                 <label>Requested Shoot Date</label>
-                <input type="date" class="form-control" name="requested_date">
+                <input type="date" class="form-control" name="requested_date" placeholder="YYYY-MM-DD">
             </div>
         </div>
         <div class="col-sm-3">
