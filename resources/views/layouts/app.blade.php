@@ -25,10 +25,6 @@
     {{--<script src="{{URL::to('/')}}/jquery/jquery_validation.js"></script>--}}
 </head>
 <body>
-{{--<header class="container">--}}
-    {{--<img alt="" src="{{URL::to('/')}}/images/logo.png" class="img-responsive" id="logo">--}}
-    {{--Marketing Communication--}}
-{{--</header>--}}
 <body  style="background-color:#004990;">
 <div class="container">
     <div class="jumbotron">

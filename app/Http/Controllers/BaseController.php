@@ -8,6 +8,8 @@ use DB;
 use Session;
 use URL;
 
+use App\Clients;
+
 class BaseController extends Controller
 {
     const MEDIA_NAME = "abstract";
@@ -169,14 +171,15 @@ class BaseController extends Controller
      */
     public function admin($id)
     {
+        $client = Clients::find($id);
         $model_name = $this::MODEL_NAME;
         $service_type = $model_name::where('clients_id', '=', $id)->first();
-//        dd($service_type);
+//        dd($client);
         $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->get();
         $view_folder = $this::VIEW_FOLDER;
         $service = $this::MODEL_NAME;
         $service_name = $this::MEDIA_NAME;
-        return view('admin')->with(compact('service_type', 'service','comments','service_name','view_folder'));
+        return view('admin')->with(compact('service_type', 'service','comments','service_name','view_folder','client'));
 //        return view('test.show')->with(compact('service_type', 'service','comments','service_name','view_folder'));
     }
 

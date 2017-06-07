@@ -24,7 +24,8 @@ class ClientsTableSeeder extends Seeder
                     Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
                      Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum
                       congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at
-                       tellus. Donec rutrum congue leo eget malesuada.'
+                       tellus. Donec rutrum congue leo eget malesuada.',
+                   'created_at' => '2017-05-07'
                ]);
                DB::table('press_releases')->insert([
                    'student_feature' => 1,

@@ -2,6 +2,11 @@
 <div class="main container">
     <h2>Marketing Service Form</h2>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <div class="row">
+        <h3 class="col-lg-4">Submit Date:
+            <span class="item">{{date_format($data->created_at, 'd F Y')}}</span>
+        </h3>
+    </div>
          <div class="row">
             <h3 class="col-lg-4">First name
                 <span class="item">{{$data->first_name}}</span>

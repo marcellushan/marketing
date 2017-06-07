@@ -32,7 +32,7 @@
                                 <td>{{$received->last_name}}, {{$received->first_name}}</td>
                                 <td>{{$received->details}}</td>
                                 <td>{{$received->created_at}}</td>
-                                <td>{{$received->created_at}}</td>
+                                <td>{{$received->due_date}}</td>
                                 <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$received->id}}">Specifics</a></td>
                             </tr>
                         @endforeach

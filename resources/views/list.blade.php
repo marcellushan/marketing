@@ -12,6 +12,9 @@
                             Summary
                         </th>
                         <th>
+                            Submit Date
+                        </th>
+                        <th>
                             Due Date
                         </th>
                         <th>
@@ -22,6 +25,7 @@
                         <tr>
                             <td>{{$client->last_name}}, {{$client->first_name}}</td>
                             <td>{{$client->summary}}</td>
+                            <td>{{date_format($client->created_at, 'd F Y')}}</td>
                             <td>{{$client->due_date}}</td>
                             <td><a href="{{URL::to('/')}}/admin/{{$client->id}}">Details</a></td>
                         </tr>

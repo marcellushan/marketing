@@ -2,6 +2,11 @@
 <div class="main container">
     <h2>Marketing Service Form</h2>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <div class="row">
+            <h3 class="col-lg-4">Submit Date:
+                <span class="item">{{date_format($data->created_at, 'd F Y')}}</span>
+            </h3>
+        </div>
          <div class="row">
             <h3 class="col-lg-4">First name
                 <span class="item">{{$data->first_name}}</span>
@@ -39,31 +44,31 @@
     @endif
 
     @if($design_printing)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/design_printing/admin/{{$data->id}}"> Design and Printing</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/design_printing/return_show/{{$data->id}}"> Design and Printing</a></h2>
     @endif
 
     @if($photography)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/photography/admin/{{$data->id}}">Photography</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/photography/return_show/{{$data->id}}">Photography</a></h2>
     @endif
 
     @if($videography)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/videography/admin/{{$data->id}}">Videography</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/videography/return_show/{{$data->id}}">Videography</a></h2>
     @endif
 
     @if($paid_advertising)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/paid_advertising/admin/{{$data->id}}">Paid Advertising</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/paid_advertising/return_show/{{$data->id}}">Paid Advertising</a></h2>
     @endif
 
     @if($presentation)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/presentation/admin/{{$data->id}}"> Presentation</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/presentation/return_show/{{$data->id}}"> Presentation</a></h2>
     @endif
 
     @if($social_media)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/social_media/admin/{{$data->id}}"> Social Media</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/social_media/return_show/{{$data->id}}"> Social Media</a></h2>
     @endif
 
     @if($event)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/event/admin/{{$data->id}}"> Event Aid</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/event/return_show/{{$data->id}}"> Event Aid</a></h2>
     @endif
 </div>
 
