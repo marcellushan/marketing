@@ -20,7 +20,7 @@ class CreateClientsTable extends Migration
             $table->string('department')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->date('due_date')->nullable();
+//            $table->date('due_date')->nullable();
             $table->text('summary')->nullable();
 //            $table->boolean('press_release')->nullable();
 //            $table->boolean('design')->nullable();

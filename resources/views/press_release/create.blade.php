@@ -80,7 +80,7 @@
                      <div class="col-sm-1">
                          <input type="checkbox" name="employment_news" value="1">
                      </div>
-                     <div class="col-xs-10 col-sm-3">
+                     <div class="col-xs-10 col-sm-4">
                          Retirement (15-20 years plus)
                      </div>
                      <div class="col-sm-1">

@@ -58,14 +58,15 @@
                  promotional: {
                      required: true
                  }
-             },
-             messages: {
-                 details: "Please enter details"
-                 ,
-                 professional: "Please enter publications"
-                 ,
-                 promotional: "Please select promotional status"
              }
+             // ,
+             // messages: {
+             //     details: "Please enter details"
+             //     ,
+             //     professional: "Please enter publications"
+             //     ,
+             //     promotional: "Please select promotional status"
+             // }
          });
      });
 
@@ -101,23 +102,24 @@
                  color: {
                      required: true
                  }
-             },
-             messages: {
-                 details: "Please enter details"
-                 ,
-                 payment_type: "Please select apayment type"
-                 ,
-                 job_description: "Please enter a job description"
-                 ,
-                 copies: {
-                     required: "Please enter number of copies needed"
-                 },
-                 date_needed: "Please enter the date needed"
-                 ,
-                 services_needed: "Please enter services needed"
-                 ,
-                 color: "Please enter color preference"
              }
+             // ,
+             // messages: {
+             //     details: "Please enter details"
+             //     ,
+             //     payment_type: "Please select apayment type"
+             //     ,
+             //     job_description: "Please enter a job description"
+             //     ,
+             //     copies: {
+             //         required: "Please enter number of copies needed"
+             //     },
+             //     date_needed: "Please enter the date needed"
+             //     ,
+             //     services_needed: "Please enter services needed"
+             //     ,
+             //     color: "Please enter color preference"
+             // }
          });
      });
 

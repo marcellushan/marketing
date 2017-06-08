@@ -45,11 +45,11 @@ Do you have a graphic to accompany the post?
     <div class="row">
         <div class="col-sm-2 col-sm-offset-4">
             Yes&nbsp;
-            <input type="radio" value="Yes">
+            <input type="radio"  name="graphic" value="Yes">
         </div>
         <div class="col-sm-2">
             No
-            <input type="radio"value="No">
+            <input type="radio" name="graphic" value="No">
         </div>
     </div>
     <div class="row">

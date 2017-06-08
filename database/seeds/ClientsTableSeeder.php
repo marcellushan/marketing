@@ -19,7 +19,7 @@ class ClientsTableSeeder extends Seeder
                    'email' => str_random(10) . '@gmail.com',
                    'department' => str_random(10),
                    'phone' => rand(2000000000, 9999999999),
-                   'due_date' => '2017-05-07',
+//                   'due_date' => '2017-05-07',
                    'summary' => 'Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta.
                     Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
                      Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum

@@ -22,9 +22,6 @@
         <h3 class="col-md-4 col-md-offset-2">Phone
             <span class="item">{{$data->phone}}</span>
         </h3>
-        <h3 class="col-md-4">Request Due Date
-            <span class="item">{{$data->due_date}}</span>
-        </h3>
     </div>
     <br>
     <h3 align="center">Brief Project Summary</h3>

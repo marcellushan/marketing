@@ -1,7 +1,7 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
     {{Form::open(array('url' => 'design_printing','files'=>'true','id'=>'design_printing'))}}
-
+    <h3 >Design and Printing</h3>
     <div class="form-group col-sm-12">
         <div class="row">
             <div class="col-sm-8">

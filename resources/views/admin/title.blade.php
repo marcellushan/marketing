@@ -8,25 +8,22 @@
         </h3>
     </div>
          <div class="row">
-            <h3 class="col-lg-4">First name
+            <h3 class="col-lg-4">First name:
                 <span class="item">{{$data->first_name}}</span>
             </h3>
-            <h3 class="col-lg-3">Last name
+            <h3 class="col-lg-3">Last name:
                 <span class="item">{{$data->last_name}}</span>
             </h3>
-             <h3 class="col-lg-4">Department
+             <h3 class="col-lg-4">Department:
                  <span class="item">{{$data->department}}</span>
              </h3>
         </div>
     <div class="row">
-        <h3 class="col-lg-4">Email Address
+        <h3 class="col-lg-7">Email Address:
             <span class="item">{{$data->email}}</span>
         </h3>
-        <h3 class="col-lg-3">Phone
+        <h3 class="col-lg-4">Phone:
             <span class="item">{{$data->phone}}</span>
-        </h3>
-        <h3 class="col-lg-4">Request Due Date
-            <span class="item">{{$data->due_date}}</span>
         </h3>
     </div>
 
