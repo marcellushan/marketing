@@ -54,9 +54,6 @@
                                     Summary
                                 </th>
                                 <th>
-                                    Due Date
-                                </th>
-                                <th>
 
                                 </th>
                             </tr>
@@ -64,7 +61,6 @@
                                 <tr>
                                     <td>{{$progress->last_name}}, {{$progress->first_name}}</td>
                                     <td>{{$progress->details}}</td>
-                                    <td>{{$progress->due_date}}</td>
                                     <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$progress->id}}">Specifics</a></td>
                                 </tr>
                             @endforeach
@@ -91,9 +87,6 @@
                                     Summary
                                 </th>
                                 <th>
-                                    Due Date
-                                </th>
-                                <th>
 
                                 </th>
                             </tr>
@@ -101,7 +94,6 @@
                                 <tr>
                                     <td>{{$information->last_name}}, {{$information->first_name}}</td>
                                     <td>{{$information->details}}</td>
-                                    <td>{{$information->due_date}}</td>
                                     <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$information->id}}">Specifics</a></td>
                                 </tr>
                             @endforeach
@@ -127,17 +119,12 @@
                                     Summary
                                 </th>
                                 <th>
-                                    Due Date
-                                </th>
-                                <th>
-
                                 </th>
                             </tr>
                             @foreach($reviews as $review)
                                 <tr>
                                     <td>{{$review->last_name}}, {{$review->first_name}}</td>
                                     <td>{{$review->details}}</td>
-                                    <td>{{$review->due_date}}</td>
                                     <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$review->id}}">Specifics</a></td>
                                 </tr>
                             @endforeach
@@ -164,9 +151,6 @@
                                     Summary
                                 </th>
                                 <th>
-                                    Due Date
-                                </th>
-                                <th>
 
                                 </th>
                             </tr>
@@ -174,7 +158,6 @@
                                 <tr>
                                     <td>{{$complete->last_name}}, {{$complete->first_name}}</td>
                                     <td>{{$complete->details}}</td>
-                                    <td>{{$complete->due_date}}</td>
                                     <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$complete->id}}">Specifics</a></td>
                                 </tr>
                             @endforeach
@@ -200,9 +183,6 @@ Name
 Details
 </th>
 <th>
-Due Date
-</th>
-<th>
 
 </th>
 </tr>
@@ -210,8 +190,6 @@ Due Date
 <tr>
 <td>{{$data->last_name}}, {{$data->first_name}}</td>
 <td>{{$data->details}}</td>
-
-<td>{{$data->due_date}}</td>
 <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$data->id}}">Specifics</a></td>
 </tr>
 @endforeach

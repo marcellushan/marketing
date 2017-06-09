@@ -25,12 +25,26 @@ class BaseController extends Controller
      */
     public function index()
     {
-        $datas= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')->orderby('status')->get();
-        $receiveds= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME  .'.clients_id', '=', 'clients.id')->where('status', '=', '1')->get();
-        $progresses= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME  .'.clients_id', '=', 'clients.id')->where('status', '=', '2')->get();
-        $informations= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME  .'.clients_id', '=', 'clients.id')->where('status', '=', '3')->get();
-        $reviews= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME  .'.clients_id', '=', 'clients.id')->where('status', '=', '4')->get();
-        $completes= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME  .'.clients_id', '=', 'clients.id')->where('status', '=', '5')->get();
+        $datas= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+//            ->leftJoin('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')
+            ->get();
+
+        $receiveds= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+            ->leftJoin('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')->where('comments.status', '=' ,NULL)
+            ->get();
+        $progresses=DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+            ->join('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')->where('comments.status', '=' ,'In Progress')
+            ->get();
+//        dd($progresses);
+        $informations= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+            ->join('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')->where('comments.status', '=' ,'Awaiting Information')
+            ->get();
+        $reviews= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+            ->join('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')->where('comments.status', '=' ,'Awaiting Review')
+            ->get();
+        $completes= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+            ->join('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')->where('comments.status', '=' ,'Complete')
+            ->get();
         $media_name = $this::MEDIA_NAME;
         $view_folder = $this::VIEW_FOLDER;
         return view('requests_list')->with(compact('datas','receiveds','progresses','informations', 'reviews', 'completes','media_name','view_folder'));
@@ -175,11 +189,16 @@ class BaseController extends Controller
         $model_name = $this::MODEL_NAME;
         $service_type = $model_name::where('clients_id', '=', $id)->first();
 //        dd($client);
-        $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->get();
+        $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->orderBy('created_at','desc')->get();
+        $last_comment = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->orderBy('created_at','desc')->first();
+//        if(! $last_comment) {
+//            $last_comment->status = "Received";
+//        }
+//        dd($last_comment);
         $view_folder = $this::VIEW_FOLDER;
         $service = $this::MODEL_NAME;
         $service_name = $this::MEDIA_NAME;
-        return view('admin')->with(compact('service_type', 'service','comments','service_name','view_folder','client'));
+        return view('admin')->with(compact('service_type', 'service','comments','last_comment','service_name','view_folder','client'));
 //        return view('test.show')->with(compact('service_type', 'service','comments','service_name','view_folder'));
     }
 
@@ -192,23 +211,24 @@ class BaseController extends Controller
         $view_folder = $this::VIEW_FOLDER;
         $service = $this::MODEL_NAME;
         $service_name = $this::MEDIA_NAME;
-        switch ($service_type->status) {
-            case 1:
-                $status = 'Received';
-                break;
-            case 2:
-                $status = 'In Progress';
-                break;
-            case 3:
-                $status = 'Awaiting Information';
-                break;
-            case 4:
-                $status = 'Awaiting Review';
-                break;
-            case 5:
-                $status = 'Completed';
-                break;
-        }
+        $status = "Received";
+//        switch ($service_type->status) {
+//            case 1:
+//                $status = 'Received';
+//                break;
+//            case 2:
+//                $status = 'In Progress';
+//                break;
+//            case 3:
+//                $status = 'Awaiting Information';
+//                break;
+//            case 4:
+//                $status = 'Awaiting Review';
+//                break;
+//            case 5:
+//                $status = 'Completed';
+//                break;
+//        }
 //        dd($service_type);
         return view('return')->with(compact('service_type', 'service','comments','service_name','view_folder','status'));
     }

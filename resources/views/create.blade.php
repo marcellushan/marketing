@@ -47,14 +47,6 @@
              <div class="row">
                  <div class="col-sm-10">
                      <div class="form-group">
-                         <label>Request Due Date</label>
-                         <input type="date" class="form-control" placeholder="YYYY-MM-DD" name="due_date">
-                     </div>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col-sm-10">
-                     <div class="form-group">
                          <label>Brief Project Summary</label>
                          <textarea class="form-control" rows="5" name="summary"></textarea>
                      </div>

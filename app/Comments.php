@@ -10,4 +10,9 @@ class Comments extends Model
     {
         return $this->hasOne('App\Services');
     }
+
+    public function photography()
+    {
+        return $this->hasOne('App\User');
+    }
 }
