@@ -32,28 +32,60 @@
         </div><p></p>
     <div class="row">
         <div class="col-sm-3 category">Audience</div>
-        <div class="col-sm-8 item">
-            @if($service_type->students) Students @endif
-            @if($service_type->faculty_staff) Faculty/Staff @endif
-            @if($service_type->community) Community @endif
-            @if($service_type->alumni) Alumni @endif
+        <div class="col-sm-8 item">{{$service_type->audience}}</div>
         </div>
+    @if($service_type->quote_name_1)
+        <div class="row">
+            <h3 class="col-sm-10 category">Provide quote 1</h3>
         </div>
-    <div class="row">
-        <h3 class="col-sm-10 category">Provide quotes</h3>
-    </div>
-    <div class="row">
-        <div class="col-sm-3 category">Names</div>
-        <div class="col-sm-8 item">{{$service_type->quote_names}}</div>
-    </div><p></p>
-    <div class="row">
-        <div class="col-sm-3 category">Emails</div>
-        <div class="col-sm-8 item">{{$service_type->quote_emails}}</div>
-    </div><p></p>
-    <div class="row">
-        <div class="col-sm-3 category">Phone</div>
-        <div class="col-sm-8 item">{{$service_type->quote_phones}}</div>
-    </div><p></p>
+        <div class="row">
+            <div class="col-sm-3 category">Names</div>
+            <div class="col-sm-8 item">{{$service_type->quote_name_1}}</div>
+        </div><p></p>
+        <div class="row">
+            <div class="col-sm-3 category">Emails</div>
+            <div class="col-sm-8 item">{{$service_type->quote_email_1}}</div>
+        </div><p></p>
+        <div class="row">
+            <div class="col-sm-3 category">Phone</div>
+            <div class="col-sm-8 item">{{$service_type->quote_phone_1}}</div>
+        </div>
+    @endif
+    @if($service_type->quote_name_2)
+        <div class="row">
+            <h3 class="col-sm-10 category">Provide quote 2</h3>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 category">Names</div>
+            <div class="col-sm-8 item">{{$service_type->quote_name_2}}</div>
+        </div><p></p>
+        <div class="row">
+            <div class="col-sm-3 category">Emails</div>
+            <div class="col-sm-8 item">{{$service_type->quote_email_2}}</div>
+        </div><p></p>
+        <div class="row">
+            <div class="col-sm-3 category">Phone</div>
+            <div class="col-sm-8 item">{{$service_type->quote_phone_2}}</div>
+        </div>
+    @endif
+    @if($service_type->quote_name_3)
+        <div class="row">
+            <h3 class="col-sm-10 category">Provide quote 3</h3>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 category">Names</div>
+            <div class="col-sm-8 item">{{$service_type->quote_name_3}}</div>
+        </div><p></p>
+        <div class="row">
+            <div class="col-sm-3 category">Emails</div>
+            <div class="col-sm-8 item">{{$service_type->quote_email_3}}</div>
+        </div><p></p>
+        <div class="row">
+            <div class="col-sm-3 category">Phone</div>
+            <div class="col-sm-8 item">{{$service_type->quote_phone_3}}</div>
+        </div>
+    @endif
+    <p></p>
     @if($service_type->image)
         <div class="row">
             <div class="col-sm-3 category">Documents</div>

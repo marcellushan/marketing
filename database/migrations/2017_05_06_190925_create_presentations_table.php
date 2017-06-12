@@ -16,13 +16,14 @@ class CreatePresentationsTable extends Migration
         Schema::create('presentations', function (Blueprint $table) {
             $table->increments('id');
             $table->text('details');
-            $table->boolean('students')->nullable();
-            $table->boolean('faculty_staff')->nullable();
-            $table->boolean('community')->nullable();
-            $table->boolean('alumni')->nullable();
+            $table->string('audience')->nullable();
+//            $table->boolean('students')->nullable();
+//            $table->boolean('faculty_staff')->nullable();
+//            $table->boolean('community')->nullable();
+//            $table->boolean('alumni')->nullable();
             $table->date('presentation_date')->nullable();
-            $table->string('area')->nullable();
-//            $table->integer('status')->default(1);
+            $table->string('assistance')->nullable();
+            $table->string('status')->default("Received");
             $table->integer('clients_id');
             $table->timestamps();
         });

@@ -10,15 +10,15 @@
     <div class="row">
         <div class="col-sm-3">
             Post Rotation&nbsp;
-            <input type="radio" name="media_type" value="Post Rotation">
+            <input type="radio" name="request_type" value="Post Rotation">
         </div>
         <div class="col-sm-3">
             Single Post
-            <input type="radio" name="media_type" value="Single Post">
+            <input type="radio" name="request_type" value="Single Post">
         </div>
         <div class="col-sm-3">
             Starting New Page
-            <input type="radio" name="media_type" value="Starting New Page">
+            <input type="radio" name="request_type" value="Starting New Page">
         </div>
     </div>
     @include('partials.audience')
@@ -41,17 +41,12 @@
             </div>
         </div>
     </div>
-Do you have a graphic to accompany the post?
-    <div class="row">
-        <div class="col-sm-2 col-sm-offset-4">
-            Yes&nbsp;
-            <input type="radio"  name="graphic" value="Yes">
+
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-4">
+                <h4>Attach any graphics to accompany the post?</h4>
+            </div>
         </div>
-        <div class="col-sm-2">
-            No
-            <input type="radio" name="graphic" value="No">
-        </div>
-    </div>
     <div class="row">
         <div class="col-sm-6 col-sm-offset-4">
             <h4>{{Form::file('image')}}</h4>

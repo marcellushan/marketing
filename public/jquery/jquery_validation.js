@@ -47,6 +47,9 @@
      $(document).ready(function(){
          $( "#press_release" ).validate({
              rules: {
+                 'media_type[]': {
+                    required: true
+                },
                  details: {
                      required: true
                  }
@@ -58,15 +61,11 @@
                  promotional: {
                      required: true
                  }
+                 ,
+                 'audience[]': {
+                     required: true
+                 }
              }
-             // ,
-             // messages: {
-             //     details: "Please enter details"
-             //     ,
-             //     professional: "Please enter publications"
-             //     ,
-             //     promotional: "Please select promotional status"
-             // }
          });
      });
 
@@ -74,6 +73,10 @@
          $( "#design_printing" ).validate({
              rules: {
                  details: {
+                     required: true
+                 }
+                 ,
+                 'audience[]': {
                      required: true
                  }
                  ,
@@ -139,11 +142,11 @@
                      date: true
                  }
                  ,
-                 start: {
+                 start_hour: {
                      required: true
                  }
                  ,
-                 end: {
+                 end_hour: {
                      required: true
                  }
                  ,
@@ -173,11 +176,76 @@
              rules: {
                  media_type: {
                      required: true
-                 },
+                 }
+                 ,
+                 'audience[]': {
+                     required: true
+                 }
+                 ,
+                 details: {
+                     required: true
+                 }
+                 ,
                  twitter_text: {
                      maxlength: 140
                  }
+                 ,
+                 name: {
+                     required: true
+                 }
+                 ,
+                 email: {
+                     required: true
+                 }
+                 ,
+                 department: {
+                     required: true
+                 }
+                 ,
+                 phone: {
+                     required: true
+                 }
+                 ,
+                 'social[]': {
+                     required: true
+                 }
              }
+         });
+     });
+
+     $(document).ready(function(){
+         $( "#videography" ).validate({
+             rules: {
+                 details: {
+                     required: true
+                 }
+                 ,
+                 'audience[]': {
+                     required: true
+                 }
+                 ,
+                 purpose: {
+                     required: true
+                 }
+                 ,
+                 use: {
+                     required: true
+                 }
+             }
+             // ,
+             // messages: {
+             //     details: "Please enter details"
+             //     ,
+             //     location: "Please enter a location"
+             //     ,
+             //     requested_date: "Please enter a date"
+             //     ,
+             //     start: "Please enter a start time"
+             //     ,
+             //     end: "Please enter a end time"
+             //     ,
+             //     use: "Please enter how the photos will be used"
+             // }
          });
      });
 
@@ -185,6 +253,10 @@
          $( "#paid_advertising" ).validate({
              rules: {
                  details: {
+                     required: true
+                 }
+                 ,
+                 'audience[]': {
                      required: true
                  }
                  ,
@@ -200,6 +272,10 @@
                  ad_event: {
                      required: true
                  }
+                 ,
+                 'advertising[]': {
+                     required: true
+                 }
              }
          });
      });
@@ -211,12 +287,20 @@
                      required: true
                  }
                  ,
+                 'audience[]': {
+                     required: true
+                 }
+                 ,
                  presentation_date: {
                      required: true,
                      date:true
                  }
                  ,
                  use: {
+                     required: true
+                 }
+                 ,
+                 'assistance[]': {
                      required: true
                  }
              }
@@ -235,14 +319,18 @@
                      date:true
                  }
                  ,
-                 location: {
+                 start_hour: {
                      required: true
                  }
                  ,
-                 attendance: {
-                     required: true,
-                     digits: true
+                 location: {
+                     required: true
                  }
+                 // ,
+                 // attendance: {
+                 //     required: true,
+                 //     digits: true
+                 // }
              }
          });
      });

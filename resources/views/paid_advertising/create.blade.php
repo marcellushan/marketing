@@ -33,28 +33,7 @@
                 Which advertising options seem appropriate?
             </h3>
         </div>
-        <div class="row">
-            <div class="col-sm-2">
-                Social Media&nbsp;
-                <input type="checkbox" name="social_media" value="1">
-            </div>
-            <div class="col-sm-2">
-                Print Ad
-                <input type="checkbox" name="print" value="1">
-            </div>
-            <div class="col-sm-2">
-                Billboard&nbsp;
-                <input type="checkbox" name="billboard" value="1">
-            </div>
-            <div class="col-sm-2">
-                Digital Ad&nbsp;
-                <input type="checkbox" name="digital" value="1">
-            </div>
-            <div class="col-sm-2">
-                Other&nbsp;
-                <input type="checkbox" name="other" value="1">
-            </div>
-        </div>
+       @include('partials.advertising_options')
     <div class="row">
         <div class="col-sm-4 col-sm-offset-3">
             <div class="form-group">

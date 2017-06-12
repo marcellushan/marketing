@@ -25,8 +25,8 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $("input[name=media_type]:radio").change(function () {
-        if($("input[name=media_type]:checked").val()=='Starting New Page') {
+    $("input[name=request_type]:radio").change(function () {
+        if($("input[name=request_type]:checked").val()=='Starting New Page') {
             $("#new_page").css("display", "block");
             $("#post").css("display", "none");
         } else {

@@ -16,10 +16,11 @@ class CreateDesignPrintingsTable extends Migration
         Schema::create('design_printings', function (Blueprint $table) {
             $table->increments('id');
             $table->text('details')->nullable();
-            $table->boolean('students')->nullable();
-            $table->boolean('faculty_staff')->nullable();
-            $table->boolean('community')->nullable();
-            $table->boolean('alumni')->nullable();
+            $table->string('audience')->nullable();
+//            $table->boolean('students')->nullable();
+//            $table->boolean('faculty_staff')->nullable();
+//            $table->boolean('community')->nullable();
+//            $table->boolean('alumni')->nullable();
             $table->string('payment_type')->nullable();
             $table->string('dept')->nullable();
             $table->string('fund')->nullable();
@@ -31,7 +32,7 @@ class CreateDesignPrintingsTable extends Migration
             $table->string('services_needed')->nullable();
             $table->string('color')->nullable();
             $table->string('image')->nullable();
-//            $table->integer('status')->default(1);
+            $table->string('status')->default("Received");
             $table->integer('clients_id');
             $table->timestamps();
         });

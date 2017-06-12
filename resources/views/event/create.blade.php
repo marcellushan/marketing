@@ -38,7 +38,7 @@
         <div class="col-sm-5">
             <div class="form-group">
                 <label>Time</label>
-                <input type="time" class="form-control" name="event_time">
+                @include('partials.start_time')
             </div>
         </div>
     </div>
@@ -50,65 +50,7 @@
             </div>
         </div>
     </div>
-    <h3>
-    Display/Promotional Items needed?
-        </h3>
-    <div class="row">
-        <div class="col-xs-10 col-sm-3">
-            Banners
-        </div>
-        <div class="col-sm-1">
-            <input type="checkbox" class="promotional" name="banners" value="1">
-        </div>
-        <div class="col-xs-10 col-sm-3">
-            Table Clothes
-        </div>
-        <div class="col-sm-1">
-            <input type="checkbox" class="promotional" name="table_clothes" value="1">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-10 col-sm-3">
-            Magazines
-        </div>
-        <div class="col-sm-1">
-            <input type="checkbox" class="promotional" name="magazines" value="1">
-        </div>
-        <div class="col-xs-10 col-sm-3">
-            Easels
-        </div>
-        <div class="col-sm-1">
-            <input type="checkbox" class="promotional" name="easels" value="1">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-10 col-sm-3">
-            Promotional Material
-        </div>
-        <div class="col-sm-1">
-            <input type="checkbox" class="promotional" name="promo" value="1">
-        </div>
-        <div class="col-xs-10 col-sm-3">
-            Signs
-        </div>
-        <div class="col-sm-1">
-            <input type="checkbox" class="promotional" name="signs" value="1">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-10 col-sm-3">
-            Recruitment Material
-        </div>
-        <div class="col-sm-1">
-            <input type="checkbox" class="promotional" name="recruitment" value="1">
-        </div>
-        <div class="col-xs-10 col-sm-3">
-            Other
-        </div>
-        <div class="col-sm-1">
-            <input type="checkbox" class="promotional" name="other" value="1">
-        </div>
-    </div>
+    @include('partials.display')
     <div id='other_details'>
     @include('partials.textbox', ['title' => 'Other Details', 'name' => 'other_details'])
     </div>

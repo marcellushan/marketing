@@ -28,14 +28,15 @@
         </div>
         <div class="col-sm-3">
             <div class="form-group">
-                <label>Requested Start Time</label>
-                <input type="time" class="form-control" name="start">
+                <label>Requested Start Time</label><br>
+                @include('partials.start_time', ['start_or_end' => 'end'])
+
             </div>
         </div>
         <div class="col-sm-3">
             <div class="form-group">
-                <label>Requested end Time</label>
-                <input type="time" class="form-control" name="end">
+                <label>Requested end Time</label><br>
+                @include('partials.end_time', ['start_or_end' => 'end'])
             </div>
         </div>
     </div>

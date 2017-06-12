@@ -8,13 +8,13 @@
                     Student Feature
                 </div>
                 <div class="col-sm-1">
-                    <input type="checkbox" name="student_feature" value="1">
+                    <input type="checkbox" name="media_type[]" value="Student Feature">
                 </div>
                 <div class="col-xs-10 col-sm-4">
                     Departmental News
                 </div>
                 <div class="col-sm-1">
-                    <input type="checkbox" name="departmental_news" value="1">
+                    <input type="checkbox" name="media_type[]" value="Departmental News">
                 </div>
             </div>
             <div class="row">
@@ -22,13 +22,13 @@
                     Student News
                 </div>
                 <div class="col-sm-1">
-                    <input type="checkbox" name="student_news" value="1">
+                    <input type="checkbox" name="media_type[]" value="Student News">
                 </div>
                 <div class="col-xs-10 col-sm-4">
                     College News
                 </div>
                 <div class="col-sm-1">
-                    <input type="checkbox" name="college_news" value="1">
+                    <input type="checkbox" name="media_type[]" value="College News">
                 </div>
             </div>
             <div class="row">
@@ -36,13 +36,13 @@
                     Alumni Feature
                 </div>
                 <div class="col-sm-1">
-                    <input type="checkbox" name="alumni_feature" value="1">
+                    <input type="checkbox" name="media_type[]" value="Alumni Feature">
                 </div>
                 <div class="col-xs-10 col-sm-4">
                    Research
                 </div>
                 <div class="col-sm-1">
-                    <input type="checkbox" name="research" value="1">
+                    <input type="checkbox" name="media_type[]" value="Research">
                 </div>
             </div>
             <div class="row">
@@ -50,13 +50,13 @@
                     Alumni News
                 </div>
                 <div class="col-sm-1">
-                    <input type="checkbox" name="alumni_news" value="1">
+                    <input type="checkbox" name="media_type[]" value="Alumni News">
                 </div>
                 <div class="col-xs-10 col-sm-4">
                     Recognition
                 </div>
                 <div class="col-sm-1">
-                    <input type="checkbox" name="recognition" value="1">
+                    <input type="checkbox" name="media_type[]" value="Recognition">
                 </div>
             </div>
                  <div class="row">
@@ -64,13 +64,13 @@
                          Employee Feature
                      </div>
                      <div class="col-sm-1">
-                         <input type="checkbox" name="enployee_feature" value="1">
+                         <input type="checkbox" name="media_type[]" value="Employee Feature">
                      </div>
                      <div class="col-xs-10 col-sm-4">
                          Award
                      </div>
                      <div class="col-sm-1">
-                         <input type="checkbox" name="award" value="1">
+                         <input type="checkbox" name="media_type[]" value="Award">
                      </div>
                  </div>
                  <div class="row">
@@ -78,58 +78,17 @@
                          Employee News
                      </div>
                      <div class="col-sm-1">
-                         <input type="checkbox" name="employment_news" value="1">
+                         <input type="checkbox" name="media_type[]" value="Employee News">
                      </div>
                      <div class="col-xs-10 col-sm-4">
                          Retirement (15-20 years plus)
                      </div>
                      <div class="col-sm-1">
-                         <input type="checkbox" name="retirement" value="1">
+                         <input type="checkbox" name="media_type[]" value="Retirement">
                      </div>
                  </div>
                 @include('partials.textbox', ['title' => 'Why is this of significant news value? Briefly describe any key points', 'name' => 'details'])
                 @include('partials.textbox', ['title' => 'In addition to media, to what other professional and corporate publication should we submit this story?', 'name' => 'professional'])
-
-                 <div class="row">
-                     <div class="col-sm-8">
-                         Did you have any promotional materials created for this request by the Marcom design team?
-                         </div>
-                     <div class="col-xs-10">
-                         <div class="row">
-                             <div class="col-sm-6 col-xs-offset-2">
-                                 Yes
-                             </div>
-                             <div class="col-sm-1 col-xs-offset-2">
-                                 <input type="radio" name="promotional" value="Yes">
-                             </div>
-                        </div>
-                         <div class="row">
-                             <div class="col-sm-6 col-xs-offset-2">
-                                 No
-                             </div>
-                             <div class="col-sm-1 col-xs-offset-2">
-                                 <input type="radio" name="promotional" value="No">
-                             </div>
-                         </div>
-                         <div class="row">
-                             <div class="col-sm-6 col-xs-offset-2">
-                                 Request submitted, but I haven't received the final product
-                             </div>
-                             <div class="col-sm-1 col-xs-offset-2">
-                                 <input type="radio" name="promotional" value="Requested">
-                             </div>
-                         </div>
-                         <div class="row">
-                             <div class="col-sm-6 col-xs-offset-2">
-                                 Not yet, but planning to
-                             </div>
-                             <div class="col-sm-1 col-xs-offset-2">
-                                 <input type="radio" name="promotional" value="Not yet">
-                             </div>
-                         </div>
-
-                     </div>
-                 </div>
                 @include('partials.audience')
     <p></p>
                 <div class="row">
@@ -141,9 +100,7 @@
                         related questions.
                     </div>
                 </div>
-    @include('partials.textbox', ['title' => 'Names', 'name' => 'quote_names'])
-    @include('partials.textbox', ['title' => 'Emails', 'name' => 'quote_emails'])
-    @include('partials.textbox', ['title' => 'Phones', 'name' => 'quote_phones'])
+    @include('partials.individual', ['number' => '1'])
 
     <div class="row">
         <div class="col-sm-8">

@@ -6,18 +6,18 @@
 <div class="row">
     <div class="col-md-2 col-md-offset-2">
         Facebook&nbsp;
-        <input type="checkbox" name="facebook" value="1">
+        <input type="checkbox" name="social[]" value="Facebook">
     </div>
     <div class="col-md-2">
         Twitter
-        <input type="checkbox" name="twitter" value="1">
+        <input type="checkbox" name="social[]" value="Twitter">
     </div>
     <div class="col-md-2">
         Instagram&nbsp;
-        <input type="checkbox" name="instagram" value="1">
+        <input type="checkbox" name="social[]" value="Instagram">
     </div>
     <div class="col-md-2">
         YouTube&nbsp;
-        <input type="checkbox" name="youtube" value="1">
+        <input type="checkbox" name="social[]" value="YouTube">
     </div>
 </div>

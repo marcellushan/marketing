@@ -18,8 +18,8 @@ class CommentsController extends Controller
        $service_name = ltrim($service, 'App\\');
        $media_name = $request->service_name;
        $data = $service::find($request->services_id);
-//       $data->status = $request->status;
-//       $data->save();
+       $data->status = $request->status;
+       $data->save();
 //       switch ($data->status) {
 //           case 1:
 //               $status = 'Received';

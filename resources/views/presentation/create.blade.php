@@ -27,28 +27,7 @@
                 </label>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-2">
-                Speech Writing&nbsp;
-                <input type="radio" name="area" value="Speech Writing">
-            </div>
-            <div class="col-md-3">
-                Talking Points Overview&nbsp;
-                <input type="radio" name="area" value="Talking Points Overview">
-            </div>
-            <div class="col-md-3">
-                Presentation Material&nbsp;
-                <input type="radio" name="area" value="Presentation Material">
-            </div>
-            <div class="col-md-1">
-                All&nbsp;
-                <input type="radio" name="area" value="All">
-            </div>
-            <div class="col-md-1">
-                Other&nbsp;
-                <input type="radio" name="area" value="Other">
-            </div>
-        </div>
+    @include('partials.assistance_options')
     <p></p>
     <div class="row">
         <div class="col-sm-3 col-sm-offset-4">

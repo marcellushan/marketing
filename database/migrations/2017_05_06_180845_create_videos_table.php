@@ -16,13 +16,14 @@ class CreateVideosTable extends Migration
         Schema::create('videos', function (Blueprint $table) {
             $table->increments('id');
             $table->text('details');
-            $table->boolean('students')->nullable();
-            $table->boolean('faculty_staff')->nullable();
-            $table->boolean('community')->nullable();
-            $table->boolean('alumni')->nullable();
+            $table->string('audience')->nullable();
+//            $table->boolean('students')->nullable();
+//            $table->boolean('faculty_staff')->nullable();
+//            $table->boolean('community')->nullable();
+//            $table->boolean('alumni')->nullable();
             $table->text('purpose')->nullable();
             $table->text('use')->nullable();
-//            $table->integer('status')->default(1);
+            $table->string('status')->default("Received");
             $table->integer('clients_id');
             $table->timestamps();
         });

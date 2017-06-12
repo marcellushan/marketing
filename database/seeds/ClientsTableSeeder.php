@@ -28,7 +28,7 @@ class ClientsTableSeeder extends Seeder
                    'created_at' => '2017-05-07'
                ]);
                DB::table('press_releases')->insert([
-                   'student_feature' => 1,
+                   'media_type' => 'Student Feature',
                    'details' => str_random(10),
                    'professional' => 'Pellentesque in ipsum id orci porta dapibus. 
                    Proin eget tortor risus. Sed porttitor lectus nibh. Curabitur 
@@ -36,28 +36,16 @@ class ClientsTableSeeder extends Seeder
                    ut lacinia in, elementum id enim. Cras ultricies ligula sed magna
                     dictum porta.',
                    'promotional' => 'Requested',
-                   'students' => 1,
-                   'quote_names' => 'Pellentesque in ipsum id orci porta dapibus. 
-                   Proin eget tortor risus. Sed porttitor lectus nibh. Curabitur 
-                   aliquet quam id dui posuere blandit. Quisque velit nisi, pretium 
-                   ut lacinia in, elementum id enim. Cras ultricies ligula sed magna
-                    dictum porta.',
-                   'quote_emails' => 'Pellentesque in ipsum id orci porta dapibus. 
-                   Proin eget tortor risus. Sed porttitor lectus nibh. Curabitur 
-                   aliquet quam id dui posuere blandit. Quisque velit nisi, pretium 
-                   ut lacinia in, elementum id enim. Cras ultricies ligula sed magna
-                    dictum porta.',
-                   'quote_phones' => 'Pellentesque in ipsum id orci porta dapibus. 
-                   Proin eget tortor risus. Sed porttitor lectus nibh. Curabitur 
-                   aliquet quam id dui posuere blandit. Quisque velit nisi, pretium 
-                   ut lacinia in, elementum id enim. Cras ultricies ligula sed magna
-                    dictum porta.',
+                   'audience' => 'Students',
+                   'quote_name_1' => 'John Smith',
+                   'quote_email_1' => 'jsmith@home.com',
+                   'quote_phone_1' => '7774447777',
                    'clients_id' => $id
                ]);
                 DB::table('design_printings')->insert([
                     'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                     'clients_id' => $id,
-                    'students' => 1,
+                    'audience' => 'Community',
                     'payment_type' => 'Credit Card',
                     'job_description' => 'Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. 
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -76,23 +64,28 @@ class ClientsTableSeeder extends Seeder
                 'location' => str_random(10),
                 'use' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                 'requested_date' => '2017-05-01',
-                'start' => '12:00.00',
-                'end' => '12:00.00'
+                'start_time' => '12:00 PM',
+                'end_time' => '11:00 AM'
             ]);
 
            DB::table('social_media')->insert([
                'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
-               'media_type' => 'Post Rotation',
+               'request_type' => 'Starting New Page',
                'clients_id' => $id,
-               'students' => 1,
+               'audience' => 'Community',
                'facebook_text' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                'twitter_text' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+               'Name' => 'John Smith',
+               'Department' => 'IT',
+               'Email' => 'JSmith@highlands.edu',
+               'Phone' => '7064563214',
+               'Social' => 'Facebook'
            ]);
 
             DB::table('videos')->insert([
             'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
             'clients_id' => $id,
-            'faculty_staff'=> 1,
+            'audience'=> 'Faculty & Staff',
             'purpose' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
             'use' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.'
         ]);
@@ -100,25 +93,27 @@ class ClientsTableSeeder extends Seeder
             DB::table('paid_advertisings')->insert([
                 'ad_event' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                 'clients_id' => $id,
-                'community'=> 1,
+                'audience'=> 'Community',
                 'purpose' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                 'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
-                'social_media' => 1,
+                'advertising' => 'Social Media',
                 'budget' => 1000
             ]);
 
                DB::table('presentations')->insert([
                    'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                    'clients_id' => $id,
-                   'students'=> 1,
+                   'audience'=> 'Students',
                    'presentation_date' => '2017-05-01',
-                   'area' => 'Presentation Material'
+                   'assistance' => 'Presentation Material'
                ]);
 
            DB::table('events')->insert([
                'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                'clients_id' => $id,
                'event_date' => '2017-05-01',
+               'event_time' => '03:30 PM',
+               'display' => 'Banners',
                'location' => str_random(10)
            ]);
 

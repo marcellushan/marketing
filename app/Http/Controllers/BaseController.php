@@ -26,37 +26,22 @@ class BaseController extends Controller
      */
     public function index()
     {
-//        $receiveds= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
-//            ->leftJoin('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')
-//            ->where('comments.status','=', NULL)
-//            ->get();
-//        $receiveds= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
-//            ->leftJoin('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')->where('comments.status', '=' ,NULL)
-//            ->get();
-        $my_model = $this::MODEL_NAME;
-        $tester = new $my_model;
-//        dd($tester->all());
-        $datas=DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
-            ->join('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')
-            ->distinct('services_id')
+        $receiveds= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+            ->where($this::TABLE_NAME . '.status','=', 'Received')
             ->get();
-dd($datas);
-        $receiveds=DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
-            ->join('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')->where('comments.status', '=' ,'Received')
+        $progresses= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+            ->where($this::TABLE_NAME . '.status','=', 'In Progress')
             ->get();
-//        dd($receiveds);
-        $progresses=DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
-            ->join('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')->where('comments.status', '=' ,'In Progress')
-            ->get();
-//        dd($receiveds);
         $informations= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
-            ->join('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')->where('comments.status', '=' ,'Awaiting Information')
+            ->where($this::TABLE_NAME . '.status','=', 'Awaiting Information')
             ->get();
         $reviews= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
-            ->join('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')->where('comments.status', '=' ,'Awaiting Review')
+            ->where($this::TABLE_NAME . '.status','=', 'Awaiting Review')
             ->get();
         $completes= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
-            ->join('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')->where('comments.status', '=' ,'Complete')
+            ->where($this::TABLE_NAME . '.status','=', '$completes')
+            ->get();
+        $datas= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
             ->get();
         $media_name = $this::MEDIA_NAME;
         $view_folder = $this::VIEW_FOLDER;
@@ -90,12 +75,24 @@ dd($datas);
             $myPath = $myRandom . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $myPath);
         }
-        $data = $request->all();
+        $data = $request->except(['media_type','audience']);
+//        dd($data);
         $model_name = $this::MODEL_NAME;
         $email = $this::VIEW_FOLDER;
         $service_type = new $model_name($data);
         $service_type->fill($data);
+        if($request->media_type) {
+            $media_type = implode(", ", $request->media_type);
+            $service_type->media_type = $media_type;
+        }
+        if($request->audience) {
+            $audience = implode(", ", $request->audience);
+            $service_type->audience = $audience;
+        }
+
         $service_type->clients_id=Session::get('id');
+        $service_type->status='Received';
+
         ($request->file('image') ? $service_type->image=URL::to('/') . "/uploads/" . $myPath : "");
         $service_type->save();
         $comment = new Comments;
@@ -211,7 +208,7 @@ dd($datas);
         $client = Clients::find($id);
         $model_name = $this::MODEL_NAME;
         $service_type = $model_name::where('clients_id', '=', $id)->first();
-//        dd($client);
+//        dd($service_type);
         $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->orderBy('created_at','desc')->get();
         $last_comment = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->orderBy('created_at','desc')->first();
 //        if(! $last_comment) {

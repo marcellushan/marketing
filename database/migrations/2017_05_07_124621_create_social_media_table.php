@@ -16,11 +16,12 @@ class CreateSocialMediaTable extends Migration
         Schema::create('social_media', function (Blueprint $table) {
             $table->increments('id');
             $table->text('details')->nullable();
-            $table->string("media_type");
-            $table->boolean('students')->nullable();
-            $table->boolean('faculty_staff')->nullable();
-            $table->boolean('community')->nullable();
-            $table->boolean('alumni')->nullable();
+            $table->string("request_type");
+            $table->string('audience')->nullable();
+//            $table->boolean('students')->nullable();
+//            $table->boolean('faculty_staff')->nullable();
+//            $table->boolean('community')->nullable();
+//            $table->boolean('alumni')->nullable();
             $table->text('facebook_text')->nullable();
             $table->text('twitter_text')->nullable();
             $table->string('image')->nullable();
@@ -28,12 +29,13 @@ class CreateSocialMediaTable extends Migration
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('department')->nullable();
-            $table->text('how')->nullable();
-            $table->boolean('facebook')->nullable();
-            $table->boolean('twitter')->nullable();
-            $table->boolean('instagram')->nullable();
-            $table->boolean('youtube')->nullable();
-//            $table->integer('status')->default(1);
+//            $table->text('how')->nullable();
+            $table->string('social')->nullable();
+//            $table->boolean('facebook')->nullable();
+//            $table->boolean('twitter')->nullable();
+//            $table->boolean('instagram')->nullable();
+//            $table->boolean('youtube')->nullable();
+            $table->string('status')->default("Received");
             $table->integer('clients_id');
             $table->timestamps();
         });
