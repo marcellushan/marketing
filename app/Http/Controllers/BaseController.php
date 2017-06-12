@@ -9,6 +9,7 @@ use Session;
 use URL;
 
 use App\Clients;
+use App\Comments;
 
 class BaseController extends Controller
 {
@@ -25,17 +26,29 @@ class BaseController extends Controller
      */
     public function index()
     {
-        $datas= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+//        $receiveds= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
 //            ->leftJoin('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')
+//            ->where('comments.status','=', NULL)
+//            ->get();
+//        $receiveds= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+//            ->leftJoin('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')->where('comments.status', '=' ,NULL)
+//            ->get();
+        $my_model = $this::MODEL_NAME;
+        $tester = new $my_model;
+//        dd($tester->all());
+        $datas=DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+            ->join('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')
+            ->distinct('services_id')
             ->get();
-
-        $receiveds= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
-            ->leftJoin('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')->where('comments.status', '=' ,NULL)
+dd($datas);
+        $receiveds=DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+            ->join('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')->where('comments.status', '=' ,'Received')
             ->get();
+//        dd($receiveds);
         $progresses=DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
             ->join('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')->where('comments.status', '=' ,'In Progress')
             ->get();
-//        dd($progresses);
+//        dd($receiveds);
         $informations= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
             ->join('comments', $this::TABLE_NAME . '.id', '=', 'comments.services_id')->where('comments.status', '=' ,'Awaiting Information')
             ->get();
@@ -85,6 +98,16 @@ class BaseController extends Controller
         $service_type->clients_id=Session::get('id');
         ($request->file('image') ? $service_type->image=URL::to('/') . "/uploads/" . $myPath : "");
         $service_type->save();
+        $comment = new Comments;
+        $comment->services_id = $service_type->id;
+        $comment->service = $model_name;
+        $comment->status = 'Received';
+        $comment->comment = "Request submitted";
+//        if($request->comment) {
+//            $comment->comment = $request->comment;
+//        }
+        $comment->save();
+
         $url = $this::VIEW_FOLDER . '/' . Session::get('id');
         $which_mail = '\\App\\Mail\\' . $this::MAIL;
         if($this::VIEW_FOLDER == 'design_printing') {

@@ -29,7 +29,7 @@
                                 <td>{{$received->last_name}}, {{$received->first_name}}</td>
                                 <td>{{$received->details}}</td>
                                 <td>{{$received->created_at}}</td>
-                                <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$received->id}}">Specifics</a></td>
+                                <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$received->services_id}}">Specifics</a></td>
                             </tr>
                         @endforeach
                     </table>
@@ -61,7 +61,7 @@
                                 <tr>
                                     <td>{{$progress->last_name}}, {{$progress->first_name}}</td>
                                     <td>{{$progress->details}}</td>
-                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$progress->id}}">Specifics</a></td>
+                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$progress->services_id}}">Specifics</a></td>
                                 </tr>
                             @endforeach
                         </table>
@@ -94,7 +94,7 @@
                                 <tr>
                                     <td>{{$information->last_name}}, {{$information->first_name}}</td>
                                     <td>{{$information->details}}</td>
-                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$information->id}}">Specifics</a></td>
+                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$information->services_id}}">Specifics</a></td>
                                 </tr>
                             @endforeach
                         </table>
@@ -125,7 +125,7 @@
                                 <tr>
                                     <td>{{$review->last_name}}, {{$review->first_name}}</td>
                                     <td>{{$review->details}}</td>
-                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$review->id}}">Specifics</a></td>
+                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$review->services_id}}">Specifics</a></td>
                                 </tr>
                             @endforeach
                         </table>
@@ -158,7 +158,7 @@
                                 <tr>
                                     <td>{{$complete->last_name}}, {{$complete->first_name}}</td>
                                     <td>{{$complete->details}}</td>
-                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$complete->id}}">Specifics</a></td>
+                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$complete->services_id}}">Specifics</a></td>
                                 </tr>
                             @endforeach
                         </table>
@@ -190,7 +190,7 @@ Details
 <tr>
 <td>{{$data->last_name}}, {{$data->first_name}}</td>
 <td>{{$data->details}}</td>
-<td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$data->id}}">Specifics</a></td>
+<td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$data->services_id}}">Specifics</a></td>
 </tr>
 @endforeach
 </table>
