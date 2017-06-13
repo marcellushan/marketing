@@ -41,7 +41,7 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-    $("input[class=promotional]:checkbox").change(function () {
+    $("input[class=display]:checkbox").change(function () {
 
         $("#pickup").css("display", "block");
         // alert('this');
@@ -52,7 +52,7 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-    $("input[name=other]:checkbox").change(function () {
+    $("input[id=other]:checkbox").change(function () {
 
         $("#other_details").css("display", "block");
         // alert('this');

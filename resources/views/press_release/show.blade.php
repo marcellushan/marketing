@@ -1,5 +1,5 @@
     <div class="row">
-        <div class="title col-md-10 col-md-offset-2">{{$service_name}}</div>
+        <div class="title col-md-10">{{$service_name}}</div>
     </div>
         <div class="row">
             <div class="col-sm-3 category">News Type</div>

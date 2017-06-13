@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="title col-md-10 col-md-offset-2">Photography</div>
+    <div class="title col-md-10">Photography</div>
 </div>
 <div class="row">
     <div class="col-sm-3 category">What/who do you need photographed?</div>

@@ -23,8 +23,8 @@
          <div class="row">
              <div class="col-sm-10">
                  <div class="form-group">
-                     <label>Department</label>
-                     <input type="text" class="form-control" name="department">
+                     <label>Department</label><br>
+                   @include('partials.departments')
                  </div>
              </div>
          </div>

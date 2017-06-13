@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="title col-md-10 col-md-offset-2">Design and Printing</div>
+    <div class="title col-md-10">Design and Printing</div>
 </div><p></p>
 <div class="row">
     <div class="col-sm-3 category">Details</div>
