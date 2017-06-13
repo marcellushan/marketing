@@ -27,7 +27,7 @@ class ClientsTableSeeder extends Seeder
                        tellus. Donec rutrum congue leo eget malesuada.',
                    'created_at' => '2017-05-07'
                ]);
-               DB::table('press_releases')->insert([
+               $press_release_id = DB::table('press_releases')->insertGetId([
                    'media_type' => 'Student Feature',
                    'details' => str_random(10),
                    'professional' => 'Pellentesque in ipsum id orci porta dapibus. 
@@ -41,6 +41,17 @@ class ClientsTableSeeder extends Seeder
                    'quote_email_1' => 'jsmith@home.com',
                    'quote_phone_1' => '7774447777',
                    'clients_id' => $id
+               ]);
+               DB::table('comments')->insertGetId([
+                   'comment' => 'Pellentesque in ipsum id orci porta dapibus. 
+                   Proin eget tortor risus. Sed porttitor lectus nibh. Curabitur 
+                   aliquet quam id dui posuere blandit. Quisque velit nisi, pretium 
+                   ut lacinia in, elementum id enim. Cras ultricies ligula sed magna
+                    dictum porta.',
+                   'service' => 'App\PressReleases',
+                   'services_id' => $press_release_id,
+                   'status' => 'Received',
+                   'created_at' => '2017-05-04'
                ]);
                 DB::table('design_printings')->insert([
                     'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',

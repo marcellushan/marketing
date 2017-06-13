@@ -39,7 +39,7 @@ class BaseController extends Controller
             ->where($this::TABLE_NAME . '.status','=', 'Awaiting Review')
             ->get();
         $completes= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
-            ->where($this::TABLE_NAME . '.status','=', '$completes')
+            ->where($this::TABLE_NAME . '.status','=', 'Complete')
             ->get();
         $datas= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
             ->get();
