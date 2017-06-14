@@ -121,6 +121,16 @@ $(document).ready(function () {
 
 });
 
+$(document).ready(function () {
+    $("input[id=paid_advertising_other]:checkbox").change(function () {
+
+        $("#paid_advertising_other_details").css("display", "block");
+        // alert('this');
+
+    });
+
+});
+
 $(document).ready(function(){
     $("#confirm").click(function(){
         // $("#complete").toggle();

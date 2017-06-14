@@ -101,7 +101,7 @@
 <br>
 <input type="file" name="image" id="fileToUpload"><br>
 
-<input type="submit" class="btn btn-primary btn-lg center-block" value="Submit" />
+<input type="submit" class="btn btn-primary btn-lg center-block" value="Submit" id="confirm" />
 
 
 </div>

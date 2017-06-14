@@ -1,7 +1,7 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
         <h1>Event Aid</h1>
-    {{Form::open(array('url' => 'event'))}}
+    {{Form::open(array('url' => 'event', 'id' => 'event'))}}
 
         <h3>
             Is this request for a GHC event?
@@ -160,7 +160,7 @@
     <div class="row">
         <div class="col-sm-3 col-sm-offset-3">
             <div class="form-group">
-                <input type="submit" class="btn-default btn-lg">
+                <input type="submit" class="btn-default btn-lg" id="confirm">
             </div>
         </div>
     </div>

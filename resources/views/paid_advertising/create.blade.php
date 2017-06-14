@@ -34,6 +34,7 @@
             </h3>
         </div>
        @include('partials.advertising_options')
+        @include('partials.textbox', ['title' => 'Other Details', 'name' => 'other', 'id' => 'paid_advertising_other_details'])
     <div class="row">
         <div class="col-sm-4 col-sm-offset-3">
             <div class="form-group">

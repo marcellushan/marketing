@@ -23,13 +23,14 @@
 </div><p></p>
 <div class="row">
     <div class="col-sm-3 category">Options</div>
-    <div class="col-sm-8 item">
-        @if($service_type->social_media) Social Media @endif
-        @if($service_type->print) Print @endif
-        @if($service_type->billboard) Billboard @endif
-        @if($service_type->digital) Digital @endif
-        @if($service_type->other) Other @endif
+        <div class="col-sm-8 item">{{$service_type->advertising}}</div>
     </div>
+@if($service_type->other)
+<div class="row">
+    <div class="col-sm-3 category">Other Details</div>
+    <div class="col-sm-8 item">{{$service_type->other}}</div>
+</div>
+@endif
 </div>
 </div>
 </div>

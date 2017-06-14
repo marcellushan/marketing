@@ -16,9 +16,17 @@
     <div class="col-sm-8 item">{{$service_type->presentation_date}}</div>
 </div><p></p>
 <div class="row">
-    <div class="col-sm-3 category">Area</div>
-    <div class="col-sm-8 item">{{$service_type->area}}</div>
+    <div class="col-sm-3 category">Area of Assistance</div>
+    <div class="col-sm-8 item">{{$service_type->assistance}}</div>
 </div><p></p>
+
+
+@if($service_type->other)
+    <div class="row">
+        <div class="col-sm-3 category">Other Details</div>
+        <div class="col-sm-8 item">{{$service_type->other}}</div>
+    </div>
+    @endif
 </div>
 </div>
 </div>

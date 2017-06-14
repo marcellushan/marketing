@@ -4,17 +4,12 @@
 <div class="row">
     <div class="col-sm-3 category">Media Type</div>
     <div class="col-sm-8 item">
-        {{$service_type->media_type}}
+        {{$service_type->request_type}}
     </div>
 </div><p></p>
 <div class="row">
     <div class="col-sm-3 category">Audience</div>
-    <div class="col-sm-8 item">
-        @if($service_type->students) Students @endif
-        @if($service_type->faculty_staff) Faculty/Staff @endif
-        @if($service_type->community) Community @endif
-        @if($service_type->alumni) Alumni @endif
-    </div>
+    <div class="col-sm-8 item">{{$service_type->audience}}</div>
 </div><p></p>
 @if($service_type->media_type=="Starting New Page")
     <div class="row">

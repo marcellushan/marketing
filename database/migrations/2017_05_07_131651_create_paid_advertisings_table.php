@@ -24,6 +24,7 @@ class CreatePaidAdvertisingsTable extends Migration
             $table->text("purpose")->nullable();
             $table->text("details")->nullable();
             $table->string('advertising')->nullable();
+            $table->text("other")->nullable();
 //            $table->boolean('social_media')->nullable();
 //            $table->boolean('print')->nullable();
 //            $table->boolean('billboard')->nullable();

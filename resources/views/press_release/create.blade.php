@@ -101,6 +101,8 @@
                     </div>
                 </div>
     @include('partials.individual', ['number' => '1'])
+    @include('partials.individual', ['number' => '2'])
+    @include('partials.individual', ['number' => '3'])
 
     <div class="row">
         <div class="col-sm-8">
@@ -117,7 +119,7 @@
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-3">
                     <div class="form-group">
-                       <input type="submit" class="btn-default btn-lg">
+                       <input type="submit" class="btn-default btn-lg" id="confirm">
                     </div>
                 </div>
             </div>

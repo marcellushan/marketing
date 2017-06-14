@@ -17,6 +17,6 @@
     </div>
     <div class="col-md-2">
         Other&nbsp;
-        <input type="checkbox" name="advertising[]" value="Other">
+        <input type="checkbox" name="advertising[]" value="Other" id="paid_advertising_other">
     </div>
 </div>

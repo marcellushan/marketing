@@ -32,7 +32,7 @@
              messages: {
                  first_name: "Please enter your first name",
                  last_name: "Please enter your last name",
-                 department: "Please enter your department",
+                 department: "Please select your department",
                  email: "Please enter a valid email address",
                  due_date: "Please enter a valid due date",
                  summary: "Please enter a summary",
@@ -310,6 +310,10 @@
      $(document).ready(function(){
          $( "#event" ).validate({
              rules: {
+                 GHC: {
+                     required: true
+                 }
+                 ,
                  details: {
                      required: true
                  }

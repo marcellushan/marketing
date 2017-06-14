@@ -139,7 +139,7 @@ class BaseController extends Controller
     public function show($id)
     {
         $model_name = $this::MODEL_NAME;
-        $service_type = $model_name::where('clients_id', '=', $id)->first();
+        $service_type = $model_name::where('clients_id', '=', $id)->orderBy('created_at','desc')->first();
 //        dd($service_type);
         $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->get();
         $view_folder = $this::VIEW_FOLDER;
