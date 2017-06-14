@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="title col-md-10 col-md-offset-2">{{$service_name}}</div>
+    <div class="title col-md-10">{{$service_name}}</div>
 </div>
 <div class="row">
     <div class="col-sm-3 category">GHC Event</div>
@@ -16,18 +16,16 @@
     <div class="col-sm-8 item">{{$service_type->event_date}} at {{$service_type->event_time}}</div>
 </div><p></p>
 <div class="row">
-    <div class="col-sm-3 category">Display/Promotional Items Needed</div>
-    <div class="col-sm-8 item">
-        @if($service_type->banners) Banners @endif
-        @if($service_type->table_clothes) Table Clothes @endif
-        @if($service_type->magazines) Easels @endif
-        @if($service_type->promo) Promotional Material @endif
-        @if($service_type->signs) Signs @endif
-        @if($service_type->recruitment) Recruitment Materials @endif
-        @if($service_type->other) Other @endif
-    </div>
+    <div class="col-sm-3 category">Location</div>
+    <div class="col-sm-8 item">{{$service_type->location}}</div>
 </div><p></p>
-@if($service_type->other)
+@if($service_type->display)
+<div class="row">
+    <div class="col-sm-3 category">Display/Promotional Items Needed</div>
+    <div class="col-sm-8 item">{{$service_type->display}}</div>
+</div><p></p>
+@endif
+@if($service_type->other_details)
     <div class="row">
         <div class="col-sm-3 category">Other Details</div>
         <div class="col-sm-8 item">{{$service_type->other_details}}</div>
@@ -51,6 +49,24 @@
         <div class="col-sm-8 item">Department:  {{$service_type->pickup_department}}</div>
     </div><p></p>
 @endif
+@if($service_type->speaker)
+    <div class="row">
+        <div class="col-sm-3 category">Speaker Bio</div>
+        <div class="col-sm-8 item">{{$service_type->speaker_bio}}</div>
+    </div><p></p>
+@endif
+@if($service_type->sponsor)
+    <div class="row">
+        <div class="col-sm-3 category">Sponsor Website</div>
+        <div class="col-sm-8 item">{{$service_type->sponsor_website}}</div>
+    </div><p></p>
+@endif
+@if($service_type->rsvp)
+    <div class="row">
+        <div class="col-sm-3 category">RSVP</div>
+        <div class="col-sm-8 item">{{$service_type->rsvp}}</div>
+    </div><p></p>
+    @endif
 
 </div>
 </div>

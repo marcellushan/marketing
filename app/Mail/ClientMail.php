@@ -32,6 +32,7 @@ class ClientMail extends Mailable
     public function build()
     {
         return $this->from('webmaster@highlands.edu')
-                     ->view('emails.client');
+            ->subject('Your Marcom request has been received!!')
+            ->view('emails.client');
     }
 }

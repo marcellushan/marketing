@@ -171,7 +171,10 @@ class BaseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $model_name = $this::MODEL_NAME;
+        $service_type = $model_name::where('clients_id', '=', $id)->first();
+//        dd($service_type);
+        return view($this::VIEW_FOLDER . '.create')->with(compact('service_type'));
     }
 
     /**
@@ -183,7 +186,7 @@ class BaseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        echo "test";
     }
 
     /**
@@ -232,24 +235,6 @@ class BaseController extends Controller
         $service = $this::MODEL_NAME;
         $service_name = $this::MEDIA_NAME;
         $status = "Received";
-//        switch ($service_type->status) {
-//            case 1:
-//                $status = 'Received';
-//                break;
-//            case 2:
-//                $status = 'In Progress';
-//                break;
-//            case 3:
-//                $status = 'Awaiting Information';
-//                break;
-//            case 4:
-//                $status = 'Awaiting Review';
-//                break;
-//            case 5:
-//                $status = 'Completed';
-//                break;
-//        }
-//        dd($service_type);
         return view('return')->with(compact('service_type', 'service','comments','service_name','view_folder','status'));
     }
 }

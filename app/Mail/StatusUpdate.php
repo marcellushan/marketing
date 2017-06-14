@@ -40,6 +40,7 @@ class StatusUpdate extends Mailable
     public function build()
     {
         return $this->from('webmaster@highlands.edu')
-                ->view('emails.status_update');
+            ->subject('There has been a change to your Marcom request!')
+            ->view('emails.status_update');
     }
 }
