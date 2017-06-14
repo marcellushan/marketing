@@ -20,31 +20,13 @@ class CommentsController extends Controller
        $data = $service::find($request->services_id);
        $data->status = $request->status;
        $data->save();
-//       switch ($data->status) {
-//           case 1:
-//               $status = 'Received';
-//               break;
-//           case 2:
-//               $status = 'In Progress';
-//               break;
-//           case 3:
-//               $status = 'Awaiting Information';
-//               break;
-//           case 4:
-//               $status = 'Awaiting Review';
-//               break;
-//           case 5:
-//               $status = 'Completed';
-//               break;
-//       }
-
-
 //       dd($data);
        $comment = '';
        $comment = new Comments;
        $comment->services_id = $request->services_id;
        $comment->service = $request->service;
        $comment->status = $request->status;
+       $comment->username = (auth()->user() ? auth()->user()->name : 'Customer');
        if($request->comment) {
            $comment->comment = $request->comment;
        }
@@ -52,7 +34,9 @@ class CommentsController extends Controller
        $status = $request->status;
 ////       Session::put('press_release',2);
 //       dd($request);
-
+        if($request->user) {
+            return redirect('clients/thank_you/'. $request->clients_id);
+        }
        $client = Clients::find($request->clients_id);
 
        \Mail::to($client->email)->send(new StatusUpdate($status, $data, $comment, $request->view_folder, $media_name));

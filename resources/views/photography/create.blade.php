@@ -53,7 +53,7 @@
     <div class="row">
         <div class="col-sm-3 col-sm-offset-4">
             <div class="form-group">
-               <input type="submit" class="btn-default btn-sm">
+               <input type="submit" class="btn-default btn-sm"  id="confirm">
             </div>
         </div>
 

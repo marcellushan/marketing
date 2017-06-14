@@ -23,7 +23,6 @@ class PaidAdvertisingController extends BaseController
     public function store(Request $request)
     {
         $data = $request->except(['advertising','audience']);
-//        dd($data);
         $model_name = $this::MODEL_NAME;
         $email = $this::VIEW_FOLDER;
         $service_type = new $model_name($data);

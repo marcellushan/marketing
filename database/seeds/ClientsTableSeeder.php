@@ -16,7 +16,7 @@ class ClientsTableSeeder extends Seeder
                $id =DB::table('clients')->insertGetId([
                    'first_name' => str_random(10),
                    'last_name' => str_random(10),
-                   'email' => str_random(10) . '@gmail.com',
+                   'email' => str_random(10) . '@highlands.edu',
                    'department' => str_random(10),
                    'phone' => rand(2000000000, 9999999999),
 //                   'due_date' => '2017-05-07',
@@ -43,11 +43,7 @@ class ClientsTableSeeder extends Seeder
                    'clients_id' => $id
                ]);
                DB::table('comments')->insertGetId([
-                   'comment' => 'Pellentesque in ipsum id orci porta dapibus. 
-                   Proin eget tortor risus. Sed porttitor lectus nibh. Curabitur 
-                   aliquet quam id dui posuere blandit. Quisque velit nisi, pretium 
-                   ut lacinia in, elementum id enim. Cras ultricies ligula sed magna
-                    dictum porta.',
+                   'comment' => 'Service requested',
                    'service' => 'App\PressReleases',
                    'services_id' => $press_release_id,
                    'status' => 'Received',

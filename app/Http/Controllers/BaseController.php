@@ -28,20 +28,26 @@ class BaseController extends Controller
     {
         $receiveds= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
             ->where($this::TABLE_NAME . '.status','=', 'Received')
+            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
             ->get();
         $progresses= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
             ->where($this::TABLE_NAME . '.status','=', 'In Progress')
+            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
             ->get();
         $informations= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
             ->where($this::TABLE_NAME . '.status','=', 'Awaiting Information')
+            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
             ->get();
         $reviews= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
             ->where($this::TABLE_NAME . '.status','=', 'Awaiting Review')
+            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
             ->get();
         $completes= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
             ->where($this::TABLE_NAME . '.status','=', 'Complete')
+            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
             ->get();
         $datas= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
             ->get();
         $media_name = $this::MEDIA_NAME;
         $view_folder = $this::VIEW_FOLDER;
@@ -76,7 +82,6 @@ class BaseController extends Controller
             $file->move($destinationPath, $myPath);
         }
         $data = $request->except(['media_type','audience']);
-//        dd($data);
         $model_name = $this::MODEL_NAME;
         $email = $this::VIEW_FOLDER;
         $service_type = new $model_name($data);
@@ -125,7 +130,6 @@ class BaseController extends Controller
         return redirect($url);
 //        return redirect('service');
     }
-
     /**
      * Display the specified resource.
      *
@@ -212,7 +216,8 @@ class BaseController extends Controller
         $model_name = $this::MODEL_NAME;
         $service_type = $model_name::where('clients_id', '=', $id)->first();
 //        dd($service_type);
-        $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->orderBy('created_at','desc')->get();
+        $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->orderBy('created_at','desc')
+            ->get();
         $last_comment = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->orderBy('created_at','desc')->first();
 //        if(! $last_comment) {
 //            $last_comment->status = "Received";
@@ -230,7 +235,7 @@ class BaseController extends Controller
         $model_name = $this::MODEL_NAME;
         $service_type = $model_name::where('clients_id', '=', $id)->first();
 //        dd($service_type);
-        $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->get();
+        $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->orderBy('created_at','desc')->get();
         $view_folder = $this::VIEW_FOLDER;
         $service = $this::MODEL_NAME;
         $service_name = $this::MEDIA_NAME;

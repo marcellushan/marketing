@@ -28,7 +28,6 @@ class PresentationController extends BaseController
         $data = $request->except(['assistance','audience']);
 //        dd($data);
         $model_name = $this::MODEL_NAME;
-        $email = $this::VIEW_FOLDER;
         $service_type = new $model_name($data);
         $service_type->fill($data);
         if($request->assistance) {

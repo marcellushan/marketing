@@ -18,8 +18,9 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        $data = Clients::find($id);
-        $press_release = PressReleases::where('clients_id', '=', $id)->first();
+//        $data = Clients::find($id);
+//        $press_release = PressReleases::where('clients_id', '=', $id)->first();
+        dd(auth()->user()->email);
     }
 
     /**

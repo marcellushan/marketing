@@ -2,14 +2,7 @@
 <div class="main container">
         <h1>Presentation</h1>
     {{Form::open(array('url' => 'presentation','id'=>'presentation'))}}
-    <div class="row">
-        <div class="col-sm-8">
-            <div class="form-group">
-                <label>Where are you presenting or being interviewed and on what topic?</label>
-                <textarea class="form-control" rows="5" name="details"></textarea>
-            </div>
-        </div>
-    </div>
+    @include('partials.textbox', ['title' => 'Where are you presenting or being interviewed and on what topic?', 'name' => 'details'])
     @include('partials.audience')
     <p></p>
     <div class="row">
@@ -28,6 +21,7 @@
             </div>
         </div>
     @include('partials.assistance_options')
+    @include('partials.textbox', ['title' => 'Other Details', 'name' => 'other', 'id' => 'presentation_other_details'])
     <p></p>
     <div class="row">
         <div class="col-sm-3 col-sm-offset-4">

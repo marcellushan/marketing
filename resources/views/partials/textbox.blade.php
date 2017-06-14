@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" id = "{{$id or ''}}">
     <div class="col-sm-10">
         <div class="form-group">
             <label>{{$title}}</label>

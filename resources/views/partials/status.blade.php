@@ -11,6 +11,6 @@
         <div class="row">
             <div class="col-sm-3 category">Status</div>
             <div class="col-sm-8 item">{!! Form::select('status', ['Received' => 'Received', 'In Progress' => 'In Progress', 'Awaiting Information' => 'Awaiting Information',
-             'Awaiting Review' => 'Awaiting Review', 'Cancelled' => 'Cancelled', 'Complete' => 'Complete'], $comment) !!}</div>
+             'Awaiting Review' => 'Awaiting Review', 'Cancelled' => 'Cancelled', 'Complete' => 'Complete' , 'Customer Feedback' => 'Customer Feedback'], $comment) !!}</div>
         </div>
     </div>

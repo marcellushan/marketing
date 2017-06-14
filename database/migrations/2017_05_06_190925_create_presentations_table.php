@@ -17,12 +17,9 @@ class CreatePresentationsTable extends Migration
             $table->increments('id');
             $table->text('details');
             $table->string('audience')->nullable();
-//            $table->boolean('students')->nullable();
-//            $table->boolean('faculty_staff')->nullable();
-//            $table->boolean('community')->nullable();
-//            $table->boolean('alumni')->nullable();
             $table->date('presentation_date')->nullable();
             $table->string('assistance')->nullable();
+            $table->text('other')->nullable();
             $table->string('status')->default("Received");
             $table->integer('clients_id');
             $table->timestamps();

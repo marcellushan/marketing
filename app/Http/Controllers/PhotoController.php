@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Photo;
 use Illuminate\Http\Request;
-use App\Comments;
 
 use Session;
 use DB;
+use URL;
+
+use App\Clients;
+use App\Comments;
 
 class PhotoController extends BaseController
 {
@@ -24,7 +27,6 @@ class PhotoController extends BaseController
         $start_time = $request->start_hour . ":" . $request->start_minute . " " . $request->start_AM;
         $end_time = $request->end_hour . ":" . $request->end_minute . " " . $request->end_AM;
         $model_name = $this::MODEL_NAME;
-        $email = $this::VIEW_FOLDER;
         $service_type = new $model_name($data);
         $service_type->fill($data);
         $service_type->start_time = $start_time;

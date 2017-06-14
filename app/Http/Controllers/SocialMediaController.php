@@ -5,7 +5,12 @@ namespace App\Http\Controllers;
 use App\SocialMedia;
 use Illuminate\Http\Request;
 
+use DB;
+use Session;
+use URL;
 
+use App\Clients;
+use App\Comments;
 
 class SocialMediaController extends BaseController
 {
@@ -26,10 +31,12 @@ class SocialMediaController extends BaseController
             $file->move($destinationPath, $myPath);
         }
         $data = $request->except(['media_type','audience']);
-//        dd($data);
+//        dd($client);
         $model_name = $this::MODEL_NAME;
         $email = $this::VIEW_FOLDER;
         $service_type = new $model_name($data);
+//        $service_type = $model_name::where('clients_id', '=', $id)->first();
+//                dd($service_type);
         $service_type->fill($data);
         if($request->audience) {
             $audience = implode(", ", $request->audience);

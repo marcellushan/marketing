@@ -4,7 +4,7 @@
             <div class="col-sm-6 category">Comments</div>
             <div class="col-sm-2 category">Status</div>
             <div class="col-sm-2 category">Date</div>
-            <div class="col-sm-2 category">ID</div>
+            <div class="col-sm-2 category">Owner</div>
         </div>
         @foreach($comments as $comment)
             <div class="row">
@@ -18,7 +18,7 @@
                     {{date_format($comment->created_at, 'm/d/y')}}
                 </div>
                 <div class="col-md-2">
-                    {{$comment->users_id or "No ID"}}
+                    {{$comment->username or "Customer"}}
                 </div>
             </div>
         @endforeach

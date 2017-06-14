@@ -110,3 +110,27 @@ $(document).ready(function(){
         $("#complete").toggle();
     });
 });
+
+$(document).ready(function () {
+    $("input[id=presentation_other]:checkbox").change(function () {
+
+        $("#presentation_other_details").css("display", "block");
+        // alert('this');
+
+    });
+
+});
+
+$(document).ready(function(){
+    $("#confirm").click(function(){
+        // $("#complete").toggle();
+        var retval = confirm('The request is going to be submitted.  Do you want to continue?');
+        if(retval == true) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+});
+
+

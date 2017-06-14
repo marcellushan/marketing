@@ -13,6 +13,6 @@
     </div>
     <div class="col-md-2">
         Other&nbsp;
-        <input type="checkbox" name="assistance[]" value="Other">
+        <input type="checkbox" name="assistance[]" id="presentation_other" value="Other">
     </div>
 </div>
