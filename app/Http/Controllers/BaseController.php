@@ -81,7 +81,7 @@ class BaseController extends Controller
             $myPath = $myRandom . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $myPath);
         }
-        $data = $request->except(['media_type','audience']);
+        $data = $request->all();
         $model_name = $this::MODEL_NAME;
         $email = $this::VIEW_FOLDER;
         $service_type = new $model_name($data);
@@ -94,9 +94,31 @@ class BaseController extends Controller
             $audience = implode(", ", $request->audience);
             $service_type->audience = $audience;
         }
-
+        if($request->advertising) {
+            $advertising = implode(", ", $request->advertising);
+            $service_type->advertising = $advertising;
+        }
+        if($request->start_time) {
+            $start_time = implode(":", $request->start_time);
+//            dd($start_time);
+            $service_type->start_time = $start_time;
+        }
+        if($request->end_time) {
+            $end_time = implode(":", $request->end_time);
+//            dd($start_time);
+            $service_type->end_time = $end_time;
+        }
+        if($request->assistance) {
+            $assistance = implode(", ", $request->assistance);
+            $service_type->assistance = $assistance;
+        }
+        if($request->social) {
+            $social = implode(", ", $request->social);
+            $service_type->social = $social;
+        }
         $service_type->clients_id=Session::get('id');
         $service_type->status='Received';
+//        dd($service_type);
 
         ($request->file('image') ? $service_type->image=URL::to('/') . "/uploads/" . $myPath : "");
         $service_type->save();
