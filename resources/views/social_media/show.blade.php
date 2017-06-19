@@ -11,7 +11,7 @@
     <div class="col-sm-3 category">Audience</div>
     <div class="col-sm-8 item">{{$service_type->audience}}</div>
 </div><p></p>
-@if($service_type->media_type=="Starting New Page")
+@if($service_type->request_type=="Starting New Page")
     <div class="row">
         <div class="col-sm-3 category">Page Manager</div>
         <div class="col-sm-8 item">Name:  {{$service_type->name}}</div>
@@ -30,18 +30,7 @@
     </div><p></p>
     <div class="row">
         <div class="col-sm-3 category">Network Interest</div>
-        <div class="col-sm-8 item">
-            @if($service_type->facebook) Facebook @endif
-            @if($service_type->twitter) Twitter @endif
-            @if($service_type->instagram) Instagram @endif
-            @if($service_type->youtube) YouTube @endif
-        </div>
-    </div><p></p>
-    <div class="row">
-        <div class="col-sm-3 category">How</div>
-        <div class="col-sm-8 item">
-            {{$service_type->how}}
-        </div>
+        <div class="col-sm-8 item">{{$service_type->social}}</div>
     </div><p></p>
     <div class="row">
         <div class="col-sm-3 category">Details</div>
