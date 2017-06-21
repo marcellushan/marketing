@@ -31,7 +31,7 @@
             <div class="col-sm-8 item">{{$service_type->promotional}}</div>
         </div><p></p>
     <div class="row">
-        <div class="col-sm-3 category">Audience</div>
+        <div class="col-sm-3 category">Target Audience</div>
         <div class="col-sm-8 item">{{$service_type->audience}}</div>
         </div>
     @if($service_type->quote_name_1)

@@ -131,16 +131,16 @@ $(document).ready(function () {
 
 });
 
-$(document).ready(function(){
-    $("#confirm").click(function(){
-        // $("#complete").toggle();
-        var retval = confirm('The request is going to be submitted.  Do you want to continue?');
-        if(retval == true) {
-            return true;
-        } else {
-            return false;
-        }
-    });
-});
+// $(document).ready(function(){
+//     $("#confirm").click(function(){
+//         // $("#complete").toggle();
+//         var retval = confirm('The request is going to be submitted.  Do you want to continue?');
+//         if(retval == true) {
+//             return true;
+//         } else {
+//             return false;
+//         }
+//     });
+// });
 
 

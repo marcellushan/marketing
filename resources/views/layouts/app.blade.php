@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Marketing Communication</title>
+    <title>Marcom Service Form</title>
 
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,7 @@
         webshims.cfg.no$Switch = true;
     </script>
     <script src="{{URL::to('/')}}/js/js_functions.js"></script>
-    {{--<script src="{{URL::to('/')}}/jquery/jquery_validation.js"></script>--}}
+    <script src="{{URL::to('/')}}/jquery/jquery_validation.js"></script>
 </head>
 <body>
 <body  style="background-color:#004990;">

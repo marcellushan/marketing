@@ -6,10 +6,8 @@
     <div class="col-sm-7 item">{{$service_type->details}}</div>
 </div><p></p>
 <div class="row">
-    <div class="col-sm-3 category">Audience</div>
-    <div class="col-sm-7 item">
+    <div class="col-sm-3 category">Target Audience</div>
         <div class="col-sm-8 item">{{$service_type->audience}}</div>
-    </div>
 </div><p></p>
 <div class="row">
     <div class="col-sm-3 category">Payment Type</div>

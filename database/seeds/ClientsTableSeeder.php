@@ -119,7 +119,7 @@ class ClientsTableSeeder extends Seeder
                'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                'clients_id' => $id,
                'event_date' => '2017-05-01',
-               'event_time' => '03:30 PM',
+               'start_time' => '03:30 PM',
                'display' => 'Banners',
                'location' => str_random(10)
            ]);

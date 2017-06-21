@@ -18,7 +18,7 @@ class CreateEventsTable extends Migration
             $table->boolean('GHC')->nullable();
             $table->string('details')->nullable();
             $table->date('event_date')->nullable();
-            $table->string('event_time')->nullable();
+            $table->string('start_time')->nullable();
             $table->string('location')->nullable();
             $table->string('display')->nullable();
 //            $table->boolean('banners')->nullable();

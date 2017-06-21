@@ -8,10 +8,8 @@
     </div>
 </div><p></p>
 <div class="row">
-    <div class="col-sm-3 category">Audience</div>
-    <div class="col-sm-8 item">
+    <div class="col-sm-3 category">Target Audience</div>
         <div class="col-sm-8 item">{{$service_type->audience}}</div>
-        </div>
 </div><p></p>
 <div class="row">
     <div class="col-sm-3 category">Please provide details and purpose for video.</div>
