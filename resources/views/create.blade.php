@@ -10,13 +10,13 @@
             <div class="col-sm-5">
                 <div class="form-group">
                     <label>First name</label>
-                    <input type="text" class="form-control" name="first_name">
+                    <input type="text" class="form-control" name="first_name" placeholder="required">
                 </div>
             </div>
             <div class="col-sm-5">
                 <div class="form-group">
                     <label>Last name</label>
-                    <input type="text" class="form-control" name="last_name">
+                    <input type="text" class="form-control" name="last_name" placeholder="required">
                 </div>
             </div>
          </div>
@@ -32,7 +32,7 @@
                  <div class="col-sm-10">
                      <div class="form-group">
                          <label>Email Address</label>
-                         <input type="email" class="form-control" name="email">
+                         <input type="email" class="form-control" name="email" placeholder="required">
                      </div>
                  </div>
              </div>
@@ -40,7 +40,7 @@
                  <div class="col-sm-10">
                      <div class="form-group">
                          <label>Phone</label>
-                         <input type="text" class="form-control" name="phone">
+                         <input type="text" class="form-control" name="phone" placeholder="required">
                      </div>
                  </div>
              </div>
@@ -48,7 +48,7 @@
                  <div class="col-sm-10">
                      <div class="form-group">
                          <label>Brief Project Summary</label>
-                         <textarea class="form-control" rows="5" name="summary"></textarea>
+                         <textarea class="form-control" rows="5" name="summary" placeholder="required"></textarea>
                      </div>
                  </div>
              </div>

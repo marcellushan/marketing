@@ -6,7 +6,7 @@
         <div class="col-sm-10">
             <div class="form-group">
                 <label>What do you want to advertise?</label>
-                <textarea class="form-control" rows="5" name="ad_event"></textarea>
+                <textarea class="form-control" rows="5" name="details" placeholder="required"></textarea>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
         <div class="col-sm-10">
             <div class="form-group">
                 <label>Please provide details and purpose for advertisement</label>
-                <textarea class="form-control" rows="5" name="purpose"></textarea>
+                <textarea class="form-control" rows="5" name="purpose" placeholder="required"></textarea>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
         <div class="col-sm-10">
             <div class="form-group">
                 <label>How/where/when do you see the advertisement being used?</label>
-                <textarea class="form-control" rows="5" name="details"></textarea>
+                <textarea class="form-control" rows="5" name="use" placeholder="required"></textarea>
             </div>
         </div>
     </div>

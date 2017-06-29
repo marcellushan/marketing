@@ -17,7 +17,8 @@
 </div><p></p>
 <div class="row">
     <div class="col-sm-3 category">Shoot schedule</div>
-    <div class="col-sm-8 item">{{$service_type->requested_date}} Start Time {{$service_type->start_time}} End Time {{$service_type->end_time}}</div>
+    <div class="col-sm-2 item">{{$service_type->requested_date}} </div><div class="col-sm-2 item">Start Time {{$service_type->start_time}}</div>
+    <div class="col-sm-2 item">End Time {{$service_type->end_time}}</div>
 </div>
 </div>
 </div>

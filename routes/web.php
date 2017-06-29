@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function () {
-//    return view('welcome');
+    return view('test');
 //    echo "test";
-    Mail::to('mhannah@highlands.edu')->send(new \App\Mail\MarketingRequest());
+//    Mail::to('mhannah@highlands.edu')->send(new \App\Mail\MarketingRequest());
 });
 
 
@@ -50,7 +50,7 @@ Route::get('service', 'ServiceController@index');
 Route::get('service/{name}', 'ServiceController@serviceName');
 Route::get('by_service', 'ServiceController@byService');
 Route::get('testmail', 'ServiceController@testMail');
-Route::get('services_list', 'ServiceController@servicesList');
+Route::get('services_list', 'ServiceController@servicesList')->middleware('auth');
 
 Route::post('update', 'CommentsController@update');
 

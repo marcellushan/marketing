@@ -35,6 +35,8 @@
                 <input type="date" class="form-control" name="event_date">
             </div>
         </div>
+    </div>
+    <div class="row">
         <div class="col-sm-5">
             <div class="form-group">
                 <label>Time</label>
@@ -52,7 +54,7 @@
     </div>
     @include('partials.display')
     <div id='other_details'>
-    @include('partials.textbox', ['title' => 'Other Details', 'name' => 'other_details'])
+    @include('partials.textbox', ['title' => 'Other Details', 'name' => 'other_details','id' => 'event_other_details'])
     </div>
     <div id="pickup">
         <h3>
@@ -70,7 +72,7 @@
             <div class="col-sm-10">
                 <div class="form-group">
                     <label>Department</label>
-                    <input type="text" class="form-control" name="pickup_department">
+                    @include('partials.departments')
                 </div>
             </div>
         </div>

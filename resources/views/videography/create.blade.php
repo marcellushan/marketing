@@ -6,7 +6,7 @@
         <div class="col-sm-10">
             <div class="form-group">
                 <label>What/who do you need a video of?</label>
-                <textarea class="form-control" rows="5" name="details"></textarea>
+                <textarea class="form-control" rows="5" name="details" placeholder="required"></textarea>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
         <div class="col-sm-10">
             <div class="form-group">
                 <label>Please provide details and purpose for video.</label>
-                <textarea class="form-control" rows="5" name="purpose"></textarea>
+                <textarea class="form-control" rows="5" name="purpose" placeholder="required"></textarea>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
         <div class="col-sm-10">
             <div class="form-group">
                 <label>How/where will you use the video?</label>
-                <textarea class="form-control" rows="5" name="use"></textarea>
+                <textarea class="form-control" rows="5" name="use" placeholder="required"></textarea>
             </div>
         </div>
     </div>

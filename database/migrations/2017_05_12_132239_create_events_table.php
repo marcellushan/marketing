@@ -33,7 +33,7 @@ class CreateEventsTable extends Migration
             $table->string('pickup_name')->nullable();
             $table->string('pickup_email')->nullable();
             $table->string('pickup_phone')->nullable();
-            $table->string('pickup_department')->nullable();
+            $table->string('department')->nullable();
             $table->integer('attendance')->nullable();
             $table->string('contact_name')->nullable();
             $table->string('contact_email')->nullable();

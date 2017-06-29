@@ -4,11 +4,9 @@
             <div  class="col-sm-10">
                 <h2>Status Update</h2>
 
-                <h4>Please review the update on your project page for {{$media_name}}.</h4>
-                <h4>At this time, you may find that the status of your request has changed and/or one of our team members has left a message that needs your attention in the
-                    comment section of your project page.</h4>
+                <h4>The status has been updated for a {{$media_name}} project.</h4>
 
-                <h4>Please follow the link below to review the update and/or respond to our team in the comment section of your project page.</h4>
+                <h4>Click the link below to review</h4>
 
                 <h3>Status - {{$status}}</h3>
                 <h3>Comments</h3>

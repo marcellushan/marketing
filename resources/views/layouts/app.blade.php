@@ -1,3 +1,6 @@
+{{--@include('partials.login')--}}
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +25,7 @@
         webshims.cfg.no$Switch = true;
     </script>
     <script src="{{URL::to('/')}}/js/js_functions.js"></script>
-    <script src="{{URL::to('/')}}/jquery/jquery_validation.js"></script>
+    {{--<script src="{{URL::to('/')}}/jquery/jquery_validation.js"></script>--}}
 </head>
 <body>
 <body  style="background-color:#004990;">
@@ -36,5 +39,8 @@
 @yield('content')
 </body>
 </html>
+
+
+
 
 

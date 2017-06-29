@@ -98,11 +98,11 @@ class ClientsTableSeeder extends Seeder
         ]);
 
             DB::table('paid_advertisings')->insert([
-                'ad_event' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+                'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                 'clients_id' => $id,
                 'audience'=> 'Community',
                 'purpose' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
-                'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+                'use' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                 'advertising' => 'Social Media',
                 'budget' => 1000
             ]);

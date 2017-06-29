@@ -54,8 +54,9 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("input[id=other]:checkbox").change(function () {
 
-        $("#other_details").css("display", "block");
-        // alert('this');
+//         $("#other_details").css("display", "block");
+            $("#other_details").toggle();
+//         // alert('this');
 
     });
 
@@ -114,7 +115,8 @@ $(document).ready(function(){
 $(document).ready(function () {
     $("input[id=presentation_other]:checkbox").change(function () {
 
-        $("#presentation_other_details").css("display", "block");
+
+        $("#presentation_other_details").toggle();
         // alert('this');
 
     });
@@ -124,7 +126,8 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("input[id=paid_advertising_other]:checkbox").change(function () {
 
-        $("#paid_advertising_other_details").css("display", "block");
+
+        $("#paid_advertising_other_details").toggle();
         // alert('this');
 
     });

@@ -1,9 +1,16 @@
 @extends('layouts.app') @section('content')
     <div class="main container">
         <div class="row">
-            <h2 class="col-sm-10">Your Marketing Communications Service Request has been Received</h2>
+            <div  class="col-sm-10">
+            <h3>Thank you for using the Marcom Service Form.</h3><h3>Please keep this email as confirmation. Also, please follow the link below to review the progress of your request and work with our team to complete it.</h3>
+
+               <h3> If you have further questions regarding your request, please direct those to the comment section on your project page by following the link below.</h3>
+
+                <h3>We look forward to working with you.</h3>
+                <h3><a href="{{URL::to('/')}}/clients/{{$data->id}}">Click to view request</a> </h3>
         </div>
-        <h3><a href="{{URL::to('/')}}/clients/{{$data->id}}">link</a> </h3>
+
+    </div>
 
 
     </div>

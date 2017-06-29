@@ -4,7 +4,7 @@
             <div class="col-sm-6 category">Comments</div>
             <div class="col-sm-2 category">Status</div>
             <div class="col-sm-2 category">Date</div>
-            <div class="col-sm-2 category">Owner</div>
+            <div class="col-sm-2 category">Commenter</div>
         </div>
         @foreach($comments as $comment)
             <div class="row">

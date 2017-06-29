@@ -7,7 +7,7 @@
             <div class="col-sm-8">
                 <div class="form-group">
                     <label for="usr"><div class="column_header">What do you need designed/printed?</div></label>
-                   <textarea class="form-control" rows="5" name="details">{{$service_type->details or ''}}</textarea>
+                   <textarea class="form-control" rows="5" name="details" placeholder="required">{{$service_type->details or ''}}</textarea>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
     <div class="row">
         <div class="col-sm-8">
             <label for="usr"><div class="column_header">Job Description</div></label>
-            <textarea class="form-control" rows="3" id="jobDesc" name="job_description" placeholder="Required" ></textarea>
+            <textarea class="form-control" rows="3" id="jobDesc" name="job_description" placeholder="required" ></textarea>
         </div>
     </div>
 <p>

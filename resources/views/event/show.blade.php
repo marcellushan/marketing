@@ -13,7 +13,7 @@
 </div><p></p>
 <div class="row">
     <div class="col-sm-3 category">Event Date and Time</div>
-    <div class="col-sm-8 item">{{$service_type->event_date}} at {{$service_type->event_time}}</div>
+    <div class="col-sm-8 item">{{$service_type->event_date}} at {{$service_type->start_time}}</div>
 </div><p></p>
 <div class="row">
     <div class="col-sm-3 category">Location</div>
@@ -46,7 +46,7 @@
     </div>
     <div class="row">
         <div class="col-sm-3 category"></div>
-        <div class="col-sm-8 item">Department:  {{$service_type->pickup_department}}</div>
+        <div class="col-sm-8 item">Department:  {{$service_type->department}}</div>
     </div><p></p>
 @endif
 @if($service_type->speaker)

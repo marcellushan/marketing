@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\StatusUpdate;
+use App\Mail\AdminStatusUpdate;
 use Illuminate\Http\Request;
 
 use App\Comments;
@@ -38,8 +39,44 @@ class CommentsController extends Controller
             return redirect('clients/thank_you/'. $request->clients_id);
         }
        $client = Clients::find($request->clients_id);
-
+//        dd($request);
        \Mail::to($client->email)->send(new StatusUpdate($status, $data, $comment, $request->view_folder, $media_name));
-       return redirect('service/' . $service_name);
+              if($request->view_folder == 'design_printing') {
+           $mailgroup = 'PRINTING';
+       } elseif($request->view_folder == 'photography' || $request->view_folder == 'videography') {
+           $mailgroup = 'GRAPHY';
+       } elseif ($request->view_folder == 'event') {
+           $mailgroup = 'EVERYONE';
+       }  else {
+           $mailgroup = 'MARKETING';
+       }
+
+       $to = explode(',', env($mailgroup));
+//       dd($media_name);
+
+       \Mail::to($to)->send(new AdminStatusUpdate($status, $data, $comment, $request->view_folder, $media_name));
+
+
+//       return redirect('service/' . $service_name);
+
+
+//       $url = $this::VIEW_FOLDER . '/' . Session::get('id');
+//       $which_mail = '\\App\\Mail\\' . $this::MAIL;
+//       if($this::VIEW_FOLDER == 'design_printing') {
+//           $mailgroup = 'PRINTING';
+//       } elseif($this::VIEW_FOLDER == 'photography' || $this::VIEW_FOLDER == 'videography') {
+//           $mailgroup = 'GRAPHY';
+//       } elseif ($this::VIEW_FOLDER == 'event') {
+//           $mailgroup = 'EVERYONE';
+//       }  else {
+//           $mailgroup = 'MARKETING';
+//       }
+//
+//       $to = explode(',', env($mailgroup));
+//       \Mail::to($to)
+//           ->cc('mhannah@highlands.edu')
+//           ->send(new $which_mail());
+
+
    }
 }

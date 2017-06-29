@@ -15,10 +15,10 @@ class CreatePaidAdvertisingsTable extends Migration
     {
         Schema::create('paid_advertisings', function (Blueprint $table) {
             $table->increments('id');
-            $table->text("ad_event")->nullable();
+            $table->text("details")->nullable();
             $table->string('audience')->nullable();
             $table->text("purpose")->nullable();
-            $table->text("details")->nullable();
+            $table->text("use")->nullable();
             $table->string('advertising')->nullable();
             $table->text("other")->nullable();
             $table->integer('budget')->nullable();
