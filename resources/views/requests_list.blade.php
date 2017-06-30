@@ -29,7 +29,7 @@
                                 <td>{{$received->last_name}}, {{$received->first_name}}</td>
                                 <td>{{$received->details}}</td>
                                 <td>{{substr($received->created_at,0,10) }}</td>
-                                <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$received->id}}">Specifics</a></td>
+                                <td><a href="{{URL::to('/')}}/{{$view_folder}}/marcom_show/{{$received->id}}">Specifics</a></td>
                             </tr>
                         @endforeach
                     </table>
@@ -61,7 +61,7 @@
                                 <tr>
                                     <td>{{$progress->last_name}}, {{$progress->first_name}}</td>
                                     <td>{{$progress->details}}</td>
-                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$progress->id}}">Specifics</a></td>
+                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/marcom_show/{{$progress->id}}">Specifics</a></td>
                                 </tr>
                             @endforeach
                         </table>
@@ -94,7 +94,7 @@
                                 <tr>
                                     <td>{{$information->last_name}}, {{$information->first_name}}</td>
                                     <td>{{$information->details}}</td>
-                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$information->id}}">Specifics</a></td>
+                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/marcom_show/{{$information->id}}">Specifics</a></td>
                                 </tr>
                             @endforeach
                         </table>
@@ -125,7 +125,39 @@
                                 <tr>
                                     <td>{{$review->last_name}}, {{$review->first_name}}</td>
                                     <td>{{$review->details}}</td>
-                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$review->id}}">Specifics</a></td>
+                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/marcom_show/{{$review->id}}">Specifics</a></td>
+                                </tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+    @if(count($cancelleds) > 0)
+        <button id="review_button"  class="btn-warning btn-lg">Click to show Cancelled Requests</button>
+        <p></p>Total number of requests:{{count($cancelleds)}}<p></p>
+        <div id="review">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Summary
+                                </th>
+                                <th>
+                                </th>
+                            </tr>
+                            @foreach($cancelleds as $cancelled)
+                                <tr>
+                                    <td>{{$cancelled->last_name}}, {{$cancelled->first_name}}</td>
+                                    <td>{{$cancelled->details}}</td>
+                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/marcom_show/{{$cancelled->id}}">Specifics</a></td>
                                 </tr>
                             @endforeach
                         </table>
@@ -158,7 +190,7 @@
                                 <tr>
                                     <td>{{$complete->last_name}}, {{$complete->first_name}}</td>
                                     <td>{{$complete->details}}</td>
-                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$complete->id}}">Specifics</a></td>
+                                    <td><a href="{{URL::to('/')}}/{{$view_folder}}/marcom_show/{{$complete->id}}">Specifics</a></td>
                                 </tr>
                             @endforeach
                         </table>
@@ -190,7 +222,7 @@ Details
 <tr>
 <td>{{$data->last_name}}, {{$data->first_name}}</td>
 <td>{{$data->details}}</td>
-<td><a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{$data->id}}">Specifics</a></td>
+<td><a href="{{URL::to('/')}}/{{$view_folder}}/marcom_show/{{$data->id}}">Specifics</a></td>
 </tr>
 @endforeach
 </table>

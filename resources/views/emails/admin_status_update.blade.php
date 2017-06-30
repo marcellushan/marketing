@@ -11,7 +11,7 @@
                 <h3>Status - {{$status}}</h3>
                 <h3>Comments</h3>
                 <h4>{{$comment->comment or 'No Comments'}}</h4>
-                <h3><a href="{{URL::to('/')}}/{{$view_folder}}/return_show/{{$data->clients_id}}">Click to view request</a> </h3>
+                <h3><a href="{{URL::to('/')}}/{{$view_folder}}/marcom_show/{{$data->clients_id}}">Click to view request</a> </h3>
 
             </div>
         </div>

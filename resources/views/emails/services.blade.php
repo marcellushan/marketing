@@ -16,7 +16,7 @@
             <h4 class="col-sm-10">{{$service_type->details}}</h4>
         </div>
         <div class="row">
-            <h3 class="col-sm-10"> <a href="{{URL::to('/')}}/{{$view_folder}}/admin/{{Session::get('id')}}">Link to Request</a></h3>
+            <h3 class="col-sm-10"> <a href="{{URL::to('/')}}/{{$view_folder}}/marcom_show/{{Session::get('id')}}">Link to Request</a></h3>
         </div>
 
     </div>

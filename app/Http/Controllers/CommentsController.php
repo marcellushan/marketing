@@ -39,7 +39,6 @@ class CommentsController extends Controller
 
 
        $comment = new Comments;
-       ($request->file('image') ? $comment->image=URL::to('/') . "/uploads/" . $myPath : "");
        $comment->services_id = $request->services_id;
        $comment->service = $request->service;
        $comment->status = $request->status;
@@ -47,13 +46,12 @@ class CommentsController extends Controller
        if($request->comment) {
            $comment->comment = $request->comment;
        }
+          ($request->file('image') ? $comment->image=URL::to('/') . "/uploads/" . $myPath : "");
            $comment->save();
        $status = $request->status;
 ////       Session::put('press_release',2);
 //       dd($request);
-        if($request->user) {
-            return redirect('clients/thank_you/'. $request->clients_id);
-        }
+
        $client = Clients::find($request->clients_id);
 //        dd($request);
        \Mail::to($client->email)->send(new StatusUpdate($status, $data, $comment, $request->view_folder, $media_name));
@@ -72,7 +70,9 @@ class CommentsController extends Controller
 
        \Mail::to($to)->send(new AdminStatusUpdate($status, $data, $comment, $request->view_folder, $media_name));
 
-
+       if($request->user) {
+            return view('comment');
+        }
        return redirect('service/' . $service_name);
 
 
