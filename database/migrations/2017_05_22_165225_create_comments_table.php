@@ -20,6 +20,7 @@ class CreateCommentsTable extends Migration
             $table->text('service')->nullable();
             $table->integer('services_id')->nullable();
             $table->text('status')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

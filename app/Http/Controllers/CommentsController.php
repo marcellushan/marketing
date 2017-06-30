@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Comments;
 use App\Clients;
 
+use URL;
+
 class CommentsController extends Controller
 {
    public function update(Request $request)
@@ -22,8 +24,22 @@ class CommentsController extends Controller
        $data->status = $request->status;
        $data->save();
 //       dd($data);
-       $comment = '';
+//       $comment = '';
+
+       if($request->file('image')) {
+           $file = $request->file('image');
+           //Move Uploaded File
+           $destinationPath = 'uploads';
+           $myRandom = rand(1, 10000);
+           $myPath = $myRandom . "." . $file->getClientOriginalExtension();
+           $file->move($destinationPath, $myPath);
+       }
+
+
+
+
        $comment = new Comments;
+       ($request->file('image') ? $comment->image=URL::to('/') . "/uploads/" . $myPath : "");
        $comment->services_id = $request->services_id;
        $comment->service = $request->service;
        $comment->status = $request->status;
@@ -57,7 +73,7 @@ class CommentsController extends Controller
        \Mail::to($to)->send(new AdminStatusUpdate($status, $data, $comment, $request->view_folder, $media_name));
 
 
-//       return redirect('service/' . $service_name);
+       return redirect('service/' . $service_name);
 
 
 //       $url = $this::VIEW_FOLDER . '/' . Session::get('id');

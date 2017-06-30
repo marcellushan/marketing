@@ -1,7 +1,7 @@
 <div class="main container">
     <div class="well">
         {{--<div class="well">--}}
-        {!! Form::open(['url' => 'update']) !!}
+        {!! Form::open(['url' => 'comments/update','files'=>'true']) !!}
         {!! Form::hidden('service', $service) !!}
         {!! Form::hidden('services_id', $service_type->id) !!}
         {!! Form::hidden('clients_id', $service_type->clients_id) !!}
