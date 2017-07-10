@@ -7,7 +7,7 @@
                <h3> If you have further questions regarding your request, please direct those to the comment section on your project page by following the link below.</h3>
 
                 <h3>We look forward to working with you.</h3>
-                <h3><a href="{{URL::to('/')}}/clients/{{$data->id}}">Click to view request</a> </h3>
+                <h3><a href="{{URL::to('/')}}/service_request/{{$data->id}}">Click to view request</a> </h3>
         </div>
 
     </div>

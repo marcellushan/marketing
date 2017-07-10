@@ -10,6 +10,8 @@ use URL;
 
 use App\Clients;
 use App\Comments;
+use App\User;
+use App\ServiceRequests;
 
 class BaseController extends Controller
 {
@@ -19,6 +21,11 @@ class BaseController extends Controller
     const TABLE_NAME = 'abstract';
     const MAIL = 'abstract';
 
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//    }
+
     /**
      * Display submitted service requests categorized by Status
      *
@@ -26,36 +33,40 @@ class BaseController extends Controller
      */
     public function index()
     {
-        $receiveds= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+        $receiveds= DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
+//            ->join('service_requests', 'service_requests.user_id', '=', 'users.id')
             ->where($this::TABLE_NAME . '.status','=', 'Received')
             ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
             ->get();
-        $progresses= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+        $receiveds = DB::select('SELECT * FROM press_releases, service_requests, users where press_releases.status = 
+        "Received" and press_releases.service_requests_id = service_requests.id and service_requests.user_id = users.id');
+//        dd($receiveds);
+        $progresses=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
             ->where($this::TABLE_NAME . '.status','=', 'In Progress')
             ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
             ->get();
-        $informations= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+        $informations=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
             ->where($this::TABLE_NAME . '.status','=', 'Awaiting Information')
             ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
             ->get();
-        $reviews= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+        $reviews=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
             ->where($this::TABLE_NAME . '.status','=', 'Awaiting Review')
             ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
             ->get();
-        $cancelleds= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+        $cancelleds=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
             ->where($this::TABLE_NAME . '.status','=', 'Cancelled')
             ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
             ->get();
-        $completes= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+        $completes=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
             ->where($this::TABLE_NAME . '.status','=', 'Complete')
             ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
             ->get();
-        $datas= DB::table($this::TABLE_NAME)->join('clients', $this::TABLE_NAME . '.clients_id', '=', 'clients.id')
+        $datas=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
             ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
             ->get();
         $media_name = $this::MEDIA_NAME;
         $view_folder = $this::VIEW_FOLDER;
-        return view('requests_list')->with(compact('datas','receiveds','progresses','informations', 'reviews','cancelleds','completes','media_name','view_folder'));
+        return view('trim_list')->with(compact('datas','receiveds','progresses','informations', 'reviews','cancelleds','completes','media_name','view_folder'));
 //        echo $this::TABLE_NAME;
     }
 
@@ -121,7 +132,8 @@ class BaseController extends Controller
             $social = implode(", ", $request->social);
             $service_type->social = $social;
         }
-        $service_type->clients_id=Session::get('id');
+//        $service_type->clients_id=Session::get('id');
+        $service_type->service_requests_id=Session::get('id');
         $service_type->status='Received';
         ($request->file('image') ? $service_type->image=URL::to('/') . "/uploads/" . $myPath : "");
         $service_type->save();
@@ -159,7 +171,7 @@ class BaseController extends Controller
     public function show($id)
     {
         $model_name = $this::MODEL_NAME;
-        $service_type = $model_name::where('clients_id', '=', $id)->orderBy('created_at','desc')->first();
+        $service_type = $model_name::where('service_requests_id', '=', $id)->orderBy('created_at','desc')->first();
 //        dd($service_type);
         $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->get();
         $view_folder = $this::VIEW_FOLDER;
@@ -229,23 +241,27 @@ class BaseController extends Controller
      */
     public function marcomShow($id)
     {
-        $client = Clients::find($id);
+//        $client = Clients::find($id);
         $model_name = $this::MODEL_NAME;
-        $service_type = $model_name::where('clients_id', '=', $id)->first();
+        $service_type = $model_name::where('service_requests_id', '=', $id)->first();
+        $service_request = ServiceRequests::find($service_type->service_requests_id);
+        $user = User::find($service_request->user_id);
+//        dd($user);
+//        dd($user_info);
         $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->orderBy('created_at','desc')
             ->get();
         $last_comment = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->orderBy('created_at','desc')->first();
         $view_folder = $this::VIEW_FOLDER;
         $service = $this::MODEL_NAME;
         $service_name = $this::MEDIA_NAME;
-        return view('admin')->with(compact('service_type', 'service','comments','last_comment','service_name','view_folder','client'));
+        return view('admin')->with(compact('service_type', 'service','comments','last_comment','service_name','view_folder','service_request','user'));
 //        return view('test.show')->with(compact('service_type', 'service','comments','service_name','view_folder'));
     }
 
     public function customerShow($id)
     {
         $model_name = $this::MODEL_NAME;
-        $service_type = $model_name::where('clients_id', '=', $id)->first();
+        $service_type = $model_name::where('service_requests_id', '=', $id)->first();
 //        dd($service_type);
         $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->orderBy('created_at','desc')->get();
         $view_folder = $this::VIEW_FOLDER;
@@ -253,5 +269,25 @@ class BaseController extends Controller
         $service_name = $this::MEDIA_NAME;
         $status = "Received";
         return view('return')->with(compact('service_type', 'service','comments','service_name','view_folder','status'));
+    }
+
+    public function requestStatus($status)
+    {
+//        dd($string);
+        $model_name = $this::MODEL_NAME;
+//        $status
+        $datas = DB::select('SELECT * FROM ' .$this::TABLE_NAME .', service_requests, users where ' .$this::TABLE_NAME .'.status = "'
+        . $status . '" and ' .$this::TABLE_NAME .'.service_requests_id = service_requests.id and service_requests.user_id = users.id');
+//        $service_type = $model_name::where('status', '=', $string)->get();
+//        dd($status_list);
+        return view('service_request.status_list')->with(compact('datas'));
+    }
+
+    public function statusShow($id)
+    {
+        echo $id;
+       $model_name =  $this::MODEL_NAME;
+        $results = $model_name::find($id);
+        dd($results);
     }
 }

@@ -2,25 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\User;
 use App\ServiceRequests;
-use DB;
+use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Controller
+use Session;
+use App\Mail\ClientMail;
+
+class ServiceRequestController extends Controller
 {
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
     }
-
 
     /**
      * Display a listing of the resource.
@@ -29,16 +24,12 @@ class AdminController extends Controller
      */
     public function index()
     {
-//        return view('welcome');
-        $service_requests = (ServiceRequests::orderBy('created_at', 'desc')->get());
+        $user = Auth::user();
+//        dd($user);
 
-        $service_requests= DB::table('service_requests')->join('users', 'users.id', '=', 'service_requests.user_id')
-//            ->where($this::TABLE_NAME . '.status','=', 'Received')
-            ->orderBy('service_requests.created_at', 'desc')
-            ->get();
-
+        $service_requests = ServiceRequests::where('user_id', '=', $user->id)->orderBy('created_at','desc')->get();
 //        dd($service_requests);
-        return view('service_request.list')->with(compact('service_requests'));
+        return view('service_request.user_list')->with(compact('service_requests','user'));
     }
 
     /**
@@ -48,7 +39,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('service_request.create');
     }
 
     /**
@@ -59,7 +50,24 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //       dd($request);
+        $data = $request->all();
+        $service_request = new ServiceRequests($data);
+        $service_request->fill($data);
+        $service_request->user_id = Auth::user()->id;
+        $service_request->save();
+
+        Session::put('press_release',$request->press_release);
+        Session::put('design_printing',$request->design_printing);
+        Session::put('photography',$request->photography);
+        Session::put('videography',$request->videography);
+        Session::put('paid_advertising',$request->paid_advertising);
+        Session::put('presentation',$request->presentation);
+        Session::put('social_media',$request->social_media);
+        Session::put('event',$request->event);
+
+        Session::put('id',$service_request->id);
+        return redirect('service');
     }
 
     /**
@@ -116,5 +124,24 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function thankYou($id)
+    {
+        $data = ServiceRequests::find($id);
+        $userinfo = User::find($data->user_id);
+        \Mail::to($userinfo->email)->send(new ClientMail($data));
+        return view('thankyou');
+    }
+
+    public function byUser($id)
+    {
+        $service_requests = ServiceRequests::where('user_id', '=', $id)->orderBy('created_at','desc')->get();
+//        dd($service_requests);
+        return view('service_request.user_list')->with(compact('service_requests'));
+//        $data = ServiceRequests::find($id);
+//        $userinfo = User::find($data->user_id);
+//        \Mail::to($userinfo->email)->send(new ClientMail($data));
+//        return view('thankyou');
     }
 }

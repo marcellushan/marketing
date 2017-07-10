@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 use Session;
 use App\Clients;
+use App\ServiceRequests;
 
 class BaseEmail extends Mailable
 {
@@ -36,7 +37,7 @@ class BaseEmail extends Mailable
      */
     public function build()
     {
-        $data = Clients::find(Session::get('id'));
+        $data = ServiceRequests::find(Session::get('id'));
         $service_method = $this::METHOD;
         $view_folder=$this::VIEW_FOLDER;
         $service_name = $this::MEDIA_NAME;

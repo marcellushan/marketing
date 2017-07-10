@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Session;
 
+
 class ServiceController extends Controller
 {
 
@@ -40,7 +41,7 @@ class ServiceController extends Controller
         }
 //        \Mail::to('mhannah@highlands.edu')->send(new ClientMail());
 //        return view('thankyou');
-        return redirect('clients/thank_you/' . Session::get('id'));
+        return redirect('service_request/thank_you/' . Session::get('id'));
 //        return redirect()->route('clients', [Session::get('id')]);
     }
 

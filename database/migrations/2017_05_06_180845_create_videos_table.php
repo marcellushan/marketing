@@ -24,7 +24,8 @@ class CreateVideosTable extends Migration
             $table->text('purpose')->nullable();
             $table->text('use')->nullable();
             $table->string('status')->default("Received");
-            $table->integer('clients_id');
+            $table->integer('service_requests_id');
+//            $table->integer('clients_id');
             $table->timestamps();
         });
     }

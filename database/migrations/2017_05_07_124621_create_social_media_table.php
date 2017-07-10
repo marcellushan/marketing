@@ -36,7 +36,8 @@ class CreateSocialMediaTable extends Migration
 //            $table->boolean('instagram')->nullable();
 //            $table->boolean('youtube')->nullable();
             $table->string('status')->default("Received");
-            $table->integer('clients_id');
+            $table->integer('service_requests_id');
+//            $table->integer('clients_id');
             $table->timestamps();
         });
     }
