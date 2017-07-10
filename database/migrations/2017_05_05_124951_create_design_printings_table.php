@@ -33,7 +33,8 @@ class CreateDesignPrintingsTable extends Migration
             $table->string('color')->nullable();
             $table->string('image')->nullable();
             $table->string('status')->default("Received");
-            $table->integer('clients_id');
+//            $table->integer('clients_id');
+            $table->integer('service_requests_id');
             $table->timestamps();
         });
     }

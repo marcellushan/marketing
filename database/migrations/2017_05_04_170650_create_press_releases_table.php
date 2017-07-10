@@ -47,7 +47,8 @@ class CreatePressReleasesTable extends Migration
             $table->string('quote_phone_3')->nullable();
             $table->string('image')->nullable();
             $table->string('status')->default("Received");
-            $table->integer('clients_id');
+//            $table->integer('clients_id');
+            $table->integer('service_requests_id');
             $table->timestamps();
         });
     }

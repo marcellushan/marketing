@@ -13,19 +13,34 @@ class ClientsTableSeeder extends Seeder
     {
         {
            for($x = 0; $x <= 10; $x++) {
-               $id =DB::table('clients')->insertGetId([
-                   'first_name' => str_random(10),
-                   'last_name' => str_random(10),
+               $id =DB::table('users')->insertGetId([
+//                   'first_name' => str_random(10),
+                   'name' => str_random(10) .',' . str_random(10),
                    'email' => str_random(10) . '@highlands.edu',
-                   'department' => str_random(10),
-                   'phone' => rand(2000000000, 9999999999),
+//                   'department' => str_random(10),
+                   'password' => str_random(10),
+//                   'due_date' => '2017-05-07',
+//                   'summary' => 'Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta.
+//                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+//                     Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum
+//                      congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at
+//                       tellus. Donec rutrum congue leo eget malesuada.',
+                   'created_at' => '2017-05-07'
+               ]);
+               $id =DB::table('service_requests')->insertGetId([
+//                   'first_name' => str_random(10),
+//                   'last_name' => str_random(10),
+//                   'email' => str_random(10) . '@highlands.edu',
+//                   'department' => str_random(10),
+//                   'phone' => rand(2000000000, 9999999999),
 //                   'due_date' => '2017-05-07',
                    'summary' => 'Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta.
                     Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
                      Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum
                       congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at
                        tellus. Donec rutrum congue leo eget malesuada.',
-                   'created_at' => '2017-05-07'
+                   'created_at' => '2017-05-07',
+                   'user_id' => $id
                ]);
                $press_release_id = DB::table('press_releases')->insertGetId([
                    'media_type' => 'Student Feature',
@@ -40,7 +55,7 @@ class ClientsTableSeeder extends Seeder
                    'quote_name_1' => 'John Smith',
                    'quote_email_1' => 'jsmith@home.com',
                    'quote_phone_1' => '7774447777',
-                   'clients_id' => $id
+                   'service_requests_id' => $id
                ]);
                DB::table('comments')->insertGetId([
                    'comment' => 'Service requested',
@@ -51,7 +66,7 @@ class ClientsTableSeeder extends Seeder
                ]);
                 DB::table('design_printings')->insert([
                     'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
-                    'clients_id' => $id,
+                    'service_requests_id' => $id,
                     'audience' => 'Community',
                     'payment_type' => 'Credit Card',
                     'job_description' => 'Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. 
@@ -67,7 +82,7 @@ class ClientsTableSeeder extends Seeder
 
             DB::table('photos')->insert([
                 'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
-                'clients_id' => $id,
+                'service_requests_id' => $id,
                 'location' => str_random(10),
                 'use' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                 'requested_date' => '2017-05-01',
@@ -78,7 +93,7 @@ class ClientsTableSeeder extends Seeder
            DB::table('social_media')->insert([
                'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                'request_type' => 'Starting New Page',
-               'clients_id' => $id,
+               'service_requests_id' => $id,
                'audience' => 'Community',
                'facebook_text' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                'twitter_text' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
@@ -91,7 +106,7 @@ class ClientsTableSeeder extends Seeder
 
             DB::table('videos')->insert([
             'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
-            'clients_id' => $id,
+            'service_requests_id' => $id,
             'audience'=> 'Faculty & Staff',
             'purpose' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
             'use' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.'
@@ -99,7 +114,7 @@ class ClientsTableSeeder extends Seeder
 
             DB::table('paid_advertisings')->insert([
                 'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
-                'clients_id' => $id,
+                'service_requests_id' => $id,
                 'audience'=> 'Community',
                 'purpose' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
                 'use' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
@@ -109,7 +124,7 @@ class ClientsTableSeeder extends Seeder
 
                DB::table('presentations')->insert([
                    'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
-                   'clients_id' => $id,
+                   'service_requests_id' => $id,
                    'audience'=> 'Students',
                    'presentation_date' => '2017-05-01',
                    'assistance' => 'Presentation Material'
@@ -117,7 +132,7 @@ class ClientsTableSeeder extends Seeder
 
            DB::table('events')->insert([
                'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
-               'clients_id' => $id,
+               'service_requests_id' => $id,
                'event_date' => '2017-05-01',
                'start_time' => '03:30 PM',
                'display' => 'Banners',

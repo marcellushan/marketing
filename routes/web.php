@@ -21,10 +21,16 @@ Route::get('/', function () {
 Route::resource('clients', 'ClientsController');
 Route::get('clients/thank_you/{id}', 'ClientsController@thankYou');
 
+Route::resource('service_request', 'ServiceRequestController');
+Route::get('service_request/thank_you/{id}', 'ServiceRequestController@thankYou');
+Route::get('service_request/by_user/{id}', 'ServiceRequestController@byUser');
+
 //Press Release
 Route::resource('press_release', 'PressReleaseController');
 Route::get('press_release/marcom_show/{id}', 'PressReleaseController@marcomShow');
 Route::get('press_release/customer_show/{id}', 'PressReleaseController@customerShow');
+Route::get('press_release/request_status/{string}', 'PressReleaseController@requestStatus');
+Route::get('press_release/status_show/{id}', 'PressReleaseController@statusShow');
 
 //Design and Printing
 Route::resource('design_printing', 'DesignPrintingController');
