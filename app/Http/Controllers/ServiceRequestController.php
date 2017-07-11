@@ -89,7 +89,8 @@ class ServiceRequestController extends Controller
         (@$data->socialMedia ? $social_media = $data->socialMedia : $social_media = '');
         (@$data->event ? $event = $data->event : $event = '');
 //        dd($photography);
-        return view('service_request.show')->with(compact('data','user_info','press_release', 'design_printing','photography','videography','paid_advertising','presentation','social_media','event'));
+        return view('service_request.show')->with(compact('data','user_info','press_release', 'design_printing','photography','videography',
+            'paid_advertising','presentation','social_media','event'));
     }
 
     /**
@@ -129,6 +130,7 @@ class ServiceRequestController extends Controller
     public function thankYou($id)
     {
         $data = ServiceRequests::find($id);
+        dd($data);
         $userinfo = User::find($data->user_id);
         \Mail::to($userinfo->email)->send(new ClientMail($data));
         return view('thankyou');
@@ -137,7 +139,7 @@ class ServiceRequestController extends Controller
     public function byUser($id)
     {
         $service_requests = ServiceRequests::where('user_id', '=', $id)->orderBy('created_at','desc')->get();
-//        dd($service_requests);
+        dd($service_requests);
         return view('service_request.user_list')->with(compact('service_requests'));
 //        $data = ServiceRequests::find($id);
 //        $userinfo = User::find($data->user_id);

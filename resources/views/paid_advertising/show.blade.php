@@ -21,14 +21,19 @@
 </div><p></p>
 <div class="row">
     <div class="col-sm-3 category">Options</div>
-        <div class="col-sm-8 item">{{$service_type->advertising}}</div>
-    </div>
+    <div class="col-sm-8 item">{{$service_type->advertising}}</div>
+</div>
 @if($service_type->other)
 <div class="row">
     <div class="col-sm-3 category">Other Details</div>
     <div class="col-sm-8 item">{{$service_type->other}}</div>
 </div>
 @endif
+
+<div class="row">
+    <div class="col-sm-3 category">Budget</div>
+    <div class="col-sm-8 item">${{$service_type->budget}}</div>
+</div>
 </div>
 </div>
 </div>

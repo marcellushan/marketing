@@ -4,24 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User;
+use Illuminate\Support\Facades\Auth;
+
 use App\ServiceRequests;
-use DB;
+use App\User;
 
-class AdminController extends Controller
+class ListController extends Controller
 {
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-
     /**
      * Display a listing of the resource.
      *
@@ -29,16 +18,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-//        return view('welcome');
-        $service_requests = (ServiceRequests::orderBy('created_at', 'desc')->get());
-
-        $service_requests= DB::table('service_requests')->join('users', 'users.id', '=', 'service_requests.user_id')
-//            ->where($this::TABLE_NAME . '.status','=', 'Received')
-            ->orderBy('service_requests.created_at', 'desc')
-            ->get();
-
+        $user = Auth::user();
+//        dd($user);
+        $service_requests = ServiceRequests::where('user_id', '=', $user->id)->orderBy('created_at','desc')->get();
 //        dd($service_requests);
-        return view('service_request.list')->with(compact('service_requests'));
+        return view('list.user')->with(compact('service_requests','user'));
     }
 
     /**
@@ -81,8 +65,8 @@ class AdminController extends Controller
         (@$data->socialMedia ? $social_media = $data->socialMedia : $social_media = '');
         (@$data->event ? $event = $data->event : $event = '');
 //        dd($photography);
-        return view('service_request.admin_show')->with(compact('data','user_info','press_release', 'design_printing','photography',
-            'videography','paid_advertising','presentation','social_media','event'));
+        return view('list.show')->with(compact('data','user_info','press_release',
+            'design_printing','photography','videography','paid_advertising','presentation','social_media','event'));
     }
 
     /**

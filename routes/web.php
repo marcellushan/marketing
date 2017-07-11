@@ -102,3 +102,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::resource('paid_advertising', 'AdminController');
+
+Route::resource('list', 'ListController');

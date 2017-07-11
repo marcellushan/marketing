@@ -7,6 +7,7 @@ use App\Mail\ClientMail;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 
@@ -15,6 +16,7 @@ class ServiceController extends Controller
 
     public function index()
     {
+        $user = Auth::user();
         if(Session::get('press_release')==1) {
             return redirect('press_release/create');
         }
@@ -41,7 +43,7 @@ class ServiceController extends Controller
         }
 //        \Mail::to('mhannah@highlands.edu')->send(new ClientMail());
 //        return view('thankyou');
-        return redirect('service_request/thank_you/' . Session::get('id'));
+        return redirect('service_request/thank_you/' . $user->id);
 //        return redirect()->route('clients', [Session::get('id')]);
     }
 
