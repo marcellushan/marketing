@@ -4,7 +4,7 @@
         {!! Form::open(['url' => 'comments/update','files'=>'true']) !!}
         {!! Form::hidden('service', $service) !!}
         {!! Form::hidden('services_id', $service_type->id) !!}
-        {!! Form::hidden('clients_id', $service_type->clients_id) !!}
+        {!! Form::hidden('user_id', $user->id) !!}
         {!! Form::hidden('view_folder', $view_folder) !!}
         {!! Form::hidden('service_name', $service_name) !!}
         <?php ($last_comment ? $comment = $last_comment->status : $comment = "Received") ?>

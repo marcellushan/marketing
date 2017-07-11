@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Comments;
 use App\Clients;
+use App\User;
 
 use URL;
 
@@ -52,9 +53,11 @@ class CommentsController extends Controller
 ////       Session::put('press_release',2);
 //       dd($request);
 
-       $client = Clients::find($request->clients_id);
-//        dd($request);
-       \Mail::to($client->email)->send(new StatusUpdate($status, $data, $comment, $request->view_folder, $media_name));
+//       $client = Clients::find($request->clients_id);
+       $user = User::find($request->user_id);
+//        dd($data);
+       \Mail::to($user->email)->send(new StatusUpdate($status, $data, $comment,
+           $request->view_folder, $media_name));
               if($request->view_folder == 'design_printing') {
            $mailgroup = 'PRINTING';
        } elseif($request->view_folder == 'photography' || $request->view_folder == 'videography') {

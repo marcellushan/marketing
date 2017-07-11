@@ -81,7 +81,7 @@ class AdminController extends Controller
         (@$data->socialMedia ? $social_media = $data->socialMedia : $social_media = '');
         (@$data->event ? $event = $data->event : $event = '');
 //        dd($photography);
-        return view('service_request.show')->with(compact('data','user_info','press_release', 'design_printing','photography','videography','paid_advertising','presentation','social_media','event'));
+        return view('service_request.admin_show')->with(compact('data','user_info','press_release', 'design_printing','photography','videography','paid_advertising','presentation','social_media','event'));
     }
 
     /**
