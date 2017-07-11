@@ -1,7 +1,7 @@
 @extends('layouts.app') @section('content')
 <div class="main container">
-    <h2>Press Releases</h2>
-    All {{count($datas)}}
+    <h2>Service Type: {{$media_name}}</h2>
+    <h3>Status: {{ucwords($status)}}</h3>
     <div class="row">
         <div class="col-md-10">
             <div class="table-responsive">
@@ -11,18 +11,18 @@
                             Name
                         </th>
                         <th>
-                            Details
+                            Summary
                         </th>
                         <th>
-
+                            Submission Date
                         </th>
                     </tr>
                     @foreach($datas as $data)
                         <tr>
                             <td>{{$data->name}}</td>
                             <td>{{$data->details}}</td>
-                            <td>{{$data->status}}</td>
-                            <td><a href="{{URL::to('/')}}/press_release/status_show/{{$data->id}}">Details</a></td>
+                            <td>{{date_format(new DateTime($data->created_at),'m/d/y')}}</td>
+                            <td><a href="{{URL::to('/')}}/{{$view_folder}}/marcom_show/{{$data->id}}">Details</a></td>
                         </tr>
                     @endforeach
                 </table>

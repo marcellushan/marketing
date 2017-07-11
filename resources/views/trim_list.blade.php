@@ -14,71 +14,79 @@
             </th>
 
         </tr>
-        <tr>
-            <td>
-                Received
-            </td>
-            <td>
-                <a href="{{URL::to('/')}}/press_release/request_status/received" >{{count($receiveds)}}</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                In Progress
-            </td>
-            <td>
-                {{count($progresses)}}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Awaiting Information
-            </td>
-            <td>
-                {{count($progresses)}}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Awaiting Review
-            </td>
-            <td>
-                {{count($progresses)}}
-            </td>
-        </tr>
+        @if(count($receiveds))
+            <tr>
+                <td>
+                    Received
+                </td>
+                <td>
+                    <a href="{{URL::to('/')}}/{{$view_folder}}/request_status/received" >{{count($receiveds)}}</a>
+                </td>
+            </tr>
+        @endif
+        @if(count($progresses))
+            <tr>
+                <td>
+                    In Progress
+                </td>
+                <td>
+                    <a href="{{URL::to('/')}}/{{$view_folder}}/request_status/in progress" >{{count($progresses)}}</a>
+                </td>
+            </tr>
+        @endif
+        @if(count($informations))
+            <tr>
+                <td>
+                    Awaiting Information
+                </td>
+                <td>
+                    <a href="{{URL::to('/')}}/{{$view_folder}}/request_status/awaiting information" >{{count($informations)}}</a>
+                </td>
+            </tr>
+        @endif
+        @if(count($reviews))
+            <tr>
+                <td>
+                    Awaiting Review
+                </td>
+                <td>
+                    <a href="{{URL::to('/')}}/{{$view_folder}}/request_status/awaiting review" >{{count($reviews)}}</a>
+                </td>
+            </tr>
+        @endif
+        @if(count($cancelleds))
+            <tr>
+                <td>
+                    Cancelled
+                </td>
+                <td>
+                    <a href="{{URL::to('/')}}/{{$view_folder}}/request_status/cancelled" >{{count($cancelleds)}}</a>
+                </td>
+            </tr>
+        @endif
+        @if(count($completes))
+            <tr>
+                <td>
+                    Complete
+                </td>
+                <td>
+                    <a href="{{URL::to('/')}}/{{$view_folder}}/request_status/complete" >{{count($completes)}}</a>
+                </td>
+            </tr>
+        @endif
+        @if(count($feedbacks))
+            <tr>
+                <td>
+                    Customer Feedback
+                </td>
+                <td>
+                    <a href="{{URL::to('/')}}/{{$view_folder}}/request_status/customer feedback" >{{count($feedbacks)}}</a>
+                </td>
+            </tr>
+        @endif
     </table>
         </div>
 </div>
 
-{{--<button id="all_button"  class="btn-info btn-lg">Click to show All Requests</button>--}}
-{{--<p>Total Number of Requests:{{count($datas)}}<p></p>--}}
-{{--<div id="all">--}}
-{{--<div class="row">--}}
-{{--<div class="col-md-10">--}}
-{{--<div class="table-responsive">--}}
-{{--<table class="table">--}}
-{{--<tr>--}}
-{{--<th>--}}
-{{--Name--}}
-{{--</th>--}}
-{{--<th>--}}
-{{--Details--}}
-{{--</th>--}}
-{{--<th>--}}
-
-{{--</th>--}}
-{{--</tr>--}}
-{{--@foreach($datas as $data)--}}
-{{--<tr>--}}
-{{--<td>{{$data->last_name}}, {{$data->first_name}}</td>--}}
-{{--<td>{{$data->details}}</td>--}}
-{{--<td><a href="{{URL::to('/')}}/{{$view_folder}}/marcom_show/{{$data->id}}">Specifics</a></td>--}}
-{{--</tr>--}}
-{{--@endforeach--}}
-{{--</table>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
 @endsection
 

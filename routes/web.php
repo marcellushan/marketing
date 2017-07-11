@@ -36,36 +36,50 @@ Route::get('press_release/status_show/{id}', 'PressReleaseController@statusShow'
 Route::resource('design_printing', 'DesignPrintingController');
 Route::get('design_printing/marcom_show/{id}', 'DesignPrintingController@marcomShow');
 Route::get('design_printing/customer_show/{id}', 'DesignPrintingController@customerShow');
+Route::get('design_printing/request_status/{string}', 'DesignPrintingController@requestStatus');
+Route::get('design_printing/status_show/{id}', 'DesignPrintingController@statusShow');
 
 //Photography
 Route::resource('photography', 'PhotoController');
 Route::get('photography/marcom_show/{id}', 'PhotoController@marcomShow');
 Route::get('photography/customer_show/{id}', 'PhotoController@customerShow');
+Route::get('photography/request_status/{string}', 'PhotoController@requestStatus');
+Route::get('photography/status_show/{id}', 'PhotoController@statusShow');
 
 //Videography
 Route::resource('videography', 'VideoController');
 Route::get('videography/marcom_show/{id}', 'VideoController@marcomShow');
 Route::get('videography/customer_show/{id}', 'VideoController@customerShow');
+Route::get('videography/request_status/{string}', 'VideoController@requestStatus');
+Route::get('videography/status_show/{id}', 'VideoController@statusShow');
 
 //Presentation
 Route::resource('presentation', 'PresentationController');
 Route::get('presentation/marcom_show/{id}', 'PresentationController@marcomShow');
 Route::get('presentation/customer_show/{id}', 'PresentationController@customerShow');
+Route::get('presentation/request_status/{string}', 'PresentationController@requestStatus');
+Route::get('presentation/status_show/{id}', 'PresentationController@statusShow');
 
 //Social Media
 Route::resource('social_media', 'SocialMediaController');
 Route::get('social_media/marcom_show/{id}', 'SocialMediaController@marcomShow');
 Route::get('social_media/customer_show/{id}', 'SocialMediaController@customerShow');
+Route::get('social_media/request_status/{string}', 'SocialMediaController@requestStatus');
+Route::get('social_media/status_show/{id}', 'SocialMediaController@statusShow');
 
 //Paid Advertising
 Route::resource('paid_advertising', 'PaidAdvertisingController');
 Route::get('paid_advertising/marcom_show/{id}', 'PaidAdvertisingController@marcomShow');
 Route::get('paid_advertising/customer_show/{id}', 'PaidAdvertisingController@customerShow');
+Route::get('paid_advertising/request_status/{string}', 'PaidAdvertisingController@requestStatus');
+Route::get('paid_advertising/status_show/{id}', 'PaidAdvertisingController@statusShow');
 
 //Event
 Route::resource('event', 'EventController');
 Route::get('event/marcom_show/{id}', 'EventController@marcomShow');
 Route::get('event/customer_show/{id}', 'EventController@customerShow');
+Route::get('event/request_status/{string}', 'EventController@requestStatus');
+Route::get('event/status_show/{id}', 'EventController@statusShow');
 
 
 Route::resource('admin', 'AdminController');

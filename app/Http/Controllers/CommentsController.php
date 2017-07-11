@@ -55,7 +55,7 @@ class CommentsController extends Controller
 
 //       $client = Clients::find($request->clients_id);
        $user = User::find($request->user_id);
-//        dd($data);
+//        dd($request);
        \Mail::to($user->email)->send(new StatusUpdate($status, $data, $comment,
            $request->view_folder, $media_name));
               if($request->view_folder == 'design_printing') {

@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Auth;
 
 use Session;
 use App\Clients;
@@ -38,6 +39,7 @@ class BaseEmail extends Mailable
     public function build()
     {
         $data = ServiceRequests::find(Session::get('id'));
+        $client = Auth::user();
         $service_method = $this::METHOD;
         $view_folder=$this::VIEW_FOLDER;
         $service_name = $this::MEDIA_NAME;
@@ -46,6 +48,6 @@ class BaseEmail extends Mailable
 //        $email_view = 'emails.' . $this::VIEW_FOLDER;
         return $this->from('webmaster@highlands.edu')
                     ->subject('A Marcom ' . $service_name . ' request has been submitted')
-                    ->view('emails.services')->with(compact('data', 'service_type','service_name','view_folder'));
+                    ->view('emails.services')->with(compact('data', 'service_type','service_name','view_folder','client'));
     }
 }

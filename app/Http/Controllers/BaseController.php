@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 use DB;
 use Session;
 use URL;
@@ -33,40 +34,58 @@ class BaseController extends Controller
      */
     public function index()
     {
-        $receiveds= DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
-//            ->join('service_requests', 'service_requests.user_id', '=', 'users.id')
-            ->where($this::TABLE_NAME . '.status','=', 'Received')
-            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
-            ->get();
-        $receiveds = DB::select('SELECT * FROM press_releases, service_requests, users where press_releases.status = 
-        "Received" and press_releases.service_requests_id = service_requests.id and service_requests.user_id = users.id');
-//        dd($receiveds);
-        $progresses=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
-            ->where($this::TABLE_NAME . '.status','=', 'In Progress')
-            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
-            ->get();
-        $informations=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
-            ->where($this::TABLE_NAME . '.status','=', 'Awaiting Information')
-            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
-            ->get();
-        $reviews=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
-            ->where($this::TABLE_NAME . '.status','=', 'Awaiting Review')
-            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
-            ->get();
-        $cancelleds=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
-            ->where($this::TABLE_NAME . '.status','=', 'Cancelled')
-            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
-            ->get();
-        $completes=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
-            ->where($this::TABLE_NAME . '.status','=', 'Complete')
-            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
-            ->get();
-        $datas=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
-            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
-            ->get();
+//        $receiveds= DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
+////            ->join('service_requests', 'service_requests.user_id', '=', 'users.id')
+//            ->where($this::TABLE_NAME . '.status','=', 'Received')
+//            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
+//            ->get();
+        $receiveds = DB::select('SELECT * FROM ' . $this::TABLE_NAME . ', service_requests, users where ' . $this::TABLE_NAME . '.status = 
+        "Received" and ' . $this::TABLE_NAME . '.service_requests_id = service_requests.id and service_requests.user_id = users.id');
+
+        $progresses = DB::select('SELECT * FROM ' . $this::TABLE_NAME . ', service_requests, users where ' . $this::TABLE_NAME . '.status = 
+        "In Progress" and ' . $this::TABLE_NAME . '.service_requests_id = service_requests.id and service_requests.user_id = users.id');
+
+        $informations = DB::select('SELECT * FROM ' . $this::TABLE_NAME . ', service_requests, users where ' . $this::TABLE_NAME . '.status = 
+        "Awaiting Information" and ' . $this::TABLE_NAME . '.service_requests_id = service_requests.id and service_requests.user_id = users.id');
+
+        $reviews = DB::select('SELECT * FROM ' . $this::TABLE_NAME . ', service_requests, users where ' . $this::TABLE_NAME . '.status = 
+        "Awaiting Review" and ' . $this::TABLE_NAME . '.service_requests_id = service_requests.id and service_requests.user_id = users.id');
+
+        $cancelleds = DB::select('SELECT * FROM ' . $this::TABLE_NAME . ', service_requests, users where ' . $this::TABLE_NAME . '.status = 
+        "Cancelled" and ' . $this::TABLE_NAME . '.service_requests_id = service_requests.id and service_requests.user_id = users.id');
+
+        $completes = DB::select('SELECT * FROM ' . $this::TABLE_NAME . ', service_requests, users where ' . $this::TABLE_NAME . '.status = 
+        "Complete" and ' . $this::TABLE_NAME . '.service_requests_id = service_requests.id and service_requests.user_id = users.id');
+
+        $feedbacks = DB::select('SELECT * FROM ' . $this::TABLE_NAME . ', service_requests, users where ' . $this::TABLE_NAME . '.status = 
+        "Customer Feedback" and ' . $this::TABLE_NAME . '.service_requests_id = service_requests.id and service_requests.user_id = users.id');
+
+//        $progresses=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
+//            ->where($this::TABLE_NAME . '.status','=', 'In Progress')
+//            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
+//            ->get();
+//        $informations=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
+//            ->where($this::TABLE_NAME . '.status','=', 'Awaiting Information')
+//            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
+//            ->get();
+//        $reviews=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
+//            ->where($this::TABLE_NAME . '.status','=', 'Awaiting Review')
+//            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
+//            ->get();
+//        $cancelleds=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
+//            ->where($this::TABLE_NAME . '.status','=', 'Cancelled')
+//            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
+//            ->get();
+//        $completes=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
+//            ->where($this::TABLE_NAME . '.status','=', 'Complete')
+//            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
+//            ->get();
+//        $datas=  DB::table($this::TABLE_NAME)->join('service_requests', $this::TABLE_NAME . '.service_requests_id', '=', 'service_requests.id')
+//            ->orderBy($this::TABLE_NAME  .'.created_at', 'desc')
+//            ->get();
         $media_name = $this::MEDIA_NAME;
         $view_folder = $this::VIEW_FOLDER;
-        return view('trim_list')->with(compact('datas','receiveds','progresses','informations', 'reviews','cancelleds','completes','media_name','view_folder'));
+        return view('trim_list')->with(compact('datas','receiveds','progresses','informations', 'reviews','cancelleds','completes','feedbacks','media_name','view_folder'));
 //        echo $this::TABLE_NAME;
     }
 
@@ -99,6 +118,7 @@ class BaseController extends Controller
         }
 
         $data = $request->all();
+//        dd(Auth::user());
         $model_name = $this::MODEL_NAME;
         $service_type = new $model_name($data);
         $service_type->fill($data);
@@ -243,7 +263,9 @@ class BaseController extends Controller
     {
 //        $client = Clients::find($id);
         $model_name = $this::MODEL_NAME;
-        $service_type = $model_name::where('service_requests_id', '=', $id)->first();
+//        $service_type = $model_name::where('service_requests_id', '=', $id)->first();
+        $service_type = $model_name::find($id);
+//        dd($service_type);
         $service_request = ServiceRequests::find($service_type->service_requests_id);
         $user = User::find($service_request->user_id);
 //        dd($user);
@@ -261,14 +283,17 @@ class BaseController extends Controller
     public function customerShow($id)
     {
         $model_name = $this::MODEL_NAME;
-        $service_type = $model_name::where('service_requests_id', '=', $id)->first();
+//        $service_type = $model_name::where('service_requests_id', '=', $id)->first();
+        $service_type = $model_name::find($id);
+        $service_request = ServiceRequests::find($service_type->service_requests_id);
+        $user = User::find($service_request->user_id);
 //        dd($service_type);
         $comments = \App\Comments::where('services_id', '=', $service_type->id)->where('service', '=', $this::MODEL_NAME)->orderBy('created_at','desc')->get();
         $view_folder = $this::VIEW_FOLDER;
         $service = $this::MODEL_NAME;
         $service_name = $this::MEDIA_NAME;
         $status = "Received";
-        return view('return')->with(compact('service_type', 'service','comments','service_name','view_folder','status'));
+        return view('return')->with(compact('service_type', 'service','comments','service_name','view_folder','status','user'));
     }
 
     public function requestStatus($status)
@@ -276,18 +301,20 @@ class BaseController extends Controller
 //        dd($string);
         $model_name = $this::MODEL_NAME;
 //        $status
+        $media_name = $this::MEDIA_NAME;
+        $view_folder = $this::VIEW_FOLDER;
         $datas = DB::select('SELECT * FROM ' .$this::TABLE_NAME .', service_requests, users where ' .$this::TABLE_NAME .'.status = "'
-        . $status . '" and ' .$this::TABLE_NAME .'.service_requests_id = service_requests.id and service_requests.user_id = users.id');
+        . $status . '" and ' .$this::TABLE_NAME .'.service_requests_id = service_requests.id and service_requests.user_id = users.id order by service_requests.created_at desc');
 //        $service_type = $model_name::where('status', '=', $string)->get();
 //        dd($status_list);
-        return view('service_request.status_list')->with(compact('datas'));
+        return view('service_request.status_list')->with(compact('datas','media_name','view_folder','status'));
     }
 
-    public function statusShow($id)
-    {
-        echo $id;
-       $model_name =  $this::MODEL_NAME;
-        $results = $model_name::find($id);
-        dd($results);
-    }
+//    public function statusShow($id)
+//    {
+//        echo $id;
+//       $model_name =  $this::MODEL_NAME;
+//        $results = $model_name::find($id);
+//        dd($results);
+//    }
 }
