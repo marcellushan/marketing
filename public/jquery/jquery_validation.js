@@ -1,30 +1,30 @@
 
      $(document).ready(function(){
-         $( "#client" ).validate({
+         $( "#service_request" ).validate({
              rules: {
-                 first_name: {
-                     required: true
-                 },
-                 last_name: {
-                     required: true
-                 },
-                 department: {
-                     required: true
-                 },
-                 email: {
-                     required: true,
-                     email: true
-                 },
-                 phone: {
-                     required: true,
-                     digits: true,
-                     minlength: 10,
-                     maxlength: 10
-                 },
-                 due_date: {
-                     required: true,
-                     date: true
-                 },
+                 // first_name: {
+                 //     required: true
+                 // },
+                 // last_name: {
+                 //     required: true
+                 // },
+                 // department: {
+                 //     required: true
+                 // },
+                 // email: {
+                 //     required: true,
+                 //     email: true
+                 // },
+                 // phone: {
+                 //     required: true,
+                 //     digits: true,
+                 //     minlength: 10,
+                 //     maxlength: 10
+                 // },
+                 // due_date: {
+                 //     required: true,
+                 //     date: true
+                 // },
                  summary: {
                      required: true
                  }

@@ -34,11 +34,11 @@
 
     <div class="row">
     @if($press_release)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/press_release/customer_show/{{$pressRelease->id}}"> Press Release/Media Advisory</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/press_release/customer_show/{{$press_release->id}}"> Press Release/Media Advisory</a></h2>
     @endif
 
     @if($design_printing)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/design_printing/customer_show/{{$designPrinting->id}}"> Design and Printing</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/design_printing/customer_show/{{$design_printing->id}}"> Design and Printing</a></h2>
     @endif
 
     @if($photography)
@@ -50,7 +50,7 @@
     @endif
 
     @if($paid_advertising)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/paid_advertising/customer_show/{{$paidAdvertising->id}}">Paid Advertising</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/paid_advertising/customer_show/{{$paid_advertising->id}}">Paid Advertising</a></h2>
     @endif
 
     @if($presentation)
@@ -58,7 +58,7 @@
     @endif
 
     @if($social_media)
-        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/social_media/customer_show/{{$socialMedia->id}}"> Social Media</a></h2>
+        <h2  class="col-lg-10 col-lg-offset-3"><a href="{{URL::to('/')}}/social_media/customer_show/{{$social_media->id}}"> Social Media</a></h2>
     @endif
 
     @if($event)

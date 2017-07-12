@@ -65,7 +65,7 @@ class ListController extends Controller
         (@$data->socialMedia ? $social_media = $data->socialMedia : $social_media = '');
         (@$data->event ? $event = $data->event : $event = '');
 //        dd($photography);
-        return view('list.show')->with(compact('data','user_info','press_release',
+        return view('service_request.show')->with(compact('data','user_info','press_release',
             'design_printing','photography','videography','paid_advertising','presentation','social_media','event'));
     }
 

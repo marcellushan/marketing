@@ -80,6 +80,7 @@ class ServiceRequestController extends Controller
     {
         $data = ServiceRequests::find($id);
         $user_info = User::find($data->user_id);
+//        dd($data);
         (@$data->pressRelease ? $press_release = $data->pressRelease : $press_release = '');
         (@$data->designPrinting ? $design_printing = $data->designPrinting : $design_printing = '');
         (@$data->photography ? $photography = $data->photography : $photography = '');
@@ -130,7 +131,7 @@ class ServiceRequestController extends Controller
     public function thankYou($id)
     {
         $data = ServiceRequests::find($id);
-        dd($data);
+//        dd($data);
         $userinfo = User::find($data->user_id);
         \Mail::to($userinfo->email)->send(new ClientMail($data));
         return view('thankyou');
