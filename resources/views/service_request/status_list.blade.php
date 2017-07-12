@@ -4,6 +4,7 @@
     <h3>Status: {{ucwords($status)}}</h3>
     <div class="row">
         <div class="col-md-10">
+            <h4>
             <div class="table-responsive">
                 <table class="table">
                     <tr>
@@ -26,6 +27,7 @@
                         </tr>
                     @endforeach
                 </table>
+            </h4>
             </div>
         </div>
     </div>

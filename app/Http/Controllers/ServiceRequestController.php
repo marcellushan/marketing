@@ -133,7 +133,9 @@ class ServiceRequestController extends Controller
         $data = ServiceRequests::find($id);
 //        dd($data);
         $userinfo = User::find($data->user_id);
-        \Mail::to($userinfo->email)->send(new ClientMail($data));
+        \Mail::to($userinfo->email)
+            ->cc('mhannah@highlands.edu')
+            ->send(new ClientMail($data));
         return view('thankyou');
     }
 

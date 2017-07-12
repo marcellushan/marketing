@@ -2,8 +2,8 @@
 <div class="main container">
     <h1 align="center">{{$media_name}}</h1>
 <div class="row">
-    <div class="col-md-6 col-md-offset-2">
-
+    <div class="col-md-6 col-md-offset-3">
+<h2>
     <table class="table">
         <tr>
             <th>
@@ -85,6 +85,7 @@
             </tr>
         @endif
     </table>
+</h2>
         </div>
 </div>
 

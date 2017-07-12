@@ -303,10 +303,14 @@ class BaseController extends Controller
 //        $status
         $media_name = $this::MEDIA_NAME;
         $view_folder = $this::VIEW_FOLDER;
-        $datas = DB::select('SELECT * FROM ' .$this::TABLE_NAME .', service_requests, users where ' .$this::TABLE_NAME .'.status = "'
-        . $status . '" and ' .$this::TABLE_NAME .'.service_requests_id = service_requests.id and service_requests.user_id = users.id order by service_requests.created_at desc');
+        $datas = DB::select(
+            'SELECT ' .$this::TABLE_NAME .'.id, ' .$this::TABLE_NAME .'.created_at, users.name, ' .$this::TABLE_NAME .'.details 
+            FROM ' .$this::TABLE_NAME .', service_requests, users 
+            where ' .$this::TABLE_NAME .'.status = "'        . $status . '" and ' .$this::TABLE_NAME .'.service_requests_id = service_requests.id 
+            and service_requests.user_id = users.id order by service_requests.created_at desc');
 //        $service_type = $model_name::where('status', '=', $string)->get();
 //        dd($status_list);
+//        dd($datas);
         return view('service_request.status_list')->with(compact('datas','media_name','view_folder','status'));
     }
 
