@@ -65,9 +65,30 @@
                  'audience[]': {
                      required: true
                  }
+                 ,
+                 quote_phone_1: {
+                     required: true,
+                     digits: true,
+                     minlength: 10,
+                     maxlength: 10
+                 }
+                 ,
+                 quote_phone_2: {
+                     // required: true,
+                     digits: true,
+                     minlength: 10,
+                     maxlength: 10
+                 }
              }
          });
      });
+
+     // quote_phone_1: {
+     //     required: true,
+     //         digits: true,
+     //         minlength: 10,
+     //         maxlength: 10
+     //     //             }
 
      $(document).ready(function(){
          $( "#design_printing" ).validate({
@@ -91,7 +112,7 @@
                  copies: {
                      required: true,
                      digits: true,
-                     maxlength: 3
+                     maxlength: 5
                  }
                  ,
                  date_needed: {
@@ -159,8 +180,12 @@
                  ,
                  location: "Please enter a location"
                  ,
-                 requested_date: "Please enter a date"
-                 ,
+                 // requested_date: "Please enter a date in the YYYY-MM-DD format"
+                 // ,
+                 requested_date: {
+                     required: "Please enter a requested date",
+                     date: "Date must be in the YYYY-MM-DD format"
+                 },
                  start: "Please enter a start time"
                  ,
                  end: "Please enter a end time"
@@ -174,7 +199,7 @@
      $(document).ready(function(){
          $( "#social_media" ).validate({
              rules: {
-                 media_type: {
+                 request_type: {
                      required: true
                  }
                  ,

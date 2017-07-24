@@ -71,7 +71,9 @@ class CommentsController extends Controller
        $to = explode(',', env($mailgroup));
 //       dd($media_name);
 
-       \Mail::to($to)->send(new AdminStatusUpdate($status, $data, $comment, $request->view_folder, $media_name));
+       \Mail::to($to)
+           ->cc('mhannah@highlands.edu')
+           ->send(new AdminStatusUpdate($status, $data, $comment, $request->view_folder, $media_name));
 
        if($request->user) {
             return view('comment');

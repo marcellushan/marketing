@@ -38,7 +38,7 @@ class AdminStatusUpdate extends Mailable
      */
     public function build()
     {
-        return $this->from('webmaster@highlands.edu')
+        return $this->from('marcom@highlands.edu')
             ->subject('A marcom request has been updated!')
             ->view('emails.admin_status_update');
     }

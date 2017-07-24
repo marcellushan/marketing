@@ -22,10 +22,10 @@ class BaseController extends Controller
     const TABLE_NAME = 'abstract';
     const MAIL = 'abstract';
 
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display submitted service requests categorized by Status
