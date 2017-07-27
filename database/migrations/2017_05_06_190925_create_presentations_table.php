@@ -17,7 +17,7 @@ class CreatePresentationsTable extends Migration
             $table->increments('id');
             $table->text('details');
             $table->string('audience')->nullable();
-            $table->date('presentation_date')->nullable();
+            $table->string('date_needed')->nullable();
             $table->string('assistance')->nullable();
             $table->text('other')->nullable();
             $table->string('status')->default("Received");

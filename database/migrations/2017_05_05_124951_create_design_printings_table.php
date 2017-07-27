@@ -28,7 +28,7 @@ class CreateDesignPrintingsTable extends Migration
             $table->string('grant_number')->nullable();
             $table->text('job_description')->nullable();
             $table->integer('copies')->nullable();
-            $table->date('date_needed')->nullable();
+            $table->string('date_needed')->nullable();
             $table->string('services_needed')->nullable();
             $table->string('color')->nullable();
             $table->string('image')->nullable();

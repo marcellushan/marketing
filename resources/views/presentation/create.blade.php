@@ -6,10 +6,10 @@
     @include('partials.audience')
     <p></p>
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-8">
             <div class="form-group">
                 <label>When is the presentation taking place?</label>
-                <input type="date" class="form-control" name="presentation_date" placeholder="YYYY-MM-DD">
+                @include('partials.date_needed')<br>
             </div>
         </div>
     </div>

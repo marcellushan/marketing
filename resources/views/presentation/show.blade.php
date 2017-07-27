@@ -13,7 +13,7 @@
 </div><p></p>
 <div class="row">
     <div class="col-sm-3 category">Date</div>
-    <div class="col-sm-8 item">{{$service_type->presentation_date}}</div>
+    <div class="col-sm-8 item">{{$service_type->date_needed}}</div>
 </div><p></p>
 <div class="row">
     <div class="col-sm-3 category">Area of Assistance</div>

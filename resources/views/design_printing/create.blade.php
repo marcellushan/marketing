@@ -68,8 +68,7 @@
         <input  name="copies" type="text" size="10" >
     </div>
     <div class="col-sm-6">
-        <label for="usr"><div class="column_header">Date Needed: </div></label><input type="date" id="startDate" id="startDate"
-                                                                                      placeholder="YYYY-MM-DD" name="date_needed" min="2015-10-20" ><br>
+        <label for="usr"><div class="column_header">Date Needed: </div></label> @include('partials.date_needed')<br>
     </div>
 </div>
 <br />

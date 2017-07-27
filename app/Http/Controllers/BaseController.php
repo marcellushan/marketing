@@ -118,7 +118,7 @@ class BaseController extends Controller
         }
 
         $data = $request->all();
-//        dd(Auth::user());
+//        dd($data);
         $model_name = $this::MODEL_NAME;
         $service_type = new $model_name($data);
         $service_type->fill($data);
@@ -143,6 +143,11 @@ class BaseController extends Controller
             $end_time = implode(":", $request->end_time);
 //            dd($start_time);
             $service_type->end_time = $end_time;
+        }
+        if($request->date_needed) {
+            $date_needed = implode("/", $request->date_needed);
+            dd($date_needed);
+            $service_type->date_needed = $date_needed;
         }
         if($request->assistance) {
             $assistance = implode(", ", $request->assistance);

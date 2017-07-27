@@ -32,7 +32,7 @@
         <div class="col-sm-5">
             <div class="form-group">
                 <label>Date</label>
-                <input type="date" class="form-control" name="event_date">
+                <label for="usr"><div class="column_header">Date Needed: </div></label> @include('partials.date_needed')<br>
             </div>
         </div>
     </div>

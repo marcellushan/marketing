@@ -95,6 +95,7 @@
              rules: {
                  details: {
                      required: true
+
                  }
                  ,
                  'audience[]': {
@@ -115,9 +116,8 @@
                      maxlength: 5
                  }
                  ,
-                 date_needed: {
-                     required: true,
-                     date: true
+                 'date_needed[]': {
+                     required: true
                  }
                  ,
                  services_needed: {

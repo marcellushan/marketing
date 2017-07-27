@@ -22,8 +22,8 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="form-group">
-                <label>Requested Shoot Date</label>
-                <input type="date" class="form-control" name="requested_date" placeholder="YYYY-MM-DD">
+                <label>Requested Shoot Date</label><br>
+                 @include('partials.date_needed')<br>
             </div>
         </div>
         <div class="col-sm-3">

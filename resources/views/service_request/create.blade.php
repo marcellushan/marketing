@@ -1,5 +1,8 @@
 @extends('layouts.app') @section('content')
-<div class="main container">
+
+    <h1 align="center">Welcome to the application for requesting Marcom services.</h1><h2 align="center">We look forward to working with you on your next project.
+    <br>If you have questions while submitting this form, please contact us at 706-295-6366 or 706-368-7710.</h2></div>
+    <div class="well">
     <div class="row">
         <h2 class="col-sm-8 col-sm-offset-3">
             Marcom Service Form
@@ -7,7 +10,7 @@
     </div>
     {{Form::open(array('url' => 'service_request', 'id' => 'service_request'))}}
              <div class="row">
-                 <div class="col-sm-10">
+                 <div class="col-sm-8 col-sm-offset-2">
                      <div class="form-group">
                          <label>Brief Project Summary</label>
                          <textarea class="form-control" rows="5" name="summary" placeholder="required"></textarea>
@@ -23,13 +26,13 @@
         </div>
         <h4>
     <div class="row">
-        <div class="col-xs-10 col-sm-4">
+        <div class="col-xs-10 col-sm-4 col-sm-offset-1">
             Press Release/Media Advisory
         </div>
         <div class="col-sm-1">
             <input type="checkbox" name="press_release" value="1">
         </div>
-        <div class="col-xs-10 col-sm-4">
+        <div class="col-xs-10 col-sm-4 col-sm-offset-1">
             Videography
         </div>
         <div class="col-sm-1">
@@ -37,13 +40,13 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-10 col-sm-4">
+        <div class="col-xs-10 col-sm-4 col-sm-offset-1">
             Design & Printing
         </div>
         <div class="col-sm-1">
             <input type="checkbox" name="design_printing" value="1">
         </div>
-        <div class="col-xs-10 col-sm-4">
+        <div class="col-xs-10 col-sm-4 col-sm-offset-1">
             Paid Advertising
         </div>
         <div class="col-sm-1">
@@ -51,13 +54,13 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-10 col-sm-4">
+        <div class="col-xs-10 col-sm-4 col-sm-offset-1">
             Photography
         </div>
         <div class="col-sm-1">
             <input type="checkbox" name="photography" value="1">
         </div>
-        <div class="col-xs-10 col-sm-4">
+        <div class="col-xs-10 col-sm-4 col-sm-offset-1">
             Presentation/Interview Preparation
         </div>
         <div class="col-sm-1">
@@ -65,13 +68,13 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-10 col-sm-4">
+        <div class="col-xs-10 col-sm-4 col-sm-offset-1">
             Social Media
         </div>
         <div class="col-sm-1">
             <input type="checkbox" name="social_media" value="1">
         </div>
-        <div class="col-xs-10 col-sm-4">
+        <div class="col-xs-10 col-sm-4 col-sm-offset-1">
             Event Aid
         </div>
         <div class="col-sm-1">
