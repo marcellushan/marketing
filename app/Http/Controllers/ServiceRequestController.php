@@ -14,7 +14,7 @@ class ServiceRequestController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     /**
@@ -24,12 +24,15 @@ class ServiceRequestController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-//        dd($user);
-
-        $service_requests = ServiceRequests::where('user_id', '=', $user->id)->orderBy('created_at','desc')->get();
-//        dd($service_requests);
-        return view('service_request.user_list')->with(compact('service_requests','user'));
+        session(['username' => 'mhannah', 'name' => 'Marc Hannah','Department' => 'IT']);
+//        $user = Auth::user();
+////        dd($user);
+//
+//        $service_requests = ServiceRequests::where('user_id', '=', $user->id)->orderBy('created_at','desc')->get();
+////        dd($service_requests);
+//        return view('service_request.user_list')->with(compact('service_requests','user'));
+//        echo session('username');
+        return redirect('service_request/create');
     }
 
     /**
