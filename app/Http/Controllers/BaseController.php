@@ -24,7 +24,7 @@ class BaseController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     /**
@@ -146,7 +146,7 @@ class BaseController extends Controller
         }
         if($request->date_needed) {
             $date_needed = implode("/", $request->date_needed);
-            dd($date_needed);
+//            dd($date_needed);
             $service_type->date_needed = $date_needed;
         }
         if($request->assistance) {

@@ -16,7 +16,7 @@ class ServiceController extends Controller
 
     public function index()
     {
-        $user = Auth::user();
+//        $user = Auth::user();
         if(Session::get('press_release')==1) {
             return redirect('press_release/create');
         }

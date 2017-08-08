@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Clients;
 use App\ServiceRequests;
+use App\User;
 
 class BaseEmail extends Mailable
 {
@@ -39,7 +40,10 @@ class BaseEmail extends Mailable
     public function build()
     {
         $data = ServiceRequests::find(Session::get('id'));
-        $client = Auth::user();
+//        $client = Auth::user();
+        $user_id = session('user_id');
+        $client = User::find($user_id);
+//        dd(session('user_id'));
         $service_method = $this::METHOD;
         $view_folder=$this::VIEW_FOLDER;
         $service_name = $this::MEDIA_NAME;

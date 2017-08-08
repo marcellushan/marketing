@@ -24,9 +24,16 @@ class ServiceRequestController extends Controller
      */
     public function index()
     {
-        session(['username' => 'mhannah', 'name' => 'Marc Hannah','Department' => 'IT']);
+        session(['username' => 'mhannah', 'name' => 'Marc Hannah', 'email' => 'khannah@highlands.edu','department' => 'HR']);
+//        $request->session()->put('username', 'mhannah');
 //        $user = Auth::user();
-////        dd($user);
+//        dd(session('username'));
+        $user = new User();
+        $user->email = session('email');
+        $user->name = session('name');
+        $user->department = session('department');
+        $user->save();
+        session(['user_id' => $user->id]);
 //
 //        $service_requests = ServiceRequests::where('user_id', '=', $user->id)->orderBy('created_at','desc')->get();
 ////        dd($service_requests);
@@ -42,6 +49,7 @@ class ServiceRequestController extends Controller
      */
     public function create()
     {
+//        dd(session('id'));
         return view('service_request.create');
     }
 
@@ -57,7 +65,7 @@ class ServiceRequestController extends Controller
         $data = $request->all();
         $service_request = new ServiceRequests($data);
         $service_request->fill($data);
-        $service_request->user_id = Auth::user()->id;
+        $service_request->user_id = session('user_id');
         $service_request->save();
 
         Session::put('press_release',$request->press_release);
@@ -135,7 +143,7 @@ class ServiceRequestController extends Controller
     {
         $data = ServiceRequests::find($id);
 //        dd($data);
-        $userinfo = User::find($data->user_id);
+        $userinfo = User::find(session('user_id'));
         \Mail::to($userinfo->email)
             ->cc('mhannah@highlands.edu')
             ->send(new ClientMail($data));
