@@ -25,10 +25,10 @@ class ServiceRequestController extends Controller
     public function index()
     {
 
-//            if(! @$_SESSION['AdfsUserDetails']) {
-//                $url='../../marctest/myform.php';
-//                echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
-//            }
+            if(! @$_SESSION['AdfsUserDetails']) {
+                $url='../../marctest/myform.php';
+                echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+            }
 
 //        $user = User::firstOrCreate(['name' => 'Joe Hannah', 'email' => 'jhannah@highlands.edu','department' => 'HR']);
 //        dd($user);
