@@ -62,7 +62,7 @@ class ServiceRequestController extends Controller
     public function create()
     {
         echo $_SESSION['nameIdentifier'];
-        dd($_SESSION['attributes']);
+        dd($_SESSION['attributes'][0]);
 //        return view('service_request.create');
     }
 
