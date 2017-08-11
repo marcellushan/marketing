@@ -39,7 +39,7 @@ class ServiceRequestController extends Controller
 //            }
 
 //        $user = User::firstOrCreate(['name' => 'Joe Hannah', 'email' => 'jhannah@highlands.edu','department' => 'HR']);
-        dd(\App::environment());
+//        dd(\App::environment());
 
 //            echo "here";
 //        }
