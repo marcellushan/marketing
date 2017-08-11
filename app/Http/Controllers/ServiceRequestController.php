@@ -51,7 +51,7 @@ class ServiceRequestController extends Controller
 //        dd($_SESSION['attributes']['surname']);
         $givenname = implode(" ", $_SESSION['attributes']['givenname']);
         $surname = implode(" ", $_SESSION['attributes']['surname']);
-        $department = implode(" ", $_SESSION['attributes']['department']);
+        $department = implode(" ", $_SESSION['attributes']['group']);
         $user = User::firstOrCreate(['email' => $username . '@highlands.edu','name' => $givenname . ' ' . $surname, 'department' => $department]);
 //        $_SESSION['user_id'] = $user->id;
         return view('service_request.create')->with(compact('user'));
