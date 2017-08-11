@@ -32,11 +32,12 @@ class ServiceRequestController extends Controller
 //            $_SESSION['attributes']['Group'] = 'IT';
             return redirect('service_request/create');
             dd($_SESSION);
+        } else {
+            if(! @$_SESSION['AdfsUserDetails']) {
+                $url='../../marctest/myform.php';
+                echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+            }
         }
-//            if(! @$_SESSION['AdfsUserDetails']) {
-//                $url='../../marctest/myform.php';
-//                echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
-//            }
 
 //        $user = User::firstOrCreate(['name' => 'Joe Hannah', 'email' => 'jhannah@highlands.edu','department' => 'HR']);
 //        dd(\App::environment());
