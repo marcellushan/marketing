@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ServiceRequests extends Model
 {
-    protected $fillable = ['summary'];
+    protected $fillable = ['user_id','summary'];
 
 
     //'press_release','design','photo','social_media','paid_advertising','presentation','videography','event_aid'

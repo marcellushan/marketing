@@ -1,6 +1,6 @@
 @extends('layouts.app') @section('content')
 
-    <h1 align="center">Welcome {{session('name')}} to the application for requesting Marcom services.</h1><h2 align="center">We look forward to working with you on your next project.
+    <h1 align="center">Welcome {{$user->name}} to the application for requesting Marcom services.</h1><h2 align="center">We look forward to working with you on your next project.
     <br>If you have questions while submitting this form, please contact us at 706-295-6366 or 706-368-7710.</h2></div>
     <div class="well">
     <div class="row">
@@ -9,6 +9,7 @@
         </h2>
     </div>
     {{Form::open(array('url' => 'service_request', 'id' => 'service_request'))}}
+        {{Form::hidden('user_id', $user->id)}}
              <div class="row">
                  <div class="col-sm-8 col-sm-offset-2">
                      <div class="form-group">

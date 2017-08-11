@@ -24,28 +24,14 @@ class ServiceRequestController extends Controller
      */
     public function index()
     {
-//        session(['username' => 'mhannah', 'name' => 'Marc Hannah', 'email' => 'khannah@highlands.edu','department' => 'HR']);
-//        $request->session()->put('username', 'mhannah');
-//        $user = Auth::user();
-//        dd(session('username'));
-//        $user = new User();
-//        $user->email = session('email');
-//        $user->name = session('name');
-//        $user->department = session('department');
-//        $user->save();
-//        session(['user_id' => $user->id]);
-//
-//        $service_requests = ServiceRequests::where('user_id', '=', $user->id)->orderBy('created_at','desc')->get();
-////        dd($service_requests);
-//        return view('service_request.user_list')->with(compact('service_requests','user'));
-//        echo session('username');
-//        return redirect('service_request/create');
-//        {
 
-            if(! @$_SESSION['AdfsUserDetails']) {
-                $url='../../marctest/myform.php';
-                echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
-            }
+//            if(! @$_SESSION['AdfsUserDetails']) {
+//                $url='../../marctest/myform.php';
+//                echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+//            }
+
+//        $user = User::firstOrCreate(['name' => 'Joe Hannah', 'email' => 'jhannah@highlands.edu','department' => 'HR']);
+//        dd($user);
 
 //            echo "here";
 //        }
@@ -61,10 +47,14 @@ class ServiceRequestController extends Controller
      */
     public function create()
     {
-        echo $_SESSION['nameIdentifier'];
+        $username = $_SESSION['nameIdentifier'];
 //        dd($_SESSION['attributes']['surname']);
-        echo implode(" ", $_SESSION['attributes']['surname']);
-//        return view('service_request.create');
+        $givenname = implode(" ", $_SESSION['attributes']['givenname']);
+        $surname = implode(" ", $_SESSION['attributes']['surname']);
+        $department = implode(" ", $_SESSION['attributes']['department']);
+        $user = User::firstOrCreate(['email' => $username . '@highlands.edu','name' => $givenname . ' ' . $surname, 'department' => $department]);
+//        $_SESSION['user_id'] = $user->id;
+        return view('service_request.create')->with(compact('user'));
     }
 
     /**
@@ -79,7 +69,7 @@ class ServiceRequestController extends Controller
         $data = $request->all();
         $service_request = new ServiceRequests($data);
         $service_request->fill($data);
-        $service_request->user_id = session('user_id');
+//        $service_request->user_id = session('user_id');
         $service_request->save();
 
         Session::put('press_release',$request->press_release);
