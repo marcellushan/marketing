@@ -25,13 +25,21 @@ class ServiceRequestController extends Controller
     public function index()
     {
 
-            if(! @$_SESSION['AdfsUserDetails']) {
-                $url='../../marctest/myform.php';
-                echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
-            }
+        if(\App::environment() =='local') {
+//            $_SESSION['nameIdentifier'] = 'mhannah';
+//            $_SESSION['attributes']['givenname'] = 'Marc';
+//            $_SESSION['attributes']['surname'] = 'Hannah';
+//            $_SESSION['attributes']['Group'] = 'IT';
+            return redirect('service_request/create');
+            dd($_SESSION);
+        }
+//            if(! @$_SESSION['AdfsUserDetails']) {
+//                $url='../../marctest/myform.php';
+//                echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+//            }
 
 //        $user = User::firstOrCreate(['name' => 'Joe Hannah', 'email' => 'jhannah@highlands.edu','department' => 'HR']);
-//        dd($user);
+        dd(\App::environment());
 
 //            echo "here";
 //        }
@@ -47,11 +55,17 @@ class ServiceRequestController extends Controller
      */
     public function create()
     {
-        $username = $_SESSION['nameIdentifier'];
-//        dd($_SESSION['attributes']['surname']);
-        $givenname = implode(" ", $_SESSION['attributes']['givenname']);
-        $surname = implode(" ", $_SESSION['attributes']['surname']);
-        $department = implode(" ", $_SESSION['attributes']['Group']);
+        if(\App::environment() =='local') {
+            $username = 'lhannah';
+            $givenname = 'Marc';
+            $surname = 'Hannah';
+            $department = 'IT';
+        } else {
+            $username = $_SESSION['nameIdentifier'];
+            $givenname = implode(" ", $_SESSION['attributes']['givenname']);
+            $surname = implode(" ", $_SESSION['attributes']['surname']);
+            $department = implode(" ", $_SESSION['attributes']['Group']);
+        }
         $user = User::firstOrCreate(['email' => $username . '@highlands.edu','name' => $givenname . ' ' . $surname, 'department' => $department]);
 //        $_SESSION['user_id'] = $user->id;
         return view('service_request.create')->with(compact('user'));
