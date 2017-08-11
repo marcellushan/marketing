@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+session_start();
 use App\ServiceRequests;
 use App\User;
 use Illuminate\Http\Request;
@@ -24,23 +24,35 @@ class ServiceRequestController extends Controller
      */
     public function index()
     {
-        session(['username' => 'mhannah', 'name' => 'Marc Hannah', 'email' => 'khannah@highlands.edu','department' => 'HR']);
+//        session(['username' => 'mhannah', 'name' => 'Marc Hannah', 'email' => 'khannah@highlands.edu','department' => 'HR']);
 //        $request->session()->put('username', 'mhannah');
 //        $user = Auth::user();
 //        dd(session('username'));
-        $user = new User();
-        $user->email = session('email');
-        $user->name = session('name');
-        $user->department = session('department');
-        $user->save();
-        session(['user_id' => $user->id]);
+//        $user = new User();
+//        $user->email = session('email');
+//        $user->name = session('name');
+//        $user->department = session('department');
+//        $user->save();
+//        session(['user_id' => $user->id]);
 //
 //        $service_requests = ServiceRequests::where('user_id', '=', $user->id)->orderBy('created_at','desc')->get();
 ////        dd($service_requests);
 //        return view('service_request.user_list')->with(compact('service_requests','user'));
 //        echo session('username');
-        return redirect('service_request/create');
+//        return redirect('service_request/create');
+//        {
+
+            if(! @$_SESSION['AdfsUserDetails']) {
+                $url='../../marctest/myform.php';
+                echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+            }
+
+//            echo "here";
+//        }
+
+
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -49,8 +61,9 @@ class ServiceRequestController extends Controller
      */
     public function create()
     {
+        echo $_SESSION['nameIdentifier'];
 //        dd(session('id'));
-        return view('service_request.create');
+//        return view('service_request.create');
     }
 
     /**
