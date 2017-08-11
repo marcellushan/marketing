@@ -30,7 +30,7 @@ class ServiceRequestController extends Controller
 //            $_SESSION['attributes']['givenname'] = 'Marc';
 //            $_SESSION['attributes']['surname'] = 'Hannah';
 //            $_SESSION['attributes']['Group'] = 'IT';
-            return redirect('service_request/create');
+//            return redirect('service_request/create');
             dd($_SESSION);
         } else {
             if(! @$_SESSION['AdfsUserDetails']) {
