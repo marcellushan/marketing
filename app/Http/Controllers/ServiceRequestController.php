@@ -30,7 +30,7 @@ class ServiceRequestController extends Controller
 //            $_SESSION['attributes']['givenname'] = 'Marc';
 //            $_SESSION['attributes']['surname'] = 'Hannah';
 //            $_SESSION['attributes']['Group'] = 'IT';
-//            return redirect('service_request/create');
+            return redirect('service_request/create');
             dd($_SESSION);
         } else {
             if(! @$_SESSION['AdfsUserDetails']) {
@@ -86,6 +86,7 @@ class ServiceRequestController extends Controller
         $service_request->fill($data);
 //        $service_request->user_id = session('user_id');
         $service_request->save();
+        session()->put('user_id', $service_request->user_id);
 
         Session::put('press_release',$request->press_release);
         Session::put('design_printing',$request->design_printing);
