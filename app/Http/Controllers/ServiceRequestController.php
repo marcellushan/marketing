@@ -36,6 +36,7 @@ class ServiceRequestController extends Controller
             if(! @$_SESSION['AdfsUserDetails']) {
                 $url='../../marctest/myform.php';
                 echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+                return redirect('service_request/create');
             }
         }
 
