@@ -57,10 +57,10 @@ class ServiceRequestController extends Controller
     public function create()
     {
         if(\App::environment() =='local') {
-            $username = 'lhannah';
-            $givenname = 'Marc';
+            $username = 'mhannah';
+            $givenname = 'Marc ';
             $surname = 'Hannah';
-            $department = 'IT';
+            $department = 'HR';
         } else {
             $username = $_SESSION['nameIdentifier'];
             $givenname = implode(" ", $_SESSION['attributes']['givenname']);

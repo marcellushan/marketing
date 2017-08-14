@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use Faker\Factory as Faker;
+
 class ClientsTableSeeder extends Seeder
 {
     /**
@@ -12,20 +14,21 @@ class ClientsTableSeeder extends Seeder
     public function run()
     {
         {
+            $faker = Faker::create();
            for($x = 0; $x <= 10; $x++) {
                $id =DB::table('users')->insertGetId([
 //                   'first_name' => str_random(10),
-                   'name' => str_random(10) .',' . str_random(10),
+                   'name' => $faker->name,
                    'email' => str_random(10) . '@highlands.edu',
-//                   'department' => str_random(10),
-                   'password' => str_random(10),
+                   'department' => $faker->word,
+//                   'password' => str_random(10),
 //                   'due_date' => '2017-07-20',
 //                   'summary' => 'Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta.
 //                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
 //                     Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum
 //                      congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at
 //                       tellus. Donec rutrum congue leo eget malesuada.',
-                   'created_at' => '2017-07-20'
+                   'created_at' => $faker->date('Y-m-d')
                ]);
                $id =DB::table('service_requests')->insertGetId([
 //                   'first_name' => str_random(10),
@@ -34,25 +37,14 @@ class ClientsTableSeeder extends Seeder
 //                   'department' => str_random(10),
 //                   'phone' => rand(2000000000, 9999999999),
 //                   'due_date' => '2017-07-20',
-                   'summary' => 'Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta.
-                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                     Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum
-                      congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at
-                       tellus. Donec rutrum congue leo eget malesuada.',
+                   'summary' => $faker->paragraph,
                    'created_at' => '2017-07-20',
                    'user_id' => $id
                ]);
                $press_release_id = DB::table('press_releases')->insertGetId([
                    'media_type' => 'Student Feature',
-                   'details' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit tortor eget felis porttitor volutpat. 
-                   Curabitur aliquet quam id dui posuere blandit. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sollicitudin
-                     molestie malesuada.',
-                   'professional' => 'Pellentesque in ipsum id orci porta dapibus. 
-                   Proin eget tortor risus. Sed porttitor lectus nibh. Curabitur 
-                   aliquet quam id dui posuere blandit. Quisque velit nisi, pretium 
-                   ut lacinia in, elementum id enim. Cras ultricies ligula sed magna
-                    dictum porta.',
+                   'details' => $faker->paragraph,
+                   'professional' => $faker->paragraph,
                    'promotional' => 'Requested',
                    'audience' => 'Students',
                    'quote_name_1' => 'John Smith',
@@ -69,12 +61,10 @@ class ClientsTableSeeder extends Seeder
                    'created_at' => '2017-05-04'
                ]);
                 DB::table('design_printings')->insert([
-                    'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+                    'details' => $faker->paragraph,
                     'audience' => 'Community',
                     'payment_type' => 'Credit Card',
-                    'job_description' => 'Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. 
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus.',
+                    'job_description' => $faker->paragraph,
                     'copies' => 5,
                     'date_needed' => '07/22/2017',
                     'services_needed' => 'Reprint as is',
@@ -86,9 +76,9 @@ class ClientsTableSeeder extends Seeder
                 ]);
 
             DB::table('photos')->insert([
-                'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+                'details' => $faker->paragraph,
                 'location' => str_random(10),
-                'use' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+                'use' => $faker->paragraph,
                 'date_needed' => '07/22/2017',
                 'start_time' => '12:00 PM',
                 'end_time' => '11:00 AM',
@@ -97,7 +87,7 @@ class ClientsTableSeeder extends Seeder
             ]);
 
            DB::table('social_media')->insert([
-               'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+               'details' => $faker->paragraph,
                'request_type' => 'Starting New Page',
                'audience' => 'Community',
                'facebook_text' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
@@ -112,19 +102,19 @@ class ClientsTableSeeder extends Seeder
            ]);
 
             DB::table('videos')->insert([
-            'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+            'details' => $faker->paragraph,
             'audience'=> 'Faculty & Staff',
-            'purpose' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
-            'use' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+            'purpose' => $faker->paragraph,
+            'use' => $faker->paragraph,
             'created_at' => '2017-07-20',
             'service_requests_id' => $id
         ]);
 
             DB::table('paid_advertisings')->insert([
-                'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+                'details' => $faker->paragraph,
                 'audience'=> 'Community',
-                'purpose' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
-                'use' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+                'purpose' => $faker->paragraph,
+                'use' => $faker->paragraph,
                 'advertising' => 'Social Media',
                 'budget' => 1000,
                 'created_at' => '2017-07-20',
@@ -132,7 +122,7 @@ class ClientsTableSeeder extends Seeder
             ]);
 
                DB::table('presentations')->insert([
-                   'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+                   'details' => $faker->paragraph,
                    'audience'=> 'Students',
                    'date_needed' => '07/22/2017',
                    'assistance' => 'Presentation Material',
@@ -141,7 +131,7 @@ class ClientsTableSeeder extends Seeder
                ]);
 
            DB::table('events')->insert([
-               'details' => 'Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.',
+               'details' => $faker->paragraph,
                'date_needed' => '07/22/2017',
                'start_time' => '03:30 PM',
                'display' => 'Banners',
