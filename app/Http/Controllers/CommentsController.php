@@ -38,12 +38,14 @@ class CommentsController extends Controller
 
 
 
-
+       $user = User::find($request->user_id);
+//       dd($user);
        $comment = new Comments;
        $comment->services_id = $request->services_id;
        $comment->service = $request->service;
        $comment->status = $request->status;
-       $comment->username = (auth()->user() ? auth()->user()->name : 'Customer');
+//       $comment->username = (auth()->user() ? auth()->user()->name : 'Customer');
+       $comment->username = $user->email;
        if($request->comment) {
            $comment->comment = $request->comment;
        }
@@ -54,7 +56,7 @@ class CommentsController extends Controller
 //       dd($request);
 
 //       $client = Clients::find($request->clients_id);
-       $user = User::find($request->user_id);
+
 //        dd($request);
        \Mail::to($user->email)->send(new StatusUpdate($status, $data, $comment,
            $request->view_folder, $media_name));

@@ -3,11 +3,6 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-6 col-md-offset-4">
-            <h2><a href="{{URL::to('/')}}/register"> Click here to register</a></h2>
-            </div>
-    </div>
-    <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
