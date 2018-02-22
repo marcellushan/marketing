@@ -13,16 +13,18 @@
              <div class="row">
                  <div class="col-sm-8 col-sm-offset-2">
                      <div class="form-group">
-                         <label>Brief Project Summary</label>
-                         <textarea class="form-control" rows="5" name="summary" placeholder="required"></textarea>
+                         <label>Brief Project Description</label>
+                         <input type="text" class="form-control" name="summary" placeholder="required">
+                         <strong>Description examples:</strong>  Preview day promotion, Highlands Writers Convention
                      </div>
+
                  </div>
              </div>
 
 
         <div class="row">
             <h3 class="col-sm-6 col-sm-offset-3">
-                Services
+                Services needed
             </h3>
         </div>
         <h4>
@@ -31,13 +33,13 @@
             Press Release/Media Advisory
         </div>
         <div class="col-sm-1">
-            <input type="checkbox" name="press_release" value="1">
+            <input type="checkbox" name="service[]" value="press_release">
         </div>
         <div class="col-xs-10 col-sm-4 col-sm-offset-1">
             Videography
         </div>
         <div class="col-sm-1">
-            <input type="checkbox" name="videography" value="1">
+            <input type="checkbox" name="service[]" value="videography">
         </div>
     </div>
     <div class="row">
@@ -45,13 +47,13 @@
             Design & Printing
         </div>
         <div class="col-sm-1">
-            <input type="checkbox" name="design_printing" value="1">
+            <input type="checkbox" name="service[]" value="design_printing">
         </div>
         <div class="col-xs-10 col-sm-4 col-sm-offset-1">
             Paid Advertising
         </div>
         <div class="col-sm-1">
-            <input type="checkbox" name="paid_advertising" value="1">
+            <input type="checkbox" name="service[]" value="paid_advertising">
         </div>
     </div>
     <div class="row">
@@ -59,13 +61,13 @@
             Photography
         </div>
         <div class="col-sm-1">
-            <input type="checkbox" name="photography" value="1">
+            <input type="checkbox" name="service[]" value="photography">
         </div>
         <div class="col-xs-10 col-sm-4 col-sm-offset-1">
             Presentation/Interview Preparation
         </div>
         <div class="col-sm-1">
-            <input type="checkbox" name="presentation" value="1">
+            <input type="checkbox" name="service[]" value="presentation">
         </div>
     </div>
     <div class="row">
@@ -73,20 +75,20 @@
             Social Media
         </div>
         <div class="col-sm-1">
-            <input type="checkbox" name="social_media" value="1">
+            <input type="checkbox" name="service[]" value="social_media">
         </div>
         <div class="col-xs-10 col-sm-4 col-sm-offset-1">
             Event Aid
         </div>
         <div class="col-sm-1">
-            <input type="checkbox" name="event" value="1">
+            <input type="checkbox" name="service[]" value="event">
         </div>
     </div>
             <p></p>
     <div class="row">
         <div class="col-sm-4 col-sm-offset-4">
             <div class="form-group">
-               <input type="submit" class="btn-default btn-lg">
+               <input type="submit" class="btn-default btn-lg" value="Continue">
             </div>
         </div>
 

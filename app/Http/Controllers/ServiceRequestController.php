@@ -84,20 +84,23 @@ class ServiceRequestController extends Controller
     {
         //       dd($request);
         $data = $request->all();
+        $services= $request->only(['service']);
         $service_request = new ServiceRequests($data);
         $service_request->fill($data);
 //        $service_request->user_id = session('user_id');
         $service_request->save();
+        foreach ($services as $service)
+        $key = in_array("photography", $service);
         session()->put('user_id', $service_request->user_id);
 
-        Session::put('press_release',$request->press_release);
-        Session::put('design_printing',$request->design_printing);
-        Session::put('photography',$request->photography);
-        Session::put('videography',$request->videography);
-        Session::put('paid_advertising',$request->paid_advertising);
-        Session::put('presentation',$request->presentation);
-        Session::put('social_media',$request->social_media);
-        Session::put('event',$request->event);
+        Session::put('press_release',in_array("press_release", $service));
+        Session::put('design_printing',in_array("design_printing", $service));
+        Session::put('photography',in_array("photography", $service));
+        Session::put('videography',in_array("videography", $service));
+        Session::put('paid_advertising',in_array("paid_advertising", $service));
+        Session::put('presentation',in_array("presentation", $service));
+        Session::put('social_media',in_array("social_media", $service));
+        Session::put('event',in_array("event", $service));
 
         Session::put('id',$service_request->id);
         return redirect('service');

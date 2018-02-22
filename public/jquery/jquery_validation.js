@@ -2,42 +2,17 @@
      $(document).ready(function(){
          $( "#service_request" ).validate({
              rules: {
-                 // first_name: {
-                 //     required: true
-                 // },
-                 // last_name: {
-                 //     required: true
-                 // },
-                 // department: {
-                 //     required: true
-                 // },
-                 // email: {
-                 //     required: true,
-                 //     email: true
-                 // },
-                 // phone: {
-                 //     required: true,
-                 //     digits: true,
-                 //     minlength: 10,
-                 //     maxlength: 10
-                 // },
-                 // due_date: {
-                 //     required: true,
-                 //     date: true
-                 // },
                  summary: {
+                     required: true
+                 },
+                 'service[]': {
                      required: true
                  }
              },
              messages: {
-                 first_name: "Please enter your first name",
-                 last_name: "Please enter your last name",
-                 department: "Please select your department",
-                 email: "Please enter a valid email address",
-                 due_date: "Please enter a valid due date",
-                 summary: "Please enter a summary",
-                 phone: {
-                     required: "Please enter your phone number"
+                 summary: "Please enter a description",
+                 'service[]': {
+                     required: "Please select services requested"
                  }
 
              }
